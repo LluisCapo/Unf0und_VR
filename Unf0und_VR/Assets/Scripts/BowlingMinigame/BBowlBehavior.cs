@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BBowlBehavior : MonoBehaviour
 {
+    //07/02/2023 Lluís Capó
+
     public bool _isDropped;
 
     #region Getters && Setters

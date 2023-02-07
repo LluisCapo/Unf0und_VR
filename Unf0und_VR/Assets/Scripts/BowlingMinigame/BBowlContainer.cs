@@ -7,7 +7,7 @@ public class BBowlContainer : MonoBehaviour
     //02/02/2023 Lluís Capó
     List<Transform> bowlsPoints;
     List<BBowlBehavior> bowlsList;
-    private void Start()
+    /*private void Start()
     {
         CreatePoints();
         InstantiateAllBowls();
@@ -24,16 +24,16 @@ public class BBowlContainer : MonoBehaviour
         {
             InstantiateNonDroppedBowls();
         }
-    }
+    }*/
 
-    private void CreatePoints()
+    public void CreatePoints()
     {
         bowlsPoints = new List<Transform>();
 
         foreach (Transform a in transform) bowlsPoints.Add(a);
         //Debug.Log(bowlsPoints.Count);
     }
-    private void InstantiateAllBowls()
+    public void InstantiateAllBowls()
     {
         bowlsList = new List<BBowlBehavior>();
         for(int i = 0; i < 10; i++)
@@ -46,17 +46,32 @@ public class BBowlContainer : MonoBehaviour
             _bowl.SetActive(true);
         }
     }
-    private void DesactiveAllBowls()
+    public void DesactiveAllBowls()
     {
         Debug.Log("Desactivar bolas");
         foreach (BBowlBehavior _current in bowlsList) _current.gameObject.SetActive(false);
     }
-    private void InstantiateNonDroppedBowls()
+    public void InstantiateNonDroppedBowls()
     {
         Debug.Log("instanciar bolas");
         foreach(BBowlBehavior _current in bowlsList)
         {
             if (!_current.IsDropped) _current.gameObject.SetActive(true);
         }
+    }
+    public void ResetBowl()
+    {
+        foreach (BBowlBehavior _currentBowl in bowlsList) _currentBowl.Init();
+    }
+
+    public int CountNonDroppedBowls()
+    {
+        int index = 0;
+        foreach (BBowlBehavior _current in bowlsList)
+        {
+            if (!_current.IsDropped) index++;
+        }
+
+        return index;
     }
 }
