@@ -35,10 +35,20 @@ public class BStateController : MonoBehaviour
         _currentState = _newState;
         _currentState.Init(this);
     }
+    public void ResetState()
+    {
+        _currentState = firstState;
+        _currentState.Init(this);
+    }
     public IEnumerator StartWaiting(BState _state, float _seconds)
     {
         Debug.Log("Corutine Started");
         yield return new WaitForSeconds(_seconds);
         _state.OnFinishWaiting();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("ha entrado");
+        _currentState.OnTrigerEnter(other, this);
     }
 }

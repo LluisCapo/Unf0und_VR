@@ -22,8 +22,8 @@ public abstract class BState : ScriptableObject
     {
 
     }
-    /*public virtual void OnTriggerEnter(Collider _collider, MonoBehaviour _class)
+    public virtual void OnTrigerEnter(Collider _collider, MonoBehaviour _class)
     {
         //Veremos para despues
-    }*/
+    }
 }

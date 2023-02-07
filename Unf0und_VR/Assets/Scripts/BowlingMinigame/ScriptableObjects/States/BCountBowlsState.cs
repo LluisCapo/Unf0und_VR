@@ -5,8 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "BowlingState/CountBowls", fileName = "new CountBowls state")]
 public class BCountBowlsState : BState
 {
+
     // 07/02/2023 Lluís Capó
-    int _bowlsCount;
+
+    [Header("IF SEMIPLENO")][SerializeField]
+    BState semiPlenoState;
+
+    protected int _bowlsCount;
     public override void Init(MonoBehaviour _class)
     {
         _stateController = (BStateController)_class;
@@ -14,11 +19,20 @@ public class BCountBowlsState : BState
 
         _bowlsCount = 10 - _bowlContainer.CountNonDroppedBowls();
 
-        //aqui va un if que compruebe si va a semipleno
-        _bowlContainer.InstantiateNonDroppedBowls();
-        Debug.Log("From Init(), " + _bowlsCount);
-
-        _stateController.CanvasReference.CurrentShot.Parameters.UpdateFirstShoot(_bowlsCount);
+        if(_bowlsCount < 10)
+        {
+            _bowlContainer.InstantiateNonDroppedBowls();
+            _stateController.CanvasReference.CurrentShot.Parameters.UpdateFirstShoot(_bowlsCount);
+            Debug.Log("Go to semipleno");
+            _stateController.ChangeState(semiPlenoState);
+        }
+        else
+        {
+            _bowlContainer.InstantiateAllBowls();
+            _bowlContainer.ResetBowl();
+            _stateController.CanvasReference.CurrentShot.Parameters.UpdateFirstShoot(_bowlsCount);
+            _stateController.ChangeState(nextState);
+        }
         _bowlsCount = 0;
     }
 }
