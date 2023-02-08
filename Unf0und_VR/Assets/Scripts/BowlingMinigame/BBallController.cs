@@ -11,4 +11,10 @@ public class BBallController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.B))
             transform.position = point.position;
     }
+    public void Init()
+    {
+        transform.position = point.position;
+        transform.rotation = new Quaternion(.0f, .0f, .0f, .0f);
+        GetComponent<Rigidbody>().velocity *= 0;
+    }
 }

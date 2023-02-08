@@ -15,6 +15,8 @@ public class BBowlBehavior : MonoBehaviour
     public void Init()
     {
         _isDropped = false;
+        transform.rotation = new Quaternion(.0f, .0f, .0f, .0f);
+        GetComponent<Rigidbody>().velocity *= 0;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -14,9 +14,13 @@ public class BStateController : MonoBehaviour
     [Header("Canvas Reference")] [SerializeField]
     BCanvasController canvasControllerRef;
 
+    [Header("Ball Reference")] [SerializeField]
+    BBallController ballReference;
+
     #region Getters && Setters
     public BBowlContainer BowlContainer { get { return bowlContainerRef; } }
     public BCanvasController CanvasReference { get { return canvasControllerRef; } }
+    public BBallController BallController { get { return ballReference; } }
     #endregion
 
     private void Start()

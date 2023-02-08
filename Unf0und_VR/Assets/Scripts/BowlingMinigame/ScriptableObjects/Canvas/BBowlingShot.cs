@@ -28,7 +28,7 @@ public class BBowlingShot : ScriptableObject
 
     public void UpdateSecondShot(int _secondShot)
     {
-        secondShot = _secondShot;
+        secondShot = _secondShot - firstShot;
         _canvas.SetParametersToText();
     }
 }
