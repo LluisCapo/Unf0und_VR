@@ -15,8 +15,8 @@ public class BCountBowlsSemiPleno : BState
         //_bowlContainer.InstantiateAllBowls();
         _stateController.CanvasReference.CurrentShot.Parameters.UpdateSecondShot(_bowlsCount);
         _bowlContainer.DesactiveAllBowls();
-        Debug.Log("finish semipleno");
         _stateController.BallController.Init();
+        _stateController.CanvasReference.NextShot();
         _stateController.ResetState();
 
         _bowlsCount = 0;

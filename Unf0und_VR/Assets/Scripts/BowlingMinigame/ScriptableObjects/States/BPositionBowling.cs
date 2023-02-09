@@ -10,8 +10,8 @@ public class BPositionBowling : BState
     {
         _stateController = (BStateController)_class;
         _bowlContainer = _stateController.BowlContainer;
-        _bowlContainer.CreatePoints();
-        _bowlContainer.InstantiateAllBowls();
+        //_bowlContainer.CreatePoints();
+        _bowlContainer.PositioningAllBowls();
 
         //
         //_stateController.StartCoroutine(_stateController.StartWaiting(this, 30f));

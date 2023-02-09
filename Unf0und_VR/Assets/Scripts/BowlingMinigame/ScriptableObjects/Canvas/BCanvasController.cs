@@ -21,5 +21,6 @@ public class BCanvasController : MonoBehaviour
     {
         _index++;
         _currentShot = shotList[_index];
+        Debug.Log("NextShot");
     }
 }

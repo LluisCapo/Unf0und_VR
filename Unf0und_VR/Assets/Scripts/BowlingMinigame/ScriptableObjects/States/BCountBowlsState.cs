@@ -21,16 +21,16 @@ public class BCountBowlsState : BState
 
         if(_bowlsCount < 10)
         {
-            _bowlContainer.InstantiateNonDroppedBowls();
+            _bowlContainer.PositioningActiveBowls();
             _stateController.CanvasReference.CurrentShot.Parameters.UpdateFirstShoot(_bowlsCount);
-            Debug.Log("Go to semipleno");
             _stateController.ChangeState(semiPlenoState);
         }
         else
         {
-            _bowlContainer.InstantiateAllBowls();
+            _bowlContainer.PositioningAllBowls();
             _bowlContainer.ResetBowl();
             _stateController.CanvasReference.CurrentShot.Parameters.UpdateFirstShoot(_bowlsCount);
+            _stateController.CanvasReference.NextShot();
             _stateController.ChangeState(nextState);
         }
 
