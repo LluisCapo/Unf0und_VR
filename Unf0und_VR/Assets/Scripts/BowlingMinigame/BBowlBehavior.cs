@@ -6,8 +6,10 @@ public class BBowlBehavior : MonoBehaviour
 {
     //07/02/2023 Lluís Capó
 
-    [Header("First State")] [SerializeField]
-    BBowlingPinState firstState;
+    [Header("Normal State")] [SerializeField]
+    BBowlingPinState normalState;
+    [Header("Pickup State")] [SerializeField]
+    BBowlingPinState pickipState;
     BBowlingPinState _currentState;
 
     public bool _isDropped;
@@ -29,7 +31,7 @@ public class BBowlBehavior : MonoBehaviour
 
     private void Start()
     {
-        ResetState();
+        StateToNormal();
     }
 
     private void Update()
@@ -37,13 +39,8 @@ public class BBowlBehavior : MonoBehaviour
         _currentState.OnUpdate(this);
     }
 
-    public void CallSetPickUp()
-    {
-        _currentState.SetPickUp(this);
-    }
-
-    public void ResetState() { _currentState = firstState; }
-
+    public void StateToNormal() { _currentState = normalState; }
+    public void StateToPickUp() { _currentState = pickipState; }
     private void OnTriggerEnter(Collider other)
     {
         _isDropped = true;

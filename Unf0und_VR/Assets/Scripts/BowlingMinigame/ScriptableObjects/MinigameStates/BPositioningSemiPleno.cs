@@ -6,26 +6,16 @@ using UnityEngine;
 public class BPositioningSemiPleno : BState
 {
     // 07/02/2023 Lluís Capó
-    public override void Init(MonoBehaviour _class)
+    public override void Init(BStateController _class)
     {
-        _stateController = (BStateController)_class;
+        _stateController = _class;
         _bowlContainer = _stateController.BowlContainer;
         _bowlContainer.CreatePoints();
-        //_bowlContainer.InstantiateAllBowls();
-
-        //
-        //_stateController.StartCoroutine(_stateController.StartWaiting(this, 30f));
     }
 
     public override void OnFinishWaiting()
     {
         _stateController.ChangeState(nextState);
-    }
-
-    public override void OnUpdate(MonoBehaviour _class)
-    {
-        //if (Input.GetKeyDown(KeyCode.K))
-        //((BStateController)_class).ChangeState(nextState);
     }
 
     public override void OnTrigerEnter(Collider _collider, MonoBehaviour _class)

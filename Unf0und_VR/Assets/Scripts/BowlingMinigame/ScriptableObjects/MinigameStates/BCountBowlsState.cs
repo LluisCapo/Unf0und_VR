@@ -12,9 +12,9 @@ public class BCountBowlsState : BState
     BState semiPlenoState;
 
     protected int _bowlsCount;
-    public override void Init(MonoBehaviour _class)
+    public override void Init(BStateController _class)
     {
-        _stateController = (BStateController)_class;
+        _stateController = _class;
         _bowlContainer = _stateController.BowlContainer;
 
         _bowlsCount = 10 - _bowlContainer.CountNonDroppedBowls();

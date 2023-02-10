@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 1300808807924326880}
   - component: {fileID: 2331945901556742679}
   - component: {fileID: -8574376142353931845}
+  - component: {fileID: 7237156822893314421}
   m_Layer: 0
   m_Name: NoneHandsCamera
   m_TagString: Untagged
@@ -162,3 +163,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 5
+--- !u!114 &7237156822893314421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879201741089217926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad28f82101788f48a6e568c78880c78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 9050974498370146509}
+  camYawVelocity: 1
+  camPitchVelocity: 1
+  cameraVelocity: 1
+  force: 50
+  ballRigidBody: {fileID: 0}

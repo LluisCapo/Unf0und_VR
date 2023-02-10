@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BStateController : MonoBehaviour
 {
+
+    #region Inspector References
     [Header("First State")] [SerializeField]
     BState firstState;
     BState _currentState;
@@ -16,6 +18,7 @@ public class BStateController : MonoBehaviour
 
     [Header("Ball Reference")] [SerializeField]
     BBallController ballReference;
+    #endregion
 
     #region Getters && Setters
     public BBowlContainer BowlContainer { get { return bowlContainerRef; } }
@@ -27,17 +30,20 @@ public class BStateController : MonoBehaviour
     {
         _currentState = firstState;
         _currentState.Init(this);
-    }
 
-    private void Update()
-    {
-        _currentState.OnUpdate(this);
+        //
+        BCanvasTesting.Instance.SetCurrentStateText(_currentState.name);
+        //
     }
 
     public void ChangeState(BState _newState)
     {
         _currentState = _newState;
         _currentState.Init(this);
+
+        //
+        BCanvasTesting.Instance.SetCurrentStateText(_currentState.name);
+        //
     }
     public void ResetState()
     {
@@ -46,13 +52,11 @@ public class BStateController : MonoBehaviour
     }
     public IEnumerator StartWaiting(BState _state, float _seconds)
     {
-        Debug.Log("Corutine Started");
         yield return new WaitForSeconds(_seconds);
         _state.OnFinishWaiting();
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("ha entrado");
         _currentState.OnTrigerEnter(other, this);
     }
 }

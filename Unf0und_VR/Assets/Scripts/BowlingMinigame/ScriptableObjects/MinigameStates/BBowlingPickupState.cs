@@ -10,16 +10,15 @@ public class BBowlingPickupState : BState
     [Header("Seconds to wait")] [SerializeField]
     float secondsToPickUp;
     
-    public override void Init(MonoBehaviour _class)
+    public override void Init(BStateController _class)
     {
-        _stateController = (BStateController)_class;
+        _stateController = _class;
         _bowlContainer = _stateController.BowlContainer;
         _stateController.StartCoroutine(_stateController.StartWaiting(this, secondsToPickUp));
     }
     public override void OnFinishWaiting()
     {
         int _bowlsDropped = _bowlContainer.CountNonDroppedBowls();
-        Debug.Log(_bowlsDropped);
         _bowlContainer.DesactiveAllBowls();
         _stateController.ChangeState(nextState);
     }

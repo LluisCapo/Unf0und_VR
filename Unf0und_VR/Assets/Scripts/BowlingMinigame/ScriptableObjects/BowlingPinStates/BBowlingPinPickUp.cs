@@ -9,8 +9,8 @@ public class BBowlingPinPickUp : BBowlingPinState
     {
         _owner.transform.position = _owner.Point.position;
     }
-    public override void SetPickUp(BBowlBehavior _owner)
+    /*public override void SetPickUp(BBowlBehavior _owner)
     {
         _owner.CurrentState = nextState;
-    }
+    }*/
 }

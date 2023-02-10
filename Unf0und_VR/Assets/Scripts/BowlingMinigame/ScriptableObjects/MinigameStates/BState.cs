@@ -12,11 +12,7 @@ public abstract class BState : ScriptableObject
     protected BStateController _stateController;
     protected BBowlContainer _bowlContainer;
 
-    public abstract void Init(MonoBehaviour _class);
-    public virtual void OnUpdate(MonoBehaviour _class)
-    {
-
-    }
+    public abstract void Init(BStateController _class);
 
     public virtual void OnFinishWaiting()
     {
@@ -24,6 +20,5 @@ public abstract class BState : ScriptableObject
     }
     public virtual void OnTrigerEnter(Collider _collider, MonoBehaviour _class)
     {
-        //Veremos para despues
     }
 }
