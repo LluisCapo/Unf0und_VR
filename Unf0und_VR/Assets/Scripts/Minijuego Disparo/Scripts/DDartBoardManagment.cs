@@ -18,6 +18,14 @@ public class DDartBoardManagment : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _anim.SetTrigger("Hit");
+        Invoke("ResetAnimation", Random.Range(1, 5));
+    }
+
+    private void ResetAnimation()
+    {
+        _anim.SetTrigger("Restart");
     }
     #endregion
+
+
 }
