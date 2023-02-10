@@ -39,7 +39,7 @@ public class BBowlContainer : MonoBehaviour
         {
             /*_current*/bowlsList[i].transform.position = bowlsPoints[i].position;
             /*_current*/
-            bowlsList[i].Init();
+            bowlsList[i].Init(bowlsPoints[i]);
             /*_current*/
             bowlsList[i].gameObject.SetActive(true);
         }
@@ -60,7 +60,12 @@ public class BBowlContainer : MonoBehaviour
     }
     public void ResetBowl()
     {
-        foreach (BBowlBehavior _currentBowl in bowlsList) _currentBowl.Init();
+        //foreach (BBowlBehavior _currentBowl in bowlsList) _currentBowl.Init();
+
+        for (int i = 0; i < 10; i++)
+        {
+            bowlsList[i].Init(bowlsPoints[i]);
+        }
     }
 
     public int CountNonDroppedBowls()
