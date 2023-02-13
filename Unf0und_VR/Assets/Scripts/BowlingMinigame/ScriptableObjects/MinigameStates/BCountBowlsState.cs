@@ -23,6 +23,8 @@ public class BCountBowlsState : BState
         {
             _bowlContainer.PositioningActiveBowls();
             _stateController.CanvasReference.CurrentShot.Parameters.UpdateFirstShoot(_bowlsCount);
+            _stateController.isSemipleno = true;
+            _stateController.BowlContainer.PositioningActiveBowls();
             _stateController.ChangeState(semiPlenoState);
         }
         else
@@ -31,6 +33,7 @@ public class BCountBowlsState : BState
             _bowlContainer.ResetBowl();
             _stateController.CanvasReference.CurrentShot.Parameters.UpdateFirstShoot(_bowlsCount);
             _stateController.CanvasReference.NextShot();
+            _stateController.BowlContainer.PositioningAllBowls();
             _stateController.ChangeState(nextState);
         }
 

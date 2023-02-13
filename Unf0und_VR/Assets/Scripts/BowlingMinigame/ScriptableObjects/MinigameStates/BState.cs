@@ -14,11 +14,7 @@ public abstract class BState : ScriptableObject
 
     public abstract void Init(BStateController _class);
 
-    public virtual void OnFinishWaiting()
-    {
-
-    }
-    public virtual void OnTrigerEnter(Collider _collider, MonoBehaviour _class)
-    {
-    }
+    public virtual void OnFinishWaiting(){}
+    public virtual void OnUpdate(BStateController _class) { }
+    public virtual void OnTrigerEnter(Collider _collider, MonoBehaviour _class){}
 }

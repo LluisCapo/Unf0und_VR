@@ -7,9 +7,12 @@ public class BBowlContainer : MonoBehaviour
     //02/02/2023 Lluís Capó
     List<Transform> bowlsPoints;
     List<BBowlBehavior> bowlsList;
+    public Animator animator;
     private void Start()
     {
         Init();
+        BCanvasTesting.Instance.SerCurrentBowlStateText("Normal");
+        animator = GetComponent<Animator>();
     }
 
     public void Init()
@@ -21,7 +24,7 @@ public class BBowlContainer : MonoBehaviour
             GameObject _bowl = PoolingManager.Instance.GetPooledObject("bowlingBowl");
             _bowl.transform.position = bowlsPoints[i].position;
             BBowlBehavior _bowlBehavior = _bowl.GetComponent<BBowlBehavior>();
-           // _bowlBehavior.Init();
+            _bowlBehavior.Init(bowlsPoints[i]);
             bowlsList.Add(_bowlBehavior);
             _bowl.SetActive(true);
         }

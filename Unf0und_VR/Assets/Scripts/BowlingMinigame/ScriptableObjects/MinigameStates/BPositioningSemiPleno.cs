@@ -10,7 +10,7 @@ public class BPositioningSemiPleno : BState
     {
         _stateController = _class;
         _bowlContainer = _stateController.BowlContainer;
-        _bowlContainer.CreatePoints();
+        //_bowlContainer.CreatePoints();
     }
 
     public override void OnFinishWaiting()

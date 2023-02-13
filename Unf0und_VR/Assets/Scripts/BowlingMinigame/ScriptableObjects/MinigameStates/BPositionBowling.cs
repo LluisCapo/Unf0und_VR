@@ -9,8 +9,9 @@ public class BPositionBowling : BState
     public override void Init(BStateController _class)
     {
         _stateController = _class;
+        _class.isSemipleno = false;
         _bowlContainer = _stateController.BowlContainer;
-        _bowlContainer.PositioningAllBowls();
+        //_bowlContainer.PositioningAllBowls();
     }
 
     public override void OnFinishWaiting()

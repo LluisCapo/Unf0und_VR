@@ -19,14 +19,21 @@ public class BCanvasTesting : MonoBehaviour
     }
     #endregion
 
-    [SerializeField] TMP_Text stateText;
-    string defaultString;
+    [SerializeField] TMP_Text stateMachineText;
+    [SerializeField] TMP_Text stateBowlPinText;
+    string defaulMtString;
+    string defaulBtString;
     private void Start()
     {
-        defaultString = stateText.text;
+        defaulMtString = stateMachineText.text;
+        defaulBtString = stateBowlPinText.text;
     }
     public void SetCurrentStateText(string _state)
     {
-        stateText.text = defaultString + _state;
+        stateMachineText.text = defaulMtString + _state;
+    }
+    public void SerCurrentBowlStateText(string _state)
+    {
+        stateBowlPinText.text = defaulBtString + _state;
     }
 }
