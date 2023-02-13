@@ -34,4 +34,8 @@ public class BBullet : MonoBehaviour
     {
         _rb.AddForce(POF.TransformDirection(new Vector3(speed, 0,0)), ForceMode.Impulse);
     }
+    public void Eject(Transform POF)
+    {
+        _rb.AddForce(POF.TransformDirection(new Vector3(0, 0, -speed)), ForceMode.Impulse);
+    }
 }
