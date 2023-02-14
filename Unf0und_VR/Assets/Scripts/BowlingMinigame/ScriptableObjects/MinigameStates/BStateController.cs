@@ -34,7 +34,7 @@ public class BStateController : MonoBehaviour
 
     [SerializeField] BContainerUp b;
 
-    private void Start()
+    private void OnEnable()
     {
         _currentState = firstState;
         _currentState.Init(this);
