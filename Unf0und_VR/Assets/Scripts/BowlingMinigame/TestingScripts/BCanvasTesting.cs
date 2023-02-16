@@ -5,6 +5,8 @@ using TMPro;
 
 public class BCanvasTesting : MonoBehaviour
 {
+    // 14/02/2023 Lluís Capó
+
     #region Singleton
     private static BCanvasTesting _instance;
     public static BCanvasTesting Instance

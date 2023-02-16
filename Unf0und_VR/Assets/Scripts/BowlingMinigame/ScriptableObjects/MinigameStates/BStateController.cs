@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BStateController : MonoBehaviour
 {
-
+    // 07/02/2023 Lluís Capó
     #region Inspector References
     [Header("First State")] [SerializeField]
     BState firstState;
@@ -46,8 +46,6 @@ public class BStateController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            ChangeState(b);
         _currentState.OnUpdate(this);
     }
 
