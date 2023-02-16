@@ -5,8 +5,8 @@ using UnityEngine;
 public class LanguageManager : MonoBehaviour
 {
     #region Singleton
-    private LanguageManager _instance;
-    public LanguageManager Instance
+    private static LanguageManager _instance;
+    public static LanguageManager Instance
     {
         get
         {
