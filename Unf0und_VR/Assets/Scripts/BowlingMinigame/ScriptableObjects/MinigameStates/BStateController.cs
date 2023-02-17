@@ -16,11 +16,15 @@ public class BStateController : MonoBehaviour
     [Header("Canvas Reference")] [SerializeField]
     BCanvasController canvasControllerRef;
 
-    [Header("Ball Reference")] [SerializeField]
-    BBallController ballReference;
+    //[Header("Ball Reference")] [SerializeField]
+    //BBallController ballReference;
 
     [Header("Plane Reference")] [SerializeField]
     BPlaneBehavior planeBehavior;
+
+    [Header("Ball instantiate Reference")]
+    [SerializeField]
+    BBallInstantiate ballInstantiate;
 
     public bool isSemipleno;
     #endregion
@@ -28,7 +32,7 @@ public class BStateController : MonoBehaviour
     #region Getters && Setters
     public BBowlContainer BowlContainer { get { return bowlContainerRef; } }
     public BCanvasController CanvasReference { get { return canvasControllerRef; } }
-    public BBallController BallController { get { return ballReference; } }
+    public BBallInstantiate BallInstantiate { get { return ballInstantiate; } }
     public BPlaneBehavior PlaneController { get { return planeBehavior; } }
     #endregion
 
