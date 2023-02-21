@@ -11,10 +11,10 @@ public class BBallInstantiate : MonoBehaviour
     [SerializeField] GameObject _ball;
     [SerializeField] Rigidbody _ballRB;
 
-    private void Start()
-    {
+    private void Awake()
+    {     
         Init();
-        _ballRB = _ball.GetComponent<Rigidbody>();
+        //_ballRB = _ball.GetComponent<Rigidbody>();
     }
 
     private void Init()
@@ -22,18 +22,32 @@ public class BBallInstantiate : MonoBehaviour
         _dir = new Vector3(1.0f, .0f, .0f);
     }
 
+    public void AddForceBall()
+    {
+        
+    }
+
     public void SapawnBall()
     {
         //_ball = PoolingManager.Instance.GetPooledObject(prefabPoolingName);
         _ball.transform.position = spawnPoint.position;
         _ball.SetActive(true);
+        //Invoke("AddForceBall", 0.5f);
+        StartCoroutine(wait());
+       
         //_ball.GetComponent<Rigidbody>()
-        _ballRB.AddForce(_dir * force, ForceMode.Impulse);
+
     }
 
     public void RemoveBall()
     {
         _ball.GetComponent<Rigidbody>().velocity *= 0;
         _ball.SetActive(false);
+    }
+
+    IEnumerator wait()
+    {
+        yield return new WaitForSeconds(.5f);
+        _ballRB.AddForce(_dir * force, ForceMode.Impulse);
     }
 }

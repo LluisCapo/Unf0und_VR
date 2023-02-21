@@ -42,10 +42,6 @@ public class BStateController : MonoBehaviour
     {
         _currentState = firstState;
         _currentState.Init(this);
-
-        //
-        BCanvasTesting.Instance.SetCurrentStateText(_currentState.name);
-        //
     }
 
     private void Update()
@@ -59,10 +55,6 @@ public class BStateController : MonoBehaviour
     {
         _currentState = _newState;
         _currentState.Init(this);
-
-        //
-        BCanvasTesting.Instance.SetCurrentStateText(_currentState.name);
-        //
     }
     public void ResetState()
     {

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1867710864194688295}
   - component: {fileID: 6923757426511127481}
   - component: {fileID: 1517762938549010278}
-  - component: {fileID: 2465632550821563023}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -84,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2465632550821563023
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2421825276195642317}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: 9b913ccf4320eda479dc6dde0b507aee, type: 3}
 --- !u!1 &2797024661458326776
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,6 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3286176031795007042}
+  - component: {fileID: 1493733308521850605}
   m_Layer: 0
   m_Name: maquina_sacar_bolas
   m_TagString: Untagged
@@ -132,6 +118,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1493733308521850605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797024661458326776}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2756865, y: 0.06178564, z: 0.34617007}
+  m_Center: {x: 0.013974518, y: 0.21905744, z: -0.021019533}
 --- !u!1 &3774284957602510035
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,7 +142,7 @@ GameObject:
   - component: {fileID: 7962182063956348317}
   - component: {fileID: 7619587028496054174}
   - component: {fileID: 4038605754560138099}
-  - component: {fileID: 4010252151125044575}
+  - component: {fileID: 8604683497305456959}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -216,7 +215,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4010252151125044575
+--- !u!64 &8604683497305456959
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -241,7 +240,6 @@ GameObject:
   - component: {fileID: 5362220335963995992}
   - component: {fileID: 1762973225188101083}
   - component: {fileID: 6861722623188326102}
-  - component: {fileID: 108580184075031470}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -314,17 +312,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &108580184075031470
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7102087330698459001}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2124705421725058983, guid: 9b913ccf4320eda479dc6dde0b507aee, type: 3}

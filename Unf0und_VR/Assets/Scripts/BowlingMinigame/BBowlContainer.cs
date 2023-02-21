@@ -11,7 +11,7 @@ public class BBowlContainer : MonoBehaviour
     private void Start()
     {
         Init();
-        BCanvasTesting.Instance.SerCurrentBowlStateText("Normal");
+        //BCanvasTesting.Instance.SerCurrentBowlStateText("Normal");
         animator = GetComponent<Animator>();
     }
 
