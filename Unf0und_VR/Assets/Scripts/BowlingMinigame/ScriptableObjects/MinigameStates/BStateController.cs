@@ -16,9 +16,6 @@ public class BStateController : MonoBehaviour
     [Header("Canvas Reference")] [SerializeField]
     BCanvasController canvasControllerRef;
 
-    //[Header("Ball Reference")] [SerializeField]
-    //BBallController ballReference;
-
     [Header("Plane Reference")] [SerializeField]
     BPlaneBehavior planeBehavior;
 
