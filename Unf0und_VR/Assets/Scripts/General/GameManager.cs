@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -19,4 +20,8 @@ public class GameManager : MonoBehaviour
             Destroy(this);
     }
     #endregion
+
+    [Header("Minigames Events")]
+    public UnityEvent StartBowling;
+    public UnityEvent stopBowling;
 }
