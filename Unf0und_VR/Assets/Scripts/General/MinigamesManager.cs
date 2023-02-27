@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MinigamesManager : MonoBehaviour
 {
-    //24/02/2023 Lluís Capó
+    // 24/02/2023 Lluís Capó
 
     [SerializeField] BStateController bowling;
 

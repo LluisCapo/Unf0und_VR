@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // 27/02/2023 Lluís Capó
     #region Singleton && Awake
     private static GameManager _instance = null;
     public static GameManager Instance => _instance;
@@ -21,7 +22,11 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    [Header("Minigames Events")]
-    public UnityEvent StartBowling;
-    public UnityEvent stopBowling;
+    #region Variables
+    [SerializeField] MinigamesManager minigames; 
+    #endregion
+
+    #region Getters && Setters
+    public MinigamesManager MinigamesManager { get { return minigames; } set { minigames = value; } }
+    #endregion 
 }
