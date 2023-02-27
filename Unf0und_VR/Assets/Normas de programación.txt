@@ -1,0 +1,51 @@
+﻿\\Normas de sintaxis
+
+
+Utilizaremos camelCase
+Las Funciones la primera en mayúscula
+
+
+Variables privadas serializables en minúscula
+Variables publicas en minúscula
+Variables privadas no serializables en _minúscula
+Variables pasadas por parámetro en _minúscula
+Funciones en Máyuscula
+
+
+#region Getters&Setters
+public int Index { get {return index; } set { index = value; } }
+#end region
+
+
+
+
+\\Comentar el código
+
+
+//DD/MM/AA NA.sn->Start New
+//Explicacion del codigo
+
+
+[SerializableField] bool isActive;
+public void NegativeVar(isActive){ isActive = !isActive; }
+
+
+//DD/MM/AA NA.en->End New
+
+
+//DD/MM/AA NA.o->Over comentada una linea 
+//dsfdfs
+
+
+//sfdsdsd NA.n->New codigo nuevo
+sdsdsd
+
+
+\\Nomenclatura de Carpetas/Ficheros/Recursos y Scripts
+
+
+Nomenclatura Scripts: Primera letra del minijuego y su función.
+
+
+Nomenclatura Carpetas: camelCase, Principales(Scripts, Sprites, Prefabs, Scenes)
+ex:Scripts/Bowling, Scenes/IndividualScenes/Aaron, Prefabs/Shooting/Objects
