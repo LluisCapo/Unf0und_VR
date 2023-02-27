@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LanguageManager : MonoBehaviour
 {
+    // 16/02/2023 Lluís Capó
+
     #region Singleton
     private static LanguageManager _instance;
     public static LanguageManager Instance
