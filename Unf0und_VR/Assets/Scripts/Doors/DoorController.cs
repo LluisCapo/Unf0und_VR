@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    public void PlayClosedSound()
-    {
-        //AudioManager.Instance.PlaySound("closeDoorSFX");
-        AudioManager.Instance.PlaySoundOnPosition("closeDoorSFX", transform.position);
-        Debug.Log("Closed Sound");
-    }
+    // 01/03/2023 Lluís Capó
+    public void PlayClosedSound() { AudioManager.Instance.PlaySoundOnPosition("closeDoorSFX", transform.position); }
 }
