@@ -8,9 +8,9 @@ public class FinalDoor : MonoBehaviour
 
     [SerializeField] ClosingDoorBehavior controller;
 
-
     private void OnTriggerEnter(Collider other)
     {
+        GetComponent<DoorController>().light.SetActive(false);
         controller.OnFirstEventCall();
         GetComponent<BoxCollider>().enabled = false;
     }

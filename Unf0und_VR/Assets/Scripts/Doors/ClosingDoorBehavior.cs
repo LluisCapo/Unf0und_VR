@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClosingDoorBehavior : MonoBehaviour
 {
-    // 27/02/2023 Lluís Capó
+    // 27/02/2023 Lluï¿½s Capï¿½
 
     List<Animator> _doors;
 
@@ -33,13 +33,17 @@ public class ClosingDoorBehavior : MonoBehaviour
         for(int i = _doors.Count - 1; i > 0; i -= 2)
         {
             _doors[i].SetTrigger("close");
+            _doors[i].gameObject.GetComponent<DoorController>().light.SetActive(false);
+
             _doors[i - 1].SetTrigger("close");
+            _doors[i - 1].gameObject.GetComponent<DoorController>().light.SetActive(false);
             yield return new WaitForSeconds(.5f);
         }
 
         yield return new WaitForSeconds(.5f);
 
         finalDoor.SetTrigger("open");
+        finalDoor.gameObject.GetComponent<DoorController>().light.SetActive(true);
 
         Debug.Log("Modificar la luz de arriba y abrir la puerta");
     }
