@@ -34,7 +34,7 @@ public class HidingBehaviour : MonoBehaviour
         catch (System.Exception e)
         {
 
-            Debug.LogWarning("[HidingBehaviour.Hide()] Ignoring error : " + e);
+            Debug.LogWarning("Ignoring error : " + e);
         }
     }
 
@@ -47,7 +47,7 @@ public class HidingBehaviour : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            Debug.LogWarning("[HidingBehaviour.UnHide()] Ignoring error: " + e);
+            Debug.LogWarning("Ignoring error: " + e);
         }
     }
 }
