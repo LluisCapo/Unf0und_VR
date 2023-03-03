@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class HidingBehaviour : MonoBehaviour
@@ -8,6 +9,8 @@ public class HidingBehaviour : MonoBehaviour
 
     private void Start()
     {
+        _childrenMeshList= new List<MeshRenderer>();
+        //Debug.Log("Al iniciar, la lista tiene " + _childrenMeshList.Count);
         foreach (Transform child in transform)
         {
             try
@@ -23,13 +26,28 @@ public class HidingBehaviour : MonoBehaviour
 
     public void Hide()
     {
-        foreach (MeshRenderer mr in _childrenMeshList)
-            mr.forceRenderingOff = true;
+        try
+        {
+            foreach (MeshRenderer mr in _childrenMeshList)
+                mr.forceRenderingOff = true;
+        }
+        catch (System.Exception e)
+        {
+
+            Debug.LogWarning("[HidingBehaviour.Hide()] Ignoring error : " + e);
+        }
     }
 
     public void UnHide()
     {
-        foreach (MeshRenderer mr in _childrenMeshList)
-            mr.forceRenderingOff = false;
+        try
+        {
+            foreach (MeshRenderer mr in _childrenMeshList)
+                mr.forceRenderingOff = false;
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning("[HidingBehaviour.UnHide()] Ignoring error: " + e);
+        }
     }
 }
