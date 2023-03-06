@@ -6,21 +6,20 @@ public class BStateController : MonoBehaviour
 {
     // 07/02/2023 Lluís Capó
     #region Inspector References
-    [Header("First State")] [SerializeField]
+    [Header("First State"), SerializeField]
     BState firstState;
     public BState _currentState;
 
-    [Header("Bowl Container Reference")] [SerializeField]
+    [Header("Bowl Container Reference"), SerializeField]
     BBowlContainer bowlContainerRef;
 
-    [Header("Canvas Reference")] [SerializeField]
+    [Header("Canvas Reference"), SerializeField]
     BCanvasController canvasControllerRef;
 
-    [Header("Plane Reference")] [SerializeField]
+    [Header("Plane Reference"), SerializeField]
     BPlaneBehavior planeBehavior;
 
-    [Header("Ball instantiate Reference")]
-    [SerializeField]
+    [Header("Ball instantiate Reference"), SerializeField]
     BBallInstantiate ballInstantiate;
 
     public bool isSemipleno;
