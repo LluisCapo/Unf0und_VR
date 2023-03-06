@@ -10,6 +10,7 @@ public class FinalDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("finalDoor");
         GetComponent<DoorController>().light.SetActive(false);
         controller.OnFirstEventCall();
         GetComponent<BoxCollider>().enabled = false;

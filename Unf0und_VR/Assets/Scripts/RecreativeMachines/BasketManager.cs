@@ -46,12 +46,6 @@ public class BasketManager : MonoBehaviour
         BasketStart.Invoke();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-            OnScoreABasket();
-    }
-
     public void OnScoreABasket()
     {
         if (_score < lLights.Count)

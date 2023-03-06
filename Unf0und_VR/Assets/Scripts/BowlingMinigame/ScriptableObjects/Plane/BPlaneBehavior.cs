@@ -7,6 +7,8 @@ public class BPlaneBehavior : MonoBehaviour
     MovementBehavior _mvb;
     Vector3 _dir;
     public bool isUP;
+
+    [SerializeField] float downY, upY;
     private void Start()
     {
         _mvb = GetComponent<MovementBehavior>();
@@ -21,13 +23,13 @@ public class BPlaneBehavior : MonoBehaviour
     }
     private void Up()
     {
-        if (transform.position.y < 5)
+        if (transform.position.y < upY)
             _mvb.Move(_dir);
     }
 
     private void Down()
     {
-        if (transform.position.y > 2)
+        if (transform.position.y > downY)
             _mvb.Move(_dir * -1);
     }
 }

@@ -11,6 +11,7 @@ public class MinigamesManager : MonoBehaviour
     #region Bowling
     public void StartBowling() 
     {
+        Debug.Log("Start Bowling");
         /* Poner aquí todo tipo de efectos de particulas y cualquier cosa relacionada
            con el inicio de la bolera, recomendación hacer el SerActive(true) con una coroutine */
         bowling.gameObject.SetActive(true);
