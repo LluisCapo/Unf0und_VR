@@ -2,20 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//PABLO RUIZ CALVO [06/03/2023]
+
 public class TransitionalCheckerBehaviour : MonoBehaviour
 {
-    BoxCollider _floorBxc;
+    [SerializeField] 
+    GameObject parkObject;
 
-    [SerializeField] GameObject floorCollider;
+    [SerializeField]
+    GameObject firstLvlObject;
 
-    void Start()
-    {
-        _floorBxc = GetComponent<BoxCollider>();
-    }
+    [SerializeField]
+    GameObject sandboxAudioSource;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Bing");
-        _floorBxc.isTrigger = true;
+        parkObject.SetActive(false);
+        sandboxAudioSource.SetActive(false);
+        firstLvlObject.SetActive(true);
+        AudioManager.Instance.PlaySound("crash");
+        gameObject.SetActive(false);
     }
 }
