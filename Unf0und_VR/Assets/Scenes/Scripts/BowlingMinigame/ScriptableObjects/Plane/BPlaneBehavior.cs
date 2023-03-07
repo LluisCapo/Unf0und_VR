@@ -23,13 +23,13 @@ public class BPlaneBehavior : MonoBehaviour
     }
     private void Up()
     {
-        if (transform.position.y < upY)
+        if (transform.localPosition.y < upY)
             _mvb.Move(_dir);
     }
 
     private void Down()
     {
-        if (transform.position.y > downY)
+        if (transform.localPosition.y > downY)
             _mvb.Move(_dir * -1);
     }
 }
