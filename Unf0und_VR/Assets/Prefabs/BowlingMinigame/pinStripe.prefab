@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 908116515781105294}
   - component: {fileID: 2915091301087865230}
   - component: {fileID: 6966549485109213817}
-  - component: {fileID: 8825767219603227684}
   - component: {fileID: 5960273151977037720}
+  - component: {fileID: 3731373632530206126}
   m_Layer: 0
   m_Name: pinStripe
   m_TagString: Untagged
@@ -44,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2607841354259966013}
-  m_Mesh: {fileID: -5490838215040938693, guid: 537a60d5c99a4cc41886adf955544681, type: 3}
+  m_Mesh: {fileID: -5490838215040938693, guid: fd69793d74f8b5743904e80ab3be3682, type: 3}
 --- !u!23 &2915091301087865230
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -101,21 +101,7 @@ MeshCollider:
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
-  m_Mesh: {fileID: -5490838215040938693, guid: 537a60d5c99a4cc41886adf955544681, type: 3}
---- !u!114 &8825767219603227684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2607841354259966013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 976b70ad5f47253449ae293fa4208f7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _isDropped: 0
-  _point: {fileID: 0}
+  m_Mesh: {fileID: -5490838215040938693, guid: fd69793d74f8b5743904e80ab3be3682, type: 3}
 --- !u!54 &5960273151977037720
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -132,6 +118,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3731373632530206126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2607841354259966013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b983a23b91db2c46a14af779c25d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDropped: 0
+  _point: {fileID: 0}
 --- !u!1 &7548338847313339692
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6975607797810688020}
   - component: {fileID: 4848551574135631776}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
