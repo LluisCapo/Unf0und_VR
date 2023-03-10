@@ -24,23 +24,21 @@ public class BasketManager : MonoBehaviour
     public UnityEvent BasketStart;
     public UnityEvent BasketStop;
     #endregion
-    List<Light> lLights;
+
+    [SerializeField] List<MeshRenderer> lLights;
+    [SerializeField] Material noneScoredMat, scoredMat;
     int _score;
 
     private void Start()
     {
-        lLights = new List<Light>();
-
-        foreach (Transform light in basketLights)
-            lLights.Add(light.GetComponent<Light>());
 
         _score = 0;
     }
 
     public void StartBasket()
     {
-        foreach (Light light in lLights)
-            light.intensity = noneScoreLightIntensity;
+        foreach (MeshRenderer light in lLights)
+            light.material = noneScoredMat;
 
         button.enabled = false;
         BasketStart.Invoke();
@@ -50,7 +48,7 @@ public class BasketManager : MonoBehaviour
     {
         if (_score < lLights.Count)
         {
-            lLights[_score].intensity = .1f;
+            lLights[_score].material = scoredMat;
             _score++;
 
             Debug.Log("Basket score ---> " + _score + " / " + lLights.Count);

@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class FinalDoor : MonoBehaviour
 {
-    // 01/03/2023 Lluís Capó
+    // 01/03/2023 Lluï¿½s Capï¿½
 
     [SerializeField] ClosingDoorBehavior controller;
+    [SerializeField] Animator lightAnim;
+
+    public void StopBlink()
+    {
+        lightAnim.SetTrigger("noblink");
+        lightAnim.gameObject.SetActive(false);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("finalDoor");
-        GetComponent<DoorController>().light.SetActive(false);
+        //GetComponent<DoorController>().GetComponent<Light>().SetActive(false);
+        lightAnim.SetTrigger("blink");
         controller.OnFirstEventCall();
         GetComponent<BoxCollider>().enabled = false;
     }
