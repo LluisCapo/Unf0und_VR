@@ -5,8 +5,6 @@ using UnityEngine;
 public class ClockController : MonoBehaviour
 {
     [SerializeField] GameObject canvas;
-    [SerializeField] float secondsToInteract;
-    [SerializeField] BoxCollider boxCollider;
     bool activeInvoke = false;
 
 
@@ -18,7 +16,6 @@ public class ClockController : MonoBehaviour
 
     public void InitCanvas()
     {
-        Debug.LogWarning("Aaron hueles fatal");
         canvas.SetActive(!canvas.activeInHierarchy);
     }
 
@@ -41,13 +38,13 @@ public class ClockController : MonoBehaviour
     //        Invoke("ActiveCanvas", 0);
     //        activeInvoke = true;
     //    }
-            
-            
+
+
     //}
 
     //private void ActivateCanvas()
     //{
-        
+
     //    activeInvoke= false;
     //}
 }
