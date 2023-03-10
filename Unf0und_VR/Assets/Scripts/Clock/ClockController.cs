@@ -16,37 +16,38 @@ public class ClockController : MonoBehaviour
         gameObject.layer = 30;
     }
 
-    private void OnTriggerExit(Collider other)
+    public void InitCanvas()
     {
-        Invoke("OpenCanvas", 0);
-    }
-
-    private void OpenCanvas()
-    {
-        //if (!canvas.activeInHierarchy)
-        //{
-        //    Debug.Log("entra canvas"); //canvas.SetActive(true);
-        //    StartCoroutine(HandClock());
-        //    _delay = .0f;
-
-        //}
-        //else
-        //{
-        //    //canvas.SetActive(false);
-        //    _delay = .0f;
-        //}
-        if(!activeInvoke)
-        {
-            Invoke("ActiveCanvas", 1);
-            activeInvoke = true;
-        }
-            
-            
-    }
-
-    private void ActiveCanvas()
-    {
+        Debug.LogWarning("Aaron hueles fatal");
         canvas.SetActive(!canvas.activeInHierarchy);
-        activeInvoke= false;
     }
+
+    //private void OpenCanvas()
+    //{
+    //    //if (!canvas.activeInHierarchy)
+    //    //{
+    //    //    Debug.Log("entra canvas"); //canvas.SetActive(true);
+    //    //    StartCoroutine(HandClock());
+    //    //    _delay = .0f;
+
+    //    //}
+    //    //else
+    //    //{
+    //    //    //canvas.SetActive(false);
+    //    //    _delay = .0f;
+    //    //}
+    //    if(!activeInvoke)
+    //    {
+    //        Invoke("ActiveCanvas", 0);
+    //        activeInvoke = true;
+    //    }
+            
+            
+    //}
+
+    //private void ActivateCanvas()
+    //{
+        
+    //    activeInvoke= false;
+    //}
 }
