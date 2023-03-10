@@ -15,6 +15,9 @@ public class TransitionalCheckerBehaviour : MonoBehaviour
     [SerializeField]
     GameObject sandboxAudioSource;
 
+    [SerializeField]
+    GameObject directionalLight;
+
     private void OnTriggerEnter(Collider other)
     {
         parkObject.SetActive(false);
@@ -22,5 +25,7 @@ public class TransitionalCheckerBehaviour : MonoBehaviour
         firstLvlObject.SetActive(true);
         AudioManager.Instance.PlaySound("crash");
         gameObject.SetActive(false);
+        directionalLight.SetActive(false);
+        RenderSettings.fog = false;
     }
 }
