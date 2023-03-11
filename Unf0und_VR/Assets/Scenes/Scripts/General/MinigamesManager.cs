@@ -35,4 +35,9 @@ public class MinigamesManager : MonoBehaviour
         // Que Raúl aquí ponda todo lo relacionado con el final del juego del disparo
     }
     #endregion
+
+    public void ResetMinigames() //Esto va a resetear todos los minigames
+    {
+        bowling.gameObject.SetActive(false);
+    }
 }
