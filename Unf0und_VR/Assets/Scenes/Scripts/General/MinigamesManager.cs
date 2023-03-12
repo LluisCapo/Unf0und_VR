@@ -7,6 +7,7 @@ public class MinigamesManager : MonoBehaviour
     // 24/02/2023 Lluís Capó
 
     [SerializeField] BStateController bowling;
+    [SerializeField] BasketManager basketManager;
 
     #region Bowling
     public void StartBowling() 
@@ -39,5 +40,8 @@ public class MinigamesManager : MonoBehaviour
     public void ResetMinigames() //Esto va a resetear todos los minigames
     {
         bowling.gameObject.SetActive(false);
+
+        basketManager.OnStopBasket();
+        basketManager.BasketStop.Invoke();
     }
 }

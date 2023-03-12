@@ -42,6 +42,8 @@ public class ReplayController: MonoBehaviour
         foreach (Transform t in detecters)
             t.gameObject.SetActive(true);
 
+        GameManager.Instance.SetInParkScene();
+
         Replay.Invoke();
     }
 }

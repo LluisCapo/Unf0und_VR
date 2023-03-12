@@ -6,26 +6,16 @@ using UnityEngine;
 
 public class TransitionalCheckerBehaviour : MonoBehaviour
 {
-    [SerializeField] 
-    GameObject parkObject;
-
-    [SerializeField]
-    GameObject firstLvlObject;
-
     [SerializeField]
     GameObject sandboxAudioSource;
 
-    [SerializeField]
-    GameObject directionalLight;
-
     private void OnTriggerEnter(Collider other)
     {
-        parkObject.SetActive(false);
         sandboxAudioSource.SetActive(false);
-        firstLvlObject.SetActive(true);
         AudioManager.Instance.PlaySound("crash");
+
+        GameManager.Instance.ChangeSceneParkToGame();
         gameObject.SetActive(false);
-        directionalLight.SetActive(false);
-        RenderSettings.fog = false;
+        
     }
 }
