@@ -7,7 +7,7 @@ public class BBowlContainer : MonoBehaviour
     //02/02/2023 Lluís Capó
     List<Transform> bowlsPoints;
     List<BBowlBehavior> bowlsList;
-    private void Start()
+    private void OnEnable()
     {
         Init();
     }

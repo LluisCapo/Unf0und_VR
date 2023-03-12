@@ -7,7 +7,7 @@ public class MButtonsMenu : MonoBehaviour
 {
     public void NweGame()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Alpha");
     }
 
     public void Exit()

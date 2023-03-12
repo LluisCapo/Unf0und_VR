@@ -36,6 +36,8 @@ public class BStateController : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("Activa bolos");
+        bowlContainerRef.PositioningAllBowls();
         _currentState = firstState;
         _currentState.Init(this);
     }
@@ -47,6 +49,7 @@ public class BStateController : MonoBehaviour
 
     public void ChangeState(BState _newState)
     {
+        Debug.Log("Cambia a ----------> " + _newState);
         _currentState = _newState;
         _currentState.Init(this);
     }
