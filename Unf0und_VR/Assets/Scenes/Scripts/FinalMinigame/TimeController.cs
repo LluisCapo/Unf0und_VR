@@ -35,7 +35,7 @@ public class TimeController : MonoBehaviour
         Time.timeScale = _velocityTime;
         Time.fixedDeltaTime = _fixedDeltaTime * _velocityTime;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
 
         Time.timeScale = _timeScale;
         Time.fixedDeltaTime = _fixedDeltaTime;
