@@ -8,37 +8,48 @@ public class BBallInstantiate : MonoBehaviour
     [SerializeField] Transform spawnPoint;
     [SerializeField] float force;
     Vector3 _dir;
-    [SerializeField] GameObject _ball;
-    [SerializeField] Rigidbody _ballRB;
+    int numBalls;
+    List<GameObject> ballList;
 
-
-
-    private void Awake()
-    {     
+    private void Start()
+    {
+        ballList = new List<GameObject>();
         Init();
     }
 
     private void Init()
     {
         _dir = new Vector3(1.0f, .0f, .0f);
-    }
-    public void SapawnBall()
-    {
-        _ball.transform.position = spawnPoint.position;
-        _ball.SetActive(true);
+        numBalls = 0;
 
-        StartCoroutine(wait());
-    }
-
-    public void RemoveBall()
-    {
-        _ball.GetComponent<Rigidbody>().velocity *= 0;
-        _ball.SetActive(false);
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject ball = PoolingManager.Instance.GetPooledObject("bowlingBall");
+            ball.transform.position = spawnPoint.position;
+            ball.SetActive(true);
+            ball.GetComponent<Rigidbody>().AddForce(_dir * force, ForceMode.Impulse);
+            ballList.Add(ball);
+            numBalls++;
+        }
     }
 
-    IEnumerator wait()
+    private void Update()
     {
-        yield return new WaitForSeconds(.5f);
-        _ballRB.AddForce(_dir * force, ForceMode.Impulse);
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            GameObject a = PoolingManager.Instance.GetActiveObject("bowlingBall")[0];
+            numBalls--;
+            a.SetActive(false);
+            SapawnBall();
+        }
+    }
+
+    private void SapawnBall()
+    {
+        GameObject ball = PoolingManager.Instance.GetPooledObject("bowlingBall");
+        ball.transform.position = spawnPoint.position;
+        ball.SetActive(true);
+        ball.GetComponent<Rigidbody>().AddForce(_dir * force, ForceMode.Impulse);
+        numBalls++;
     }
 }
