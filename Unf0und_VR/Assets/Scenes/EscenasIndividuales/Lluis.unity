@@ -617,9 +617,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16479733}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: -1.9}
-  m_LocalScale: {x: 1.2857999, y: 3, z: 0.21903999}
+  m_LocalScale: {x: 1.2858, y: 3, z: 0.21903999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 182068780}
@@ -24177,6 +24177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bowling: {fileID: 1691383444}
+  basketManager: {fileID: 0}
 --- !u!1 &649633336
 GameObject:
   m_ObjectHideFlags: 0
@@ -25055,6 +25056,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigames: {fileID: 0}
+  directionalLight: {fileID: 0}
+  parkObject: {fileID: 0}
+  firstLvlObject: {fileID: 0}
 --- !u!1 &665555291
 GameObject:
   m_ObjectHideFlags: 0
@@ -26861,7 +26865,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &704738044
 Transform:
   m_ObjectHideFlags: 0
@@ -45447,7 +45451,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1252497645
 Transform:
   m_ObjectHideFlags: 0
