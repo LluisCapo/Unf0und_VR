@@ -49,6 +49,7 @@ public class BStateController : MonoBehaviour
     {
         _currentState = _newState;
         _currentState.Init(this);
+        Debug.Log(_currentState.name);
     }
     public void ResetState()
     {
@@ -63,5 +64,6 @@ public class BStateController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _currentState.OnTrigerEnter(other, this);
+        Debug.Log("Entra");
     }
 }
