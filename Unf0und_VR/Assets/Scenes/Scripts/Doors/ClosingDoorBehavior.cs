@@ -43,6 +43,8 @@ public class ClosingDoorBehavior : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         finalDoor.GetComponent<FinalDoor>().StopBlink();
+        AudioManager.Instance.PlaySoundOnPosition("BrakeLightSFX", transform.position);
+        yield return new WaitForSeconds(.5f);
         finalDoor.SetTrigger("open");
         //finalDoor.gameObject.GetComponent<DoorController>().light.SetActive(true);
 
