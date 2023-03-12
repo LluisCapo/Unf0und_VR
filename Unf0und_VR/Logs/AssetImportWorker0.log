@@ -15,7 +15,7 @@ C:/Users/Lluís Capó/Documents/GitHub/Unf0und_VR/Unf0und_VR
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-53299
+56826
 Successfully changed project path to: C:/Users/Lluís Capó/Documents/GitHub/Unf0und_VR/Unf0und_VR
 C:/Users/Lluís Capó/Documents/GitHub/Unf0und_VR/Unf0und_VR
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,8 +47,8 @@ C:/Users/Lluís Capó/Documents/GitHub/Unf0und_VR/Unf0und_VR
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 154.84 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.80 ms.
+Refreshing native plugins compatible for Editor in 164.98 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 1.02 ms.
 Initialize engine version: 2021.3.9f1 (ad3870b89536)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path C:/Users/Lluís Capó/Documents/GitHub/Unf0und_VR/Unf0und_VR/Assets
@@ -63,51 +63,51 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56892
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56724
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.004236 seconds.
+Registered in 0.004798 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 258.16 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 148.78 ms, found 11 plugins.
 Preloading 1 native plugins for Editor in 0.17 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.996 seconds
+- Completed reload, in  0.852 seconds
 Domain Reload Profiling:
-	ReloadAssembly (998ms)
-		BeginReloadAssembly (85ms)
+	ReloadAssembly (852ms)
+		BeginReloadAssembly (129ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (776ms)
-			LoadAssemblies (82ms)
+			CreateAndSetChildDomain (3ms)
+		EndReloadAssembly (587ms)
+			LoadAssemblies (118ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (135ms)
+			SetupTypeCache (118ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (42ms)
-			SetupLoadedEditorAssemblies (519ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (373ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (7ms)
+				InitializePlatformSupportModulesInManaged (6ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (258ms)
+				RefreshPlugins (149ms)
 				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (197ms)
-				ProcessInitializeOnLoadMethodAttributes (54ms)
+				ProcessInitializeOnLoadAttributes (163ms)
+				ProcessInitializeOnLoadMethodAttributes (53ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.012556 seconds.
+Registered in 0.012675 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image C:\Users\Lluís Capó\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image C:\Users\Lluís Capó\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 136.30 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.14 ms.
+Refreshing native plugins compatible for Editor in 135.98 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.13 ms.
 Package Manager log level set to [2]
 System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
   at Unity.XR.Oculus.OculusLoader.AssetPathToAbsolutePath (System.String assetPath) [0x00041] in C:\Users\Lluís Capó\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:271 
@@ -125,43 +125,43 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
 
 Mono: successfully reloaded assembly
-- Completed reload, in  2.036 seconds
+- Completed reload, in  1.753 seconds
 Domain Reload Profiling:
-	ReloadAssembly (2038ms)
-		BeginReloadAssembly (173ms)
+	ReloadAssembly (1754ms)
+		BeginReloadAssembly (126ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (19ms)
+			DisableScriptedObjects (5ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (26ms)
-		EndReloadAssembly (1730ms)
-			LoadAssemblies (100ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (1497ms)
+			LoadAssemblies (107ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (514ms)
+			SetupTypeCache (337ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (116ms)
-			SetupLoadedEditorAssemblies (922ms)
+			RebuildScriptCaches (96ms)
+			SetupLoadedEditorAssemblies (891ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (4ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (137ms)
-				BeforeProcessingInitializeOnLoad (154ms)
-				ProcessInitializeOnLoadAttributes (502ms)
-				ProcessInitializeOnLoadMethodAttributes (115ms)
-				AfterProcessingInitializeOnLoad (11ms)
+				RefreshPlugins (136ms)
+				BeforeProcessingInitializeOnLoad (142ms)
+				ProcessInitializeOnLoadAttributes (495ms)
+				ProcessInitializeOnLoadMethodAttributes (104ms)
+				AfterProcessingInitializeOnLoad (9ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (6ms)
+			AwakeInstancesAfterBackupRestoration (5ms)
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 2.46 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.21 ms.
-Unloading 6151 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 77 unused Assets / (1.1 MB). Loaded Objects now: 6584.
-Memory consumption went from 239.0 MB to 237.9 MB.
-Total: 6.853700 ms (FindLiveObjects: 0.632600 ms CreateObjectMapping: 0.483800 ms MarkObjects: 5.301900 ms  DeleteObjects: 0.434000 ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 2.38 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.53 ms.
+Unloading 6154 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 77 unused Assets / (1.1 MB). Loaded Objects now: 6587.
+Memory consumption went from 239.3 MB to 238.2 MB.
+Total: 11.780500 ms (FindLiveObjects: 1.523700 ms CreateObjectMapping: 2.286400 ms MarkObjects: 7.075100 ms  DeleteObjects: 0.892700 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -175,37 +175,180 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 20410.739384 seconds.
-  path: Assets/Scenes/EscenasIndividuales/Lluis/LightingData.asset
-  artifactKey: Guid(31e0edb2f2a0a854382dd0c3f5f11e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EscenasIndividuales/Lluis/LightingData.asset using Guid(31e0edb2f2a0a854382dd0c3f5f11e6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25ba2af2d65e451369ce9b60be586e46') in 0.039605 seconds 
+  Time since last request: 22442.602910 seconds.
+  path: Assets/Scenes/EscenasIndividuales/Aaron.unity
+  artifactKey: Guid(0b5351c489890884e9758e5074d9243e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/EscenasIndividuales/Aaron.unity using Guid(0b5351c489890884e9758e5074d9243e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1618dd2d345c118409a7946ef3c951bd') in 0.026446 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000040 seconds.
+  Time since last request: 38.824398 seconds.
   path: Assets/Scenes/EscenasIndividuales/Lluis.unity
   artifactKey: Guid(30ed7856e6405a34bb49efd2a1c1fd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EscenasIndividuales/Lluis.unity using Guid(30ed7856e6405a34bb49efd2a1c1fd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a778b709a55b12dc288a6f66efabd1c') in 0.002655 seconds 
+Start importing Assets/Scenes/EscenasIndividuales/Lluis.unity using Guid(30ed7856e6405a34bb49efd2a1c1fd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a778b709a55b12dc288a6f66efabd1c') in 0.002834 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000095 seconds.
-  path: Assets/Scenes/EscenasIndividuales/Lluis/Pospo Profile 1.asset
-  artifactKey: Guid(cc441a057431bcc44a59b4f282c4dde6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EscenasIndividuales/Lluis/Pospo Profile 1.asset using Guid(cc441a057431bcc44a59b4f282c4dde6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14db19aaac74486884ae401c56dff012') in 0.012778 seconds 
+  Time since last request: 186.668501 seconds.
+  path: Assets/Scenes/Scripts/ClimbingMinigame
+  artifactKey: Guid(c15029cda23d0f64db2b45416278ae3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ClimbingMinigame using Guid(c15029cda23d0f64db2b45416278ae3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a0a77d6dd2f04ff50edd76d8ffa5e78d') in 0.002459 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000038 seconds.
-  path: Assets/Scenes/EscenasIndividuales/Lluis/ReflectionProbe-0.exr
-  artifactKey: Guid(51ae5edc7f1bc5f47b9bdda44f8d4b99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EscenasIndividuales/Lluis/ReflectionProbe-0.exr using Guid(51ae5edc7f1bc5f47b9bdda44f8d4b99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec906bdf342cc7cd2c14d8e1bba69195') in 0.319249 seconds 
+  Time since last request: 1.667969 seconds.
+  path: Assets/Scenes/Scripts/ClimbingMinigame/DestroyClimbingCube.cs
+  artifactKey: Guid(b4ce9abcab200294a9d07782feac9b4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ClimbingMinigame/DestroyClimbingCube.cs using Guid(b4ce9abcab200294a9d07782feac9b4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3926887fa0754c7a6c91c46b1e16ad43') in 0.044883 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000046 seconds.
-  path: Assets/Scenes/EscenasIndividuales/Lluis/Pospo Profile.asset
-  artifactKey: Guid(bff6ed9935a68374699ec4d3bf6adf89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EscenasIndividuales/Lluis/Pospo Profile.asset using Guid(bff6ed9935a68374699ec4d3bf6adf89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '912a9a0ac4aeafe59c465754203e4b17') in 0.006438 seconds 
+  Time since last request: 11.710610 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame
+  artifactKey: Guid(789eb63cdb2f2d447b58a4b057caa7ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame using Guid(789eb63cdb2f2d447b58a4b057caa7ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7beb2b10166075bd7f6fffb70a489938') in 0.002770 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000069 seconds.
-  path: Assets/Scenes/EscenasIndividuales/Lluis
-  artifactKey: Guid(d372988db4d812e4c922a07d0b6311e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EscenasIndividuales/Lluis using Guid(d372988db4d812e4c922a07d0b6311e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '123607564797a0be90b56b20ce92950b') in 0.002250 seconds 
+  Time since last request: 2.344946 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Scripts
+  artifactKey: Guid(d5d582673b245b24ab0dd60d0addd56c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Scripts using Guid(d5d582673b245b24ab0dd60d0addd56c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '137c0a2e66598e2ef07ee41fa5afb504') in 0.005042 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.174346 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Scripts/DDartBoardManagment.cs
+  artifactKey: Guid(f07829197b8920c44b2795f83b6cb37f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Scripts/DDartBoardManagment.cs using Guid(f07829197b8920c44b2795f83b6cb37f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14e3253f12831bc3bb14d551bf9fa00d') in 0.001778 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.500803 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Scripts/DShooting.cs
+  artifactKey: Guid(b56f89589d6fbf64084ed1f140e350c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Scripts/DShooting.cs using Guid(b56f89589d6fbf64084ed1f140e350c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9ef1df87f350d942c7573b4f2bfe0133') in 0.002100 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.392296 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Scripts/SScoreBehaviour.cs
+  artifactKey: Guid(9621f6df36e955b41b170f702500baa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Scripts/SScoreBehaviour.cs using Guid(9621f6df36e955b41b170f702500baa9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f54f244476a67f38ee6e2d4f1ee8b1e3') in 0.001841 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.439064 seconds.
+  path: Assets/Scenes/Scripts/Minijuego Disparo
+  artifactKey: Guid(a7abd4b84c426744587c69ef80e948fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/Minijuego Disparo using Guid(a7abd4b84c426744587c69ef80e948fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd98140262a467600e4edb058a9c1432f') in 0.003098 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.485996 seconds.
+  path: Assets/Scenes/Scripts/Minijuego Disparo/Scripts
+  artifactKey: Guid(70e8f38ff86705b47896f0828a592cb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/Minijuego Disparo/Scripts using Guid(70e8f38ff86705b47896f0828a592cb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5dd1f9139c75fa7a3840abdb3c0a08ca') in 0.005849 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 10.982210 seconds.
+  path: Assets/Scenes/Scripts/Minijuego Disparo/Scripts/Restart.anim
+  artifactKey: Guid(8b37706815488f6498316d08ccafaec5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/Minijuego Disparo/Scripts/Restart.anim using Guid(8b37706815488f6498316d08ccafaec5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57d038f9d2ed8a547afa32f12ebce6a8') in 0.017612 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.922233 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Scripts/Restart.anim
+  artifactKey: Guid(18c40a5e390eed2419091e8ab02a7964) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Scripts/Restart.anim using Guid(18c40a5e390eed2419091e8ab02a7964) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dce32246e22c43df9b7d8b7fc09a7e1d') in 0.003136 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 44.437821 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Prefabs
+  artifactKey: Guid(23a104dd48ff7ab4bb7b7d1bdea60c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Prefabs using Guid(23a104dd48ff7ab4bb7b7d1bdea60c34) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01ddf1dc82ab390b699818a473432243') in 0.001818 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.036191 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Prefabs/bala.fbx
+  artifactKey: Guid(a71aaeb8f71d80b45ac6f1c90fa2af78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Prefabs/bala.fbx using Guid(a71aaeb8f71d80b45ac6f1c90fa2af78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f439f45b65e4c53c6e043c9a0c089a82') in 0.397792 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.373445 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Prefabs/Mosin.prefab
+  artifactKey: Guid(eef79ca104f0ccc4da2e14e375422a5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Prefabs/Mosin.prefab using Guid(eef79ca104f0ccc4da2e14e375422a5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f65ca2c0bd4cce5d733849c70815576') in 0.016931 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.025040 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Testing
+  artifactKey: Guid(7ce6538eed91b2444810ae4520de7e92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Testing using Guid(7ce6538eed91b2444810ae4520de7e92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2073322e642db5f5675e5a69b91a1c39') in 0.004038 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.733045 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Animations
+  artifactKey: Guid(91e9b556ece290c4fae7541fa73526ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Animations using Guid(91e9b556ece290c4fae7541fa73526ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b9fdd1d08acb925ac27effbb452d241a') in 0.002892 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.025464 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Lluís Capó\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Lluís Capó\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 10.90 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 1.76 ms.
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
+  at Unity.XR.Oculus.OculusLoader.AssetPathToAbsolutePath (System.String assetPath) [0x00041] in C:\Users\Lluís Capó\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:271 
+  at Unity.XR.Oculus.OculusLoader.EditorLoadOVRPlugin () [0x000b0] in C:\Users\Lluís Capó\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:256 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
+  at UnityEditor.EditorAssemblies.ProcessInitializeOnLoadMethodAttributes () [0x000a5] in <0d6ce211ebbc47e1a35a84c3672ff58f>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.364 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2365ms)
+		BeginReloadAssembly (238ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (84ms)
+		EndReloadAssembly (1963ms)
+			LoadAssemblies (137ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (552ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (80ms)
+			SetupLoadedEditorAssemblies (1036ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (36ms)
+				SetLoadedEditorAssemblies (4ms)
+				RefreshPlugins (13ms)
+				BeforeProcessingInitializeOnLoad (187ms)
+				ProcessInitializeOnLoadAttributes (649ms)
+				ProcessInitializeOnLoadMethodAttributes (135ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (29ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 5.53 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.11 ms.
+Unloading 6040 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 59 unused Assets / (1.1 MB). Loaded Objects now: 6725.
+Memory consumption went from 238.5 MB to 237.4 MB.
+Total: 9.477300 ms (FindLiveObjects: 0.826500 ms CreateObjectMapping: 0.512400 ms MarkObjects: 6.244700 ms  DeleteObjects: 1.892300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
