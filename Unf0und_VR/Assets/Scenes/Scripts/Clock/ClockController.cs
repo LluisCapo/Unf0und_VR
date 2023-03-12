@@ -5,6 +5,8 @@ using UnityEngine;
 public class ClockController : MonoBehaviour
 {
     [SerializeField] GameObject canvas;
+    [SerializeField] float secondsToInteract;
+    [SerializeField] BoxCollider boxCollider;
     bool activeInvoke = false;
 
 
@@ -14,37 +16,37 @@ public class ClockController : MonoBehaviour
         gameObject.layer = 30;
     }
 
-    public void InitCanvas()
+    private void OnTriggerExit(Collider other)
     {
-        canvas.SetActive(!canvas.activeInHierarchy);
+        Invoke("OpenCanvas", 0);
     }
 
-    //private void OpenCanvas()
-    //{
-    //    //if (!canvas.activeInHierarchy)
-    //    //{
-    //    //    Debug.Log("entra canvas"); //canvas.SetActive(true);
-    //    //    StartCoroutine(HandClock());
-    //    //    _delay = .0f;
+    private void OpenCanvas()
+    {
+        //if (!canvas.activeInHierarchy)
+        //{
+        //    Debug.Log("entra canvas"); //canvas.SetActive(true);
+        //    StartCoroutine(HandClock());
+        //    _delay = .0f;
 
-    //    //}
-    //    //else
-    //    //{
-    //    //    //canvas.SetActive(false);
-    //    //    _delay = .0f;
-    //    //}
-    //    if(!activeInvoke)
-    //    {
-    //        Invoke("ActiveCanvas", 0);
-    //        activeInvoke = true;
-    //    }
+        //}
+        //else
+        //{
+        //    //canvas.SetActive(false);
+        //    _delay = .0f;
+        //}
+        if(!activeInvoke)
+        {
+            Invoke("ActiveCanvas", 1);
+            activeInvoke = true;
+        }
+            
+            
+    }
 
-
-    //}
-
-    //private void ActivateCanvas()
-    //{
-
-    //    activeInvoke= false;
-    //}
+    private void ActiveCanvas()
+    {
+        canvas.SetActive(!canvas.activeInHierarchy);
+        activeInvoke= false;
+    }
 }

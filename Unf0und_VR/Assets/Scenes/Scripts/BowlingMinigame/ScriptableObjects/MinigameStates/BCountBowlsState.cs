@@ -37,7 +37,6 @@ public class BCountBowlsState : BState
             _stateController.ChangeState(nextState);
         }
 
-        _stateController.BallController.Init();
         _bowlsCount = 0;
     }
 }

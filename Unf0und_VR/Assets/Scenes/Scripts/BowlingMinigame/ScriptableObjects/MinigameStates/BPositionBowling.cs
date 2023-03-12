@@ -11,7 +11,6 @@ public class BPositionBowling : BState
         _stateController = _class;
         _class.isSemipleno = false;
         _bowlContainer = _stateController.BowlContainer;
-        //_bowlContainer.PositioningAllBowls();
     }
 
     public override void OnFinishWaiting()

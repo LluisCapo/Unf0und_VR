@@ -9,6 +9,7 @@ public class BContainerDown : BState
     BState ifSemipleno;
     public override void Init(BStateController _class)
     {
+        _class.BallInstantiate.RemoveBall();
         _class.PlaneController.isUP = false;
     }
     public override void OnUpdate(BStateController _class)

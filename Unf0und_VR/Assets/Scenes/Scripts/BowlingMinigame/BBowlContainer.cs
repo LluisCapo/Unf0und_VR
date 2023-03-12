@@ -7,12 +7,9 @@ public class BBowlContainer : MonoBehaviour
     //02/02/2023 Lluís Capó
     List<Transform> bowlsPoints;
     List<BBowlBehavior> bowlsList;
-    public Animator animator;
     private void Start()
     {
         Init();
-        BCanvasTesting.Instance.SerCurrentBowlStateText("Normal");
-        animator = GetComponent<Animator>();
     }
 
     public void Init()
