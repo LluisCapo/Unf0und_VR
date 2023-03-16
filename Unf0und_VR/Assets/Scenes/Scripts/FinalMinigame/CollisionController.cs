@@ -11,7 +11,7 @@ public class CollisionController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         ControlTime.Invoke();
-        other.gameObject.layer = 8;
+        other.gameObject.layer = 0;
         
 
     }
