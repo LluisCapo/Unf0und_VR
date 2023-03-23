@@ -10720,8 +10720,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.49517757, y: 0.33937562, z: 0.4243251}
+  m_Center: {x: 0.10260828, y: -0.073794454, z: -0.015687695}
 --- !u!23 &260007209
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10781,7 +10781,7 @@ Transform:
   m_GameObject: {fileID: 260007205}
   m_LocalRotation: {x: 0.006231285, y: -0.69576204, z: -0.7182165, w: 0.006432429}
   m_LocalPosition: {x: 0.0030000394, y: 0.28299984, z: 0.08300106}
-  m_LocalScale: {x: 0.30313128, y: 0.0131922485, z: 0.30288377}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 919054082}
@@ -10801,7 +10801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 0}
   firePoint: {fileID: 0}
-  speedC: 0
+  speedC: 10
   segShoot: 0
 --- !u!1001 &261372208
 PrefabInstance:
@@ -59143,7 +59143,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cb3953ede54d34a4f90489588e9c8140, type: 3}
   m_PrefabInstance: {fileID: 1539383600}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1539383602
+--- !u!114 &1539383605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59152,13 +59152,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1539383601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0bed44f81aee0e4cbb9bb7ed61c40c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e359e94c73de9f4ea256cd18d5148e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPrefab: {fileID: 823111524}
-  firePoint: {fileID: 260007211}
-  speedC: 1000
-  segShoot: 0
+  callFuntion:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 260007212}
+        m_TargetAssemblyTypeName: CannonController, Assembly-CSharp
+        m_MethodName: CannonShoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1541172026
 GameObject:
   m_ObjectHideFlags: 0
@@ -70367,7 +70378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1763632495
 Transform:
   m_ObjectHideFlags: 0
@@ -73862,15 +73873,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4735368352276294835, guid: 7cd0c458e810cbb4dbe89e30f5663538, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.872
+      value: -8.01
       objectReference: {fileID: 0}
     - target: {fileID: 4735368352276294835, guid: 7cd0c458e810cbb4dbe89e30f5663538, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.659
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 4735368352276294835, guid: 7cd0c458e810cbb4dbe89e30f5663538, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.967
+      value: 3.97
       objectReference: {fileID: 0}
     - target: {fileID: 4735368352276294835, guid: 7cd0c458e810cbb4dbe89e30f5663538, type: 3}
       propertyPath: m_LocalRotation.w
