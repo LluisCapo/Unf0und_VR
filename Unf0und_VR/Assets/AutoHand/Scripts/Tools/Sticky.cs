@@ -32,7 +32,7 @@ namespace Autohand{
             Stickable stick;
             if(collision.gameObject.CanGetComponent(out stick)) {
                 CreateStick(stick);
-            }   
+            }
         }
 
         void CreateStick(Stickable sticker) {
