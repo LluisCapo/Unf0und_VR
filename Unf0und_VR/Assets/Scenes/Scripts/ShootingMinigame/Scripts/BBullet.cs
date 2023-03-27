@@ -36,10 +36,11 @@ public class BBullet : MonoBehaviour
         Debug.Log("Ha entrado en la colisión");
         BulletMark = PoolingManager.Instance.GetPooledObject("BulletMark");
         BulletMark.transform.position = new Vector3 (_contactPoint.point.x, _contactPoint.point.y, _contactPoint.point.z);
-        BulletMark.transform.rotation = Quaternion.LookRotation(_contactPoint.normal);
+        //BulletMark.transform.rotation = Quaternion.LookRotation(_contactPoint.normal, BulletMark.transform.forward);
         BulletMark.transform.Rotate(Vector3.right * 90);
-        BulletMark.transform.Translate(Vector3.up * 0.005f);
-        BulletMark.transform.localScale = BulletMark.transform.localScale / _divideBulletMark;
+        BulletMark.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        //BulletMark.transform.Translate(Vector3.up * 0.005f);
+        //BulletMark.transform.localScale = BulletMark.transform.localScale / _divideBulletMark;
         if(collision.gameObject.GetComponent<SScoreBehaviour>())
             collision.gameObject.GetComponent<SScoreBehaviour>().RecieveScore(collision.gameObject.GetComponent<DDartBoardManagment>().GetDartBoardScore());
 
