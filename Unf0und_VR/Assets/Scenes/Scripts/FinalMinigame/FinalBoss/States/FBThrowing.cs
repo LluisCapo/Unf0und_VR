@@ -31,8 +31,10 @@ public class FBThrowing : FBState
     }
     public override void Throw(FinalBossController _controller)
     {
-        _controller.Chair.AddForce(_dir * force, ForceMode.Impulse);
-        isThrowed = true;
+        GameObject _refChair = Instantiate(_controller.ChairGO);
+        _refChair.GetComponent<Rigidbody>().AddForce(_dir * force, ForceMode.Impulse);
+        //_controller.Chair.AddForce(_dir * force, ForceMode.Impulse);
+        //isThrowed = true;
         //Debug.Log("throw");
     }
 }

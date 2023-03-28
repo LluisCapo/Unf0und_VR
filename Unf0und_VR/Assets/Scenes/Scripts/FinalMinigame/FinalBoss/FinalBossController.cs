@@ -12,6 +12,7 @@ public class FinalBossController : MonoBehaviour
 
     [SerializeField] Transform playerPosition;
     [SerializeField] Rigidbody chair;
+    [SerializeField] GameObject chairGO;
 
     Animator _anim;
     MovementBehavior _mvb;
@@ -23,6 +24,7 @@ public class FinalBossController : MonoBehaviour
     public Animator Animator { get { return _anim; } }
     public Transform PlayerRef { get { return playerPosition; } }
     public Rigidbody Chair { get { return chair; } }
+    public GameObject ChairGO { get { return chairGO; } }
     #endregion
     private void Start()
     {
@@ -37,8 +39,8 @@ public class FinalBossController : MonoBehaviour
     private void Update()
     {
         currentState.OnUpdate(this);
-
-        //
+       
+        //DEBUG
         Testing();
     }
 
