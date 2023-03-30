@@ -14,7 +14,8 @@ public class FBThrowing : FBState
         _controller.Chair.transform.rotation = Quaternion.Euler(-168.975f, 20.825f, 3.589005f);
         isThrowed = false;
 
-        _dir = new Vector3(0f, .8f, 1);
+        //Obtain direction towards player
+        _dir = (_controller.transform.position - _controller.PlayerRef.transform.position).normalized; 
     }
     public override void OnUpdate(FinalBossController _controller)
     {
@@ -31,7 +32,9 @@ public class FBThrowing : FBState
     }
     public override void Throw(FinalBossController _controller)
     {
-        GameObject _refChair = Instantiate(_controller.ChairGO);
+        GameObject _refChair = Instantiate(_controller.ChairGO, new Vector3(_controller.transform.position.x, _controller.transform.position.y + 1.7f, _controller.transform.position.z), _controller.transform.rotation, _controller.transform);
+        //Debug.Break();
+        _refChair.layer = 13;
         _refChair.GetComponent<Rigidbody>().AddForce(_dir * force, ForceMode.Impulse);
         //_controller.Chair.AddForce(_dir * force, ForceMode.Impulse);
         //isThrowed = true;

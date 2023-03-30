@@ -23443,6 +23443,11 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &618233065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1759117557861702317, guid: 6c4ac098e50fdca489b42f7c7423d378, type: 3}
+  m_PrefabInstance: {fileID: 6841970324500269251}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619266184
 GameObject:
   m_ObjectHideFlags: 0
@@ -25872,8 +25877,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4041cf619e53e1649b3440f74455980d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoHandPlayer: {fileID: 0}
   minigames: {fileID: 0}
   directionalLight: {fileID: 0}
+  closeEyes: {fileID: 0}
   parkObject: {fileID: 0}
   firstLvlObject: {fileID: 0}
 --- !u!1 &665555291
@@ -100727,6 +100734,10 @@ PrefabInstance:
       propertyPath: chair
       value: 
       objectReference: {fileID: 952030512}
+    - target: {fileID: 7267012979700385354, guid: 6c4ac098e50fdca489b42f7c7423d378, type: 3}
+      propertyPath: chairGO
+      value: 
+      objectReference: {fileID: 618233065}
     - target: {fileID: 7267012979700385354, guid: 6c4ac098e50fdca489b42f7c7423d378, type: 3}
       propertyPath: pointToWalk1
       value: 
