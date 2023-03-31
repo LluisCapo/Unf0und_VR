@@ -1,3 +1,4 @@
+using Autohand;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,11 +23,15 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Variables
+    [Header("AutoHand Player"), SerializeField] AutoHandPlayer autoHandPlayer;
     [SerializeField] MinigamesManager minigames; //Ported in from MinigamesManager
     [SerializeField] GameObject directionalLight; //Ported in from the directional light in the park scene
+    [Header("Camera Efect"), SerializeField] GameObject closeEyes; //Ported in from the camera child
     [Header("Levels"), SerializeField]
     public GameObject parkObject;
     public GameObject firstLvlObject;
+
+    float playerVelocity;
     #endregion
 
     #region Getters && Setters
@@ -42,6 +47,16 @@ public class GameManager : MonoBehaviour
     }
     public void ChangeSceneParkToGame()
     {
+        closeEyes.SetActive(true);
+        playerVelocity = autoHandPlayer.maxMoveSpeed;
+        autoHandPlayer.maxMoveSpeed = 0;
+        autoHandPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        StartCoroutine(waitToChange());
+    }
+    IEnumerator waitToChange()
+    {
+        yield return new WaitForSeconds(1.5f);
+        autoHandPlayer.maxMoveSpeed = playerVelocity;
         parkObject.SetActive(false);
         firstLvlObject.SetActive(true);
         RenderSettings.fog = false;
