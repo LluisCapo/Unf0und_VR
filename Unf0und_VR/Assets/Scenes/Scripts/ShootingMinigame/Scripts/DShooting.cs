@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DShooting : MonoBehaviour
 {
@@ -9,8 +10,10 @@ public class DShooting : MonoBehaviour
     Transform shootPoint, bulletCasing;
     Animator _anim;
     Rigidbody _rb;
+    private RaycastHit _hit;
 
     private GameObject lastBullet, projectile;
+
     private void OnEnable()
     {
         _rb = GetComponent<Rigidbody>();
@@ -27,17 +30,41 @@ public class DShooting : MonoBehaviour
         try
         {
             _anim.SetTrigger("launch");
-            lastBullet = PoolingManager.Instance.GetPooledObject("Bullet");
-            lastBullet.SetActive(true);
-            lastBullet.transform.position = shootPoint.position;
-            lastBullet.GetComponent<BBullet>().MakeForce(shootPoint);
-            Debug.Log("Disparo: " + lastBullet.GetComponent<Rigidbody>().velocity);
+            //lastBullet = PoolingManager.Instance.GetPooledObject("Bullet");
+            //lastBullet.SetActive(true);
+            //lastBullet.transform.position = shootPoint.position;
+            //lastBullet.GetComponent<BBullet>().MakeForce(shootPoint); //, LayerMask.GetMask("BBullet")
+            Debug.Log("hoplaaaaaaaaaa");
+            //Debug.DrawRay(shootPoint.transform.position, shootPoint.forward, Color.red);
+            if (Physics.Raycast(shootPoint.transform.position, -transform.forward, out _hit))
+            {
+                
+                GameObject BulletMark = PoolingManager.Instance.GetPooledObject("BulletMark");
+                BulletMark.transform.position = _hit.point; //new Vector3(_contactPoint.point.x, _contactPoint.point.y, _contactPoint.point.z);
+                BulletMark.transform.rotation = Quaternion.LookRotation(_hit.normal);
+                BulletMark.transform.Rotate(Vector3.right * 90);
+                BulletMark.transform.Translate(Vector3.up * 0.005f);
+                //BulletMark.transform.localScale = BulletMark.transform.localScale / 10;
+                if (_hit.collider.GetComponent<SScoreBehaviour>())
+                    _hit.collider.gameObject.GetComponent<SScoreBehaviour>().RecieveScore(_hit.collider.gameObject.GetComponent<DDartBoardManagment>().GetDartBoardScore());
+
+                BulletMark.SetActive(true);
+            }
+            //Debug.Log("Disparo: " + lastBullet.GetComponent<Rigidbody>().velocity);
         }
         catch (Exception e)
         {
             Debug.Log("Error Recargar" + e.Message);
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(shootPoint.transform.position, -transform.forward);
+    }
+
+
     public void EjectProjectile()
     {
         try
