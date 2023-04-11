@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class BBullet : MonoBehaviour
@@ -8,16 +9,17 @@ public class BBullet : MonoBehaviour
     float speed;
 
     private Rigidbody _rb;
-    private GameObject hit;
+    private GameObject BulletMark;
     [SerializeField]
     private float _divideBulletMark;
+    private ContactPoint _contactPoint;
 
     public float Speed { get { return speed; } set { speed = value; } }
 
 
     private void Start()
     {
-        speed = 2;
+       // speed = 2;
     }
 
     private void OnEnable()
@@ -28,18 +30,21 @@ public class BBullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        _contactPoint = collision.contacts[0];
         //)
         //Vector3 puntocolision = ClosestPointOnBounds(transform.position);//other.ClosestPoint(transform.position);
         Debug.Log("Ha entrado en la colisión");
-        hit = PoolingManager.Instance.GetPooledObject("BulletMark");
-        hit.SetActive(true);
-        hit.transform.position = -collision.contacts[0].point; // puntocolision;//  new Vector3(transform.position.x, transform.position.y, transform.position.z - other.GetComponent<BoxCollider>().transform.position.z);
-        hit.transform.localScale = transform.localScale / _divideBulletMark;//new Vector3(transform.localScale.x, transform.localScale.y, hit.transform.localScale.z);
-        //hit.transform.rotation.x - 
-        hit.transform.rotation = new Quaternion(collision.transform.rotation.x, collision.transform.rotation.y, collision.transform.rotation.z, hit.transform.rotation.w);
-        //;
-        collision.gameObject.GetComponent<SScoreBehaviour>().RecieveScore(collision.gameObject.GetComponent<DDartBoardManagment>().GetDartBoardScore());
+        BulletMark = PoolingManager.Instance.GetPooledObject("BulletMark");
+        BulletMark.transform.position = new Vector3 (_contactPoint.point.x, _contactPoint.point.y, _contactPoint.point.z);
+        //BulletMark.transform.rotation = Quaternion.LookRotation(_contactPoint.normal, BulletMark.transform.forward);
+        BulletMark.transform.Rotate(Vector3.right * 90);
+        BulletMark.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        //BulletMark.transform.Translate(Vector3.up * 0.005f);
+        //BulletMark.transform.localScale = BulletMark.transform.localScale / _divideBulletMark;
+        if(collision.gameObject.GetComponent<SScoreBehaviour>())
+            collision.gameObject.GetComponent<SScoreBehaviour>().RecieveScore(collision.gameObject.GetComponent<DDartBoardManagment>().GetDartBoardScore());
 
+        BulletMark.SetActive(true);
         gameObject.SetActive(false);
     }
 
@@ -50,5 +55,9 @@ public class BBullet : MonoBehaviour
     public void Eject(Transform POF)
     {
         _rb.AddForce(POF.TransformDirection(new Vector3(0, 0, -speed)), ForceMode.Impulse);
+    }
+    private void OnDisable()
+    {
+        _rb.velocity= Vector3.zero;
     }
 }
