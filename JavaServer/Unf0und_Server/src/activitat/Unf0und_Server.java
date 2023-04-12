@@ -1,6 +1,28 @@
 package activitat;
 
 //import com.sun.jdi.connect.spi.Connection;
+import java.io.IOException;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.Address;
+import javax.mail.BodyPart;
+import javax.mail.Flags;
+import javax.mail.Folder;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.NoSuchProviderException;
+import javax.mail.Session;
+import javax.mail.Store;
+import javax.mail.internet.MimeMessage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -21,6 +43,7 @@ import java.io.OutputStreamWriter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 public class Unf0und_Server {
         static String bd = "a21llucaptor_Unf0und_Beta";
         static String url = "jdbc:mysql://labs.inspedralbes.cat:3306/";
@@ -36,7 +59,8 @@ public class Unf0und_Server {
         
         int portNumber = 9000;
         Connect();
-
+        SendEmail("Raúl", "a21llucaptor@inspedralbes.cat");
+        
         try {
             ServerSocket serverSocket = new ServerSocket(portNumber);
             System.out.println("Socket creat");
@@ -56,6 +80,7 @@ public class Unf0und_Server {
                     String email = inputLine.split("/")[1];
                     String score = inputLine.split("/")[2];
                     //Insert(nick, email, score);
+                    CheckScore(nick, Integer.parseInt(score));
                     out.println(Select());
                     break;
                 }
@@ -141,6 +166,100 @@ public class Unf0und_Server {
                 System.out.println(ex.getMessage());
             }
         return obj;
+    }
+    
+    public static void CheckScore(String _nick, int _score)
+    {
+            try {
+                String query = "SELECT MAX(score) AS \"score\", email FROM Saves";
+                PreparedStatement stmt = cx.prepareStatement(query);
+                var rs = stmt.executeQuery(query);
+                int maxScore = 0;
+                String maxScoreEmail = "";
+                while(rs.next())
+                {
+                    maxScoreEmail = rs.getString("email");
+                    maxScore = rs.getInt("score");
+                }
+                
+                
+                if(_score > maxScore)
+                {
+                    SendEmail(_nick, maxScoreEmail);
+                }
+                System.out.println(maxScoreEmail + "    " + maxScore);
+            } catch (SQLException ex) {
+                Logger.getLogger(Unf0und_Server.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+     public static void SendEmail(String _nick, String _email)
+    {
+         String from = "grup02@m09.alumnes.inspedralbes.cat";
+         String password = "grup02_M09";
+         String host = "mail.m09.alumnes.inspedralbes.cat";
+         String port = "587";
+         String username = from; // correct password for gmail id
+         String to = _email;
+
+        
+        System.out.println("Comencem!!!");
+
+
+        // Get system properties
+        Properties properties = System.getProperties();
+
+        // Setup mail server
+        properties.setProperty("mail.smtp.host", host);
+
+        // SSL Port
+        properties.put("mail.smtp.port", port);
+
+        // enable authentication
+        properties.put("mail.smtp.auth", "true");
+
+        // SSL Factory
+        properties.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
+        
+        Session session = null;
+        
+        try{
+            session = Session.getDefaultInstance(properties,
+                    new javax.mail.Authenticator() {
+
+                // override the getPasswordAuthentication
+                // method
+                protected PasswordAuthentication
+                        getPasswordAuthentication() {
+                    return new PasswordAuthentication(username, password);
+                } 
+            });
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+
+//compose the message
+        try {
+            // javax.mail.internet.MimeMessage class is mostly
+            // used for abstraction.
+            MimeMessage message = new MimeMessage(session);
+
+            // header field of the header.
+            message.setFrom(new InternetAddress(from));
+
+            message.addRecipient(Message.RecipientType.TO,
+                    new InternetAddress(to));
+            message.setSubject("Unf0und_VR Notify");
+            message.setText("¡" + _nick + " te ha superado, ya no eres la persona con la puntuación más alta!");
+
+            // Send message
+            System.out.println("Inici de l'enviament... (paciència que pot trigar uns 10 segons.... )");
+            Transport.send(message);
+            System.out.println("Enviat!!!");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
     
     public static void Desconectar()
