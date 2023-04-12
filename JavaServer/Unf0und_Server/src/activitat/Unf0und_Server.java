@@ -1,6 +1,6 @@
 package activitat;
+//git
 
-//import com.sun.jdi.connect.spi.Connection;
 import java.io.IOException;
 import java.util.*;
 import java.util.logging.Level;
@@ -59,7 +59,6 @@ public class Unf0und_Server {
         
         int portNumber = 9000;
         Connect();
-        SendEmail("Raúl", "a21llucaptor@inspedralbes.cat");
         
         try {
             ServerSocket serverSocket = new ServerSocket(portNumber);
@@ -79,8 +78,10 @@ public class Unf0und_Server {
                     String nick = inputLine.split("/")[0];
                     String email = inputLine.split("/")[1];
                     String score = inputLine.split("/")[2];
-                    //Insert(nick, email, score);
+                    
                     CheckScore(nick, Integer.parseInt(score));
+                    Insert(nick, email, score);
+                    
                     out.println(Select());
                     break;
                 }
@@ -171,11 +172,12 @@ public class Unf0und_Server {
     public static void CheckScore(String _nick, int _score)
     {
             try {
-                String query = "SELECT MAX(score) AS \"score\", email FROM Saves";
+                String query = "SELECT nick, email, score FROM Saves WHERE score = (SELECT MAX(score) FROM Saves)";
                 PreparedStatement stmt = cx.prepareStatement(query);
                 var rs = stmt.executeQuery(query);
                 int maxScore = 0;
                 String maxScoreEmail = "";
+                
                 while(rs.next())
                 {
                     maxScoreEmail = rs.getString("email");
@@ -185,8 +187,13 @@ public class Unf0und_Server {
                 
                 if(_score > maxScore)
                 {
+                    System.out.println("------- Check, true " + maxScoreEmail);
                     SendEmail(_nick, maxScoreEmail);
                 }
+                else
+                    System.out.println("------- Check, false, " +maxScore+ "  /  "+_score);
+                
+                
                 System.out.println(maxScoreEmail + "    " + maxScore);
             } catch (SQLException ex) {
                 Logger.getLogger(Unf0und_Server.class.getName()).log(Level.SEVERE, null, ex);

@@ -14,17 +14,12 @@ public class BDManager : MonoBehaviour
 
     BDInfoManager _BDInfo;
 
-    private void Start()
-    {
-
-    }
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))
-            BdInsetSelect("hola2", "asd@aks.com", 98);
+            BdInsetSelect(infoToInsert.nick[0], infoToInsert.email[0], infoToInsert.score[0]);
     }
-    private void BdInsetSelect(String _nick, String _email, int _score)
+    private void BdInsetSelect(String _nick, String _email, String _score)
     {
         String data;
         IPHostEntry host = Dns.GetHostEntry("localhost");
