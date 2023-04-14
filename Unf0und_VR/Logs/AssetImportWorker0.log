@@ -15,7 +15,7 @@ D:/FearsumStudio/Unf0und_VR/Unf0und_VR
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57002
+50383
 Successfully changed project path to: D:/FearsumStudio/Unf0und_VR/Unf0und_VR
 D:/FearsumStudio/Unf0und_VR/Unf0und_VR
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,8 +47,8 @@ D:/FearsumStudio/Unf0und_VR/Unf0und_VR
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 136.79 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.77 ms.
+Refreshing native plugins compatible for Editor in 143.31 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.91 ms.
 Initialize engine version: 2021.3.9f1 (ad3870b89536)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path D:/FearsumStudio/Unf0und_VR/Unf0und_VR/Assets
@@ -63,53 +63,54 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56704
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56696
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.008569 seconds.
+Registered in 0.008156 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 132.00 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.17 ms.
+Refreshing native plugins compatible for Editor in 133.88 ms, found 11 plugins.
+Preloading 1 native plugins for Editor in 0.05 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.742 seconds
+- Completed reload, in  0.767 seconds
 Domain Reload Profiling:
-	ReloadAssembly (743ms)
-		BeginReloadAssembly (77ms)
+	ReloadAssembly (768ms)
+		BeginReloadAssembly (80ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (549ms)
-			LoadAssemblies (76ms)
+		EndReloadAssembly (565ms)
+			LoadAssemblies (78ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (105ms)
+			SetupTypeCache (109ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (28ms)
-			SetupLoadedEditorAssemblies (358ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (365ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (64ms)
+				InitializePlatformSupportModulesInManaged (66ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (132ms)
-				BeforeProcessingInitializeOnLoad (1ms)
-				ProcessInitializeOnLoadAttributes (109ms)
-				ProcessInitializeOnLoadMethodAttributes (50ms)
+				RefreshPlugins (134ms)
+				BeforeProcessingInitializeOnLoad (4ms)
+				ProcessInitializeOnLoadAttributes (110ms)
+				ProcessInitializeOnLoadMethodAttributes (51ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007520 seconds.
+Registered in 0.007567 seconds.
+Android Extension - Scanning For ADB Devices 697 ms
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image D:\FearsumStudio\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image D:\FearsumStudio\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 137.10 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 137.01 ms, found 11 plugins.
 Preloading 1 native plugins for Editor in 0.06 ms.
 Package Manager log level set to [2]
 System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
@@ -128,30 +129,30 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.788 seconds
+- Completed reload, in  1.721 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1789ms)
-		BeginReloadAssembly (211ms)
+	ReloadAssembly (1722ms)
+		BeginReloadAssembly (101ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (7ms)
+			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (125ms)
-		EndReloadAssembly (1455ms)
-			LoadAssemblies (85ms)
+			CreateAndSetChildDomain (20ms)
+		EndReloadAssembly (1492ms)
+			LoadAssemblies (81ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (348ms)
+			SetupTypeCache (349ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (85ms)
-			SetupLoadedEditorAssemblies (867ms)
+			RebuildScriptCaches (90ms)
+			SetupLoadedEditorAssemblies (894ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (16ms)
+				InitializePlatformSupportModulesInManaged (15ms)
 				SetLoadedEditorAssemblies (0ms)
 				RefreshPlugins (137ms)
-				BeforeProcessingInitializeOnLoad (143ms)
-				ProcessInitializeOnLoadAttributes (454ms)
-				ProcessInitializeOnLoadMethodAttributes (107ms)
-				AfterProcessingInitializeOnLoad (10ms)
+				BeforeProcessingInitializeOnLoad (144ms)
+				ProcessInitializeOnLoadAttributes (477ms)
+				ProcessInitializeOnLoadMethodAttributes (112ms)
+				AfterProcessingInitializeOnLoad (9ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (6ms)
@@ -159,12 +160,12 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.03 seconds
-Refreshing native plugins compatible for Editor in 1.46 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 1.39 ms, found 11 plugins.
 Preloading 1 native plugins for Editor in 0.06 ms.
-Unloading 6565 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 79 unused Assets / (1.2 MB). Loaded Objects now: 7001.
-Memory consumption went from 261.5 MB to 260.3 MB.
-Total: 6.788500 ms (FindLiveObjects: 0.868500 ms CreateObjectMapping: 0.243800 ms MarkObjects: 5.089200 ms  DeleteObjects: 0.585600 ms)
+Unloading 6566 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 79 unused Assets / (1.2 MB). Loaded Objects now: 7003.
+Memory consumption went from 261.8 MB to 260.6 MB.
+Total: 6.927200 ms (FindLiveObjects: 0.877900 ms CreateObjectMapping: 0.296700 ms MarkObjects: 5.194200 ms  DeleteObjects: 0.557100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -176,225 +177,3 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 10099.562372 seconds.
-  path: Assets/AutoHand/Examples/Scenes/XR/Prefabs
-  artifactKey: Guid(6471cb74f8fbe084cba4f8e875e5c2e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AutoHand/Examples/Scenes/XR/Prefabs using Guid(6471cb74f8fbe084cba4f8e875e5c2e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4af495ebba620a61db3670f8cd7bdc4') in 0.021279 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Samples/Universal RP/12.1.7/URP Package Samples/CameraStacking/3D Skybox/Prefabs
-  artifactKey: Guid(71b71292ab37ef2479267c7e3dbabc05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Samples/Universal RP/12.1.7/URP Package Samples/CameraStacking/3D Skybox/Prefabs using Guid(71b71292ab37ef2479267c7e3dbabc05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5087e26ab3ca8d78d7e9648f9e170f2d') in 0.001191 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 14.407655 seconds.
-  path: Assets/Prefabs/Tutorial
-  artifactKey: Guid(e02f9d8b208f22941a47c05705d2c52b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Tutorial using Guid(e02f9d8b208f22941a47c05705d2c52b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4200baaf470ca2122e426a27a198081b') in 0.005276 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 5.823854 seconds.
-  path: Assets/Prefabs/Tutorial/TutorialLobby.prefab
-  artifactKey: Guid(1df316dcb7f72d4479ab9fef48449fa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Tutorial/TutorialLobby.prefab using Guid(1df316dcb7f72d4479ab9fef48449fa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4868a44fe6e031f60e459b71d7b68914') in 0.420646 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 197.754936 seconds.
-  path: Assets/Models/Tutorial/Assets/Projector/filmoscope_low_metallic.jpg
-  artifactKey: Guid(1fbb3302bfa3c01419b33ab282360690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Projector/filmoscope_low_metallic.jpg using Guid(1fbb3302bfa3c01419b33ab282360690) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6206e87050f7dc9b8baa83877e535b89') in 0.041855 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_metallic.jpg
-  artifactKey: Guid(34f92867373ff6d4a831646dd006b39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_metallic.jpg using Guid(34f92867373ff6d4a831646dd006b39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6df5bbb9e25467686b7f7540383c0cd') in 0.016777 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.001607 seconds.
-  path: Assets/Models/Tutorial/Assets/Projector/filmoscope_low_normal.png
-  artifactKey: Guid(0c697000bb462574d83edf4cd725fbfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Projector/filmoscope_low_normal.png using Guid(0c697000bb462574d83edf4cd725fbfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a436e742fa2f397075b6821d7f953f52') in 0.015336 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.009831 seconds.
-  path: Assets/Models/Tutorial/Assets/Room_d.png
-  artifactKey: Guid(4fe71297a4f30724fb530cd125bd8430) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Room_d.png using Guid(4fe71297a4f30724fb530cd125bd8430) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cee7a93a62cb4fbfba317aa52d6ec8cc') in 0.012351 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1_AO.jpg
-  artifactKey: Guid(ffd8c96896a0b7f4c91bf0ca29860452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1_AO.jpg using Guid(ffd8c96896a0b7f4c91bf0ca29860452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '323c30f6aa438974a64fadf4843cd327') in 0.010766 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/KevinCastejon/ConeMesh/Core/Editor/ConeEditor.cs
-  artifactKey: Guid(567af5490f3f7c745a71ce0d3c6aa817) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/KevinCastejon/ConeMesh/Core/Editor/ConeEditor.cs using Guid(567af5490f3f7c745a71ce0d3c6aa817) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0511eb9e73ce382230f7b62b2725aa95') in 0.002697 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Models/Tutorial/Assets/Projector/filmoscope_low_albedo.jpg
-  artifactKey: Guid(ab1a871c4c1c85a438a70613b3c87a84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Projector/filmoscope_low_albedo.jpg using Guid(ab1a871c4c1c85a438a70613b3c87a84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb37ec33dd02093afee7368362a5e4c4') in 0.010118 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000572 seconds.
-  path: Assets/Models/Tutorial/Assets/Desk/source/fantasyOldDesk.fbx
-  artifactKey: Guid(9b62203199d92c4479830580c0593449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Desk/source/fantasyOldDesk.fbx using Guid(9b62203199d92c4479830580c0593449) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29d234a17b111410c01f4b27e05c4b01') in 0.201262 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000032 seconds.
-  path: Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1.mat
-  artifactKey: Guid(829602af74f064145baf01a5f36a5641) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1.mat using Guid(829602af74f064145baf01a5f36a5641) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56250138760bc8d2b584f8db57995cef') in 0.052530 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000031 seconds.
-  path: Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1_metallic.jpg
-  artifactKey: Guid(e04040a06fab0394abebf3825ebd098a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1_metallic.jpg using Guid(e04040a06fab0394abebf3825ebd098a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cadfe36b7e9815a1970fb80daf8092ed') in 0.010318 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Models/Tutorial/Assets/PropsBaked.mat
-  artifactKey: Guid(986a4307afa5b064d9ba60d13368b795) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/PropsBaked.mat using Guid(986a4307afa5b064d9ba60d13368b795) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe352608110becf17ca0685a20f8a886') in 0.017432 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Models/Tutorial/Assets/Projector/projector screens asset.fbx
-  artifactKey: Guid(35cd5fe506506084fbeac78766d0ff3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Projector/projector screens asset.fbx using Guid(35cd5fe506506084fbeac78766d0ff3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac90a42f643d95387d0cda699290692f') in 0.061331 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000254 seconds.
-  path: Assets/Fonts/TwinMarker SDF.asset
-  artifactKey: Guid(0c80294ad91b9a745866bf5303ba9dc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Fonts/TwinMarker SDF.asset using Guid(0c80294ad91b9a745866bf5303ba9dc4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c111ade9b7a557a88237583e5a50ae65') in 0.034791 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/KevinCastejon/ConeMesh/Core/Cone.cs
-  artifactKey: Guid(937e112073adb0b47afd6614fb11af14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/KevinCastejon/ConeMesh/Core/Cone.cs using Guid(937e112073adb0b47afd6614fb11af14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f32499bed896633f98e6f8cdae8b2719') in 0.000995 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Models/Tutorial/Assets/Props_e.png
-  artifactKey: Guid(762d92479b240a94ca1aef86dec37aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Props_e.png using Guid(762d92479b240a94ca1aef86dec37aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '073fdec012fd028ccb4488b3b74a24ea') in 0.011120 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.001550 seconds.
-  path: Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_albedo.jpg
-  artifactKey: Guid(d9513d548df32c8408a1b871f5f5c642) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_albedo.jpg using Guid(d9513d548df32c8408a1b871f5f5c642) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e4a7a1ab1505686d4b19440289c0a022') in 0.010717 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000749 seconds.
-  path: Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_roughness.jpg
-  artifactKey: Guid(d402c0393fff32346a973f7f8e5f24b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_roughness.jpg using Guid(d402c0393fff32346a973f7f8e5f24b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef7ef8203bf9f9a9bfa5d2cffea90bac') in 0.011489 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.003342 seconds.
-  path: Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_AO.jpg
-  artifactKey: Guid(5ad7bd38a722e1e49ac44e3d6ee0004a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_AO.jpg using Guid(5ad7bd38a722e1e49ac44e3d6ee0004a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e237ad7d7c21684ee11dbeee8ee49a4') in 0.010490 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000021 seconds.
-  path: Assets/Models/Tutorial/Assets/Projector/FilmSoft 2.mat
-  artifactKey: Guid(24978bc8c924afc489a3c418b7984015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Projector/FilmSoft 2.mat using Guid(24978bc8c924afc489a3c418b7984015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37cdb06a5854cf8c3d382431ef197cb1') in 0.011045 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.005934 seconds.
-  path: Assets/Models/Tutorial/Assets/Props_d.png
-  artifactKey: Guid(da27f8db3c6482c40987a94fee6039a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Props_d.png using Guid(da27f8db3c6482c40987a94fee6039a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc3e1887d2c48156f5d1ae520c95747e') in 0.012064 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000161 seconds.
-  path: Assets/Models/Tutorial/Assets/Projector/Filmoscope_low.fbx
-  artifactKey: Guid(2ba8eb87f44532442ae558f7861c4500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Projector/Filmoscope_low.fbx using Guid(2ba8eb87f44532442ae558f7861c4500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '605a9e9eac495329476f556dc2f6bb20') in 0.025405 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Models/Tutorial/Assets/RoomBaked.mat
-  artifactKey: Guid(4ce4815932cc0d844a91726b64f37ecd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/RoomBaked.mat using Guid(4ce4815932cc0d844a91726b64f37ecd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '909821d25175f302c3e5eaf1fdb313b8') in 0.013298 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Models/Tutorial/Assets/VR Loft Art Gallery.fbx
-  artifactKey: Guid(5a2efd7fbfb076f4e9e3321218b534f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/VR Loft Art Gallery.fbx using Guid(5a2efd7fbfb076f4e9e3321218b534f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '600fa24b1ee87336d91c4702db33c18b') in 0.054246 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Models/Tutorial/Assets/Projector/filmoscope_low.mat
-  artifactKey: Guid(ca5155135267dbb41ac2836a64793adc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Projector/filmoscope_low.mat using Guid(ca5155135267dbb41ac2836a64793adc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89f2f4053b12f821f87f23cec4dcb5e8') in 0.018119 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000029 seconds.
-  path: Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1_roughness.jpg
-  artifactKey: Guid(7025acc63b3a7334ba8b525263f2803b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1_roughness.jpg using Guid(7025acc63b3a7334ba8b525263f2803b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27a866015e86bfbc73814118ddcb26b5') in 0.010244 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.002620 seconds.
-  path: Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_normal.png
-  artifactKey: Guid(99d039a367a24c741ade68999ef2fb4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Desk/source/textures2k/M_FantasyDesk_normal.png using Guid(99d039a367a24c741ade68999ef2fb4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b1907e03fc190955ed0f9d5dae02291') in 0.011888 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000954 seconds.
-  path: Assets/Models/Tutorial/Assets/Projector/filmoscope_low_roughness.jpg
-  artifactKey: Guid(0a3a3080d6cf641459c73d75dfc63875) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Projector/filmoscope_low_roughness.jpg using Guid(0a3a3080d6cf641459c73d75dfc63875) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c4f07aab3b5c530635ca6f6b75ebf29') in 0.010324 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Models/Tutorial/Assets/Desk/source/M_FantasyDesk.001.mat
-  artifactKey: Guid(ff385c029704bc14799d77153205e8ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Desk/source/M_FantasyDesk.001.mat using Guid(ff385c029704bc14799d77153205e8ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98f138fa4df846e0617b9ff5f40e35e2') in 0.020883 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Models/Tutorial/Assets/Projector/FilmSoft.mat
-  artifactKey: Guid(c8374ab907ada4f4b885b5f29064bac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Projector/FilmSoft.mat using Guid(c8374ab907ada4f4b885b5f29064bac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d9b145aaa19d1661f4befee1dc4c8b1') in 0.018015 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000193 seconds.
-  path: Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1_normal.png
-  artifactKey: Guid(15fd5464680f2954ca847ebf3a86253c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/textures/lambert1_normal.png using Guid(15fd5464680f2954ca847ebf3a86253c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '11cf41b744ac5074a591d7fe5570a254') in 0.012075 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/KevinCastejon/ConeMesh/Core/ConeNamespaceExporter.cs
-  artifactKey: Guid(58ef1c47bd3a93a408c2cd65952a30fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/KevinCastejon/ConeMesh/Core/ConeNamespaceExporter.cs using Guid(58ef1c47bd3a93a408c2cd65952a30fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '735b312f966d8c1b48ae99f2cd40c7ee') in 0.001040 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Scenes/Scripts/Tutorial/OpenKeyboard.cs
-  artifactKey: Guid(396bdb03d28e0154781dfb2925dd78bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Scripts/Tutorial/OpenKeyboard.cs using Guid(396bdb03d28e0154781dfb2925dd78bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '415196008e386be291dc698e4408edd6') in 0.001031 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000027 seconds.
-  path: Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/whiteboard.dae
-  artifactKey: Guid(e56f153fd392182409e6c5bd6b5e8954) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Tutorial/Assets/Whiteboard/source/model/model/whiteboard.dae using Guid(e56f153fd392182409e6c5bd6b5e8954) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9bb62d7cf6d49c3ac1c66abed686e8f4') in 0.059288 seconds 
