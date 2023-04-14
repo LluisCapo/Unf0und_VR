@@ -30,10 +30,10 @@ public class PoolingManager : MonoBehaviour
 					if (_instance == null)
 					{
 						_instance = this;
-						//DontDestroyOnLoad(gameObject); //Activar esto si se utiliza ESTE pooling en otras escenas
+						DontDestroyOnLoad(gameObject); //Activar esto si se utiliza ESTE pooling en otras escenas
 					}
-					//else
-						//Destroy(this);
+		//else
+			//Destroy(this);
 
 					for(int i = 0; i < pooledLists.Count; i++)
 					{
