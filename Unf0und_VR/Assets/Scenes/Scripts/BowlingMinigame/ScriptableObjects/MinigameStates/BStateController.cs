@@ -59,6 +59,7 @@ public class BStateController : MonoBehaviour
         _currentState = firstState;
         _currentState.Init(this);
     }
+
     public IEnumerator StartWaiting(BState _state, float _seconds)
     {
         yield return new WaitForSeconds(_seconds);

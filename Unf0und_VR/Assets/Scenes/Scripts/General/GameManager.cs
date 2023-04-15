@@ -24,9 +24,10 @@ public class GameManager : MonoBehaviour
 
     #region Variables
     [Header("AutoHand Player"), SerializeField] AutoHandPlayer autoHandPlayer;
-    [SerializeField] MinigamesManager minigames; //Ported in from MinigamesManager
+    [SerializeField, Header("Minigames manager")] MinigamesManager minigames; //Ported in from MinigamesManager
     [SerializeField] GameObject directionalLight; //Ported in from the directional light in the park scene
     [Header("Camera Efect"), SerializeField] GameObject closeEyes; //Ported in from the camera child
+    [Header("Data base manager"), SerializeField] BDManager bdManager;
     [Header("Levels"), SerializeField]
     public GameObject parkObject;
     public GameObject firstLvlObject;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     #region Getters && Setters
     public MinigamesManager MinigamesManager { get { return minigames; } set { minigames = value; } }
+    public BDManager BDManager { get { return bdManager; } }
     #endregion 
 
     public void SetInParkScene()
@@ -53,6 +55,13 @@ public class GameManager : MonoBehaviour
         autoHandPlayer.GetComponent<Rigidbody>().velocity = Vector3.zero;
         StartCoroutine(waitToChange());
     }
+
+    public void StartBDServer()
+    {
+        if (bdManager.CurrentGameInfo.email[0].Length > 2)
+            bdManager.BDStart();
+    }
+
     IEnumerator waitToChange()
     {
         yield return new WaitForSeconds(1.5f);

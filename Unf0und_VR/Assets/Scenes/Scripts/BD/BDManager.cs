@@ -9,17 +9,46 @@ using UnityEngine.SceneManagement;
 
 public class BDManager : MonoBehaviour
 {
-    [SerializeField] BDInfoManager infoToInsert;
-    [SerializeField] BDInfoManager currentBDInfo;
+    public BDInfoManager CurrentGameInfo;
+    public BDInfoManager InfoFromTheServer;
 
     BDInfoManager _BDInfo;
 
-    private void Update()
+    public void BDStart()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-            BdInsetSelect(infoToInsert.nick[0], infoToInsert.email[0], infoToInsert.score[0]);
+        String data;
+        IPHostEntry host = Dns.GetHostEntry("localhost");
+        IPAddress ipAddress = host.AddressList[0];
+        IPEndPoint remoteEP = new IPEndPoint(ipAddress, 9000);
+        Socket reciver = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+        try
+        {
+            reciver.Connect(remoteEP);
+            NetworkStream ns = new NetworkStream(reciver);
+            StreamReader sr = new StreamReader(ns);
+            StreamWriter sw = new StreamWriter(ns);
+            sw.WriteLine($"{CurrentGameInfo.nick[0]}/{CurrentGameInfo.email[0]}/{CurrentGameInfo.score[0]}");
+            sw.Flush();
+
+            _BDInfo = null;
+
+            while ((data = sr.ReadLine()) != null)
+                _BDInfo = JsonConvert.DeserializeObject<BDInfoManager>(data);
+
+            InfoFromTheServer.nick = _BDInfo.nick;
+            InfoFromTheServer.email = _BDInfo.email;
+            InfoFromTheServer.score = _BDInfo.score;
+
+            reciver.Close();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+
     }
-    private void BdInsetSelect(String _nick, String _email, String _score)
+
+    /*private void BdInsetSelect(String _nick, String _email, String _score)
     {
         String data;
         IPHostEntry host = Dns.GetHostEntry("localhost");
@@ -51,5 +80,6 @@ public class BDManager : MonoBehaviour
             Debug.Log(e.Message);
         }
 
-    }
+    }*/
+
 }
