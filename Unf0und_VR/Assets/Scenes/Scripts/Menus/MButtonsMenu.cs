@@ -7,7 +7,7 @@ public class MButtonsMenu : MonoBehaviour
 {
     public void NweGame()
     {
-        SceneManager.LoadScene("Alpha");
+        SceneManager.LoadScene("Beta");
     }
 
     public void Exit()
@@ -17,5 +17,10 @@ public class MButtonsMenu : MonoBehaviour
         #else
                          Application.Quit();
         #endif
+    }
+
+    public void PlayAgain()
+    {
+        SceneManager.LoadScene("Raul");
     }
 }

@@ -15,7 +15,7 @@ D:/Unf0und_VR/Unf0und_VR
 -logFile
 Logs/AssetImportWorker5.log
 -srvPort
-52378
+54496
 Successfully changed project path to: D:/Unf0und_VR/Unf0und_VR
 D:/Unf0und_VR/Unf0und_VR
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,8 +47,8 @@ D:/Unf0und_VR/Unf0und_VR
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 221.38 ms, found 13 plugins.
-Preloading 1 native plugins for Editor in 1.42 ms.
+Refreshing native plugins compatible for Editor in 570.93 ms, found 13 plugins.
+Preloading 1 native plugins for Editor in 20.85 ms.
 Initialize engine version: 2021.3.9f1 (ad3870b89536)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path D:/Unf0und_VR/Unf0und_VR/Assets
@@ -63,303 +63,45 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56476
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56888
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.014123 seconds.
+Registered in 0.020157 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 205.64 ms, found 13 plugins.
-Preloading 1 native plugins for Editor in 0.27 ms.
+Refreshing native plugins compatible for Editor in 194.02 ms, found 13 plugins.
+Preloading 1 native plugins for Editor in 0.25 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.149 seconds
+- Completed reload, in  1.191 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1151ms)
-		BeginReloadAssembly (139ms)
+	ReloadAssembly (1191ms)
+		BeginReloadAssembly (189ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
 		EndReloadAssembly (822ms)
-			LoadAssemblies (135ms)
+			LoadAssemblies (187ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (163ms)
+			SetupTypeCache (156ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (40ms)
-			SetupLoadedEditorAssemblies (533ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (520ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (90ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (206ms)
+				InitializePlatformSupportModulesInManaged (95ms)
+				SetLoadedEditorAssemblies (3ms)
+				RefreshPlugins (195ms)
 				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (161ms)
-				ProcessInitializeOnLoadMethodAttributes (73ms)
+				ProcessInitializeOnLoadAttributes (149ms)
+				ProcessInitializeOnLoadMethodAttributes (76ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.063328 seconds.
-Android Extension - Scanning For ADB Devices 809 ms
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Symbol file LoadedFromMemory doesn't match image D:\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 273.07 ms, found 13 plugins.
-Preloading 1 native plugins for Editor in 0.09 ms.
-Package Manager log level set to [2]
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
-  at Unity.XR.Oculus.OculusLoader.AssetPathToAbsolutePath (System.String assetPath) [0x0003d] in D:\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:271 
-  at Unity.XR.Oculus.OculusLoader.EditorLoadOVRPlugin () [0x0007b] in D:\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:256 
-  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
-  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
-   --- End of inner exception stack trace ---
-  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
-  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
-  at UnityEditor.EditorAssemblies.ProcessInitializeOnLoadMethodAttributes () [0x000a5] in <0d6ce211ebbc47e1a35a84c3672ff58f>:0 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-Mono: successfully reloaded assembly
-- Completed reload, in  2.771 seconds
-Domain Reload Profiling:
-	ReloadAssembly (2772ms)
-		BeginReloadAssembly (193ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (9ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (35ms)
-		EndReloadAssembly (2379ms)
-			LoadAssemblies (188ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (553ms)
-			ReleaseScriptCaches (2ms)
-			RebuildScriptCaches (129ms)
-			SetupLoadedEditorAssemblies (1445ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (20ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (273ms)
-				BeforeProcessingInitializeOnLoad (205ms)
-				ProcessInitializeOnLoadAttributes (727ms)
-				ProcessInitializeOnLoadMethodAttributes (201ms)
-				AfterProcessingInitializeOnLoad (17ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (11ms)
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 4.84 ms, found 13 plugins.
-Preloading 1 native plugins for Editor in 0.19 ms.
-Unloading 6723 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 82 unused Assets / (1.2 MB). Loaded Objects now: 7154.
-Memory consumption went from 264.7 MB to 263.6 MB.
-Total: 15.897300 ms (FindLiveObjects: 1.027100 ms CreateObjectMapping: 0.705100 ms MarkObjects: 12.768900 ms  DeleteObjects: 1.393600 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 6620.950651 seconds.
-  path: Assets/Prefabs/Pool
-  artifactKey: Guid(ef4cdda9f7170e34eb9b7484d1bec88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Pool using Guid(ef4cdda9f7170e34eb9b7484d1bec88f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c2769e88c2b864197f97169e3583462') in 0.042033 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000047 seconds.
-  path: Assets/Prefabs/Pool/Un_Pool_Up.fbx
-  artifactKey: Guid(1cc93c802949c0e419e43721ce1e4533) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Pool/Un_Pool_Up.fbx using Guid(1cc93c802949c0e419e43721ce1e4533) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ef7e14a378fa8c4f1153dc60589d0d5e') in 1.544077 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 394.474155 seconds.
-  path: Assets/Textures/Pool/Pared/paredes_abajoUW_Material_AlbedoTransparency.tga
-  artifactKey: Guid(ee286a1f939081f45998f935c130dcb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Pared/paredes_abajoUW_Material_AlbedoTransparency.tga using Guid(ee286a1f939081f45998f935c130dcb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8eb750d7a9e51d08814faf3745d1de4') in 0.397741 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000068 seconds.
-  path: Assets/Textures/Pool/Pared/paredes_abajoUW_Material_Normal.tga
-  artifactKey: Guid(b1462bd98d00e064eadb0c459dbd1705) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Pared/paredes_abajoUW_Material_Normal.tga using Guid(b1462bd98d00e064eadb0c459dbd1705) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f39b9d6587e5f8da764b76404d0d90c1') in 0.147751 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 32.132204 seconds.
-  path: Assets/Textures/Pool/Pared/paredes_UP/paredes_arriba_Ceramic_MaskMap.tga
-  artifactKey: Guid(504af19fd0c706341ba7da937fdb0881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Pared/paredes_UP/paredes_arriba_Ceramic_MaskMap.tga using Guid(504af19fd0c706341ba7da937fdb0881) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b990c7fca06f74d335c907ffff6f0532') in 0.083912 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.001726 seconds.
-  path: Assets/Textures/Pool/Pared/paredes_UP/paredes_arriba_Ceramic_Specular.tga
-  artifactKey: Guid(5b791d4593fcf4b499ac854e9c95d26f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Pared/paredes_UP/paredes_arriba_Ceramic_Specular.tga using Guid(5b791d4593fcf4b499ac854e9c95d26f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6d668a7ced0c1698a55971330e56f5f') in 0.047325 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 28.441116 seconds.
-  path: Assets/Materials/Pool/Pared.mat
-  artifactKey: Guid(aa1a6c0195a56b147b626d2e17600ec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Pool/Pared.mat using Guid(aa1a6c0195a56b147b626d2e17600ec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '777f33be5f0302d5519a60935d70a193') in 0.277430 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000040 seconds.
-  path: Assets/Materials/Pool/Suelo.mat
-  artifactKey: Guid(b1ac42144f0504845949e6b04526df3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Pool/Suelo.mat using Guid(b1ac42144f0504845949e6b04526df3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '227d78bd081d5d83e288f74ddee6310f') in 0.260343 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 158.834326 seconds.
-  path: Assets/AutoHand/Examples/Materials/Particle.mat
-  artifactKey: Guid(27689c074f0479347a04bb3c3170e09d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/AutoHand/Examples/Materials/Particle.mat using Guid(27689c074f0479347a04bb3c3170e09d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3da545f2b844636f653be4ac0b39bdc') in 0.533936 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 54.677136 seconds.
-  path: Assets/Materials/Pool/Suelo_UP.mat
-  artifactKey: Guid(93e67dd5413569b4592d42770373063c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Pool/Suelo_UP.mat using Guid(93e67dd5413569b4592d42770373063c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '66d86383f600687b799f8752686d5b83') in 0.045109 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 23.359372 seconds.
-  path: Assets/Textures/Pool/Suelo/suelos_abajo_Material_Normal.tga
-  artifactKey: Guid(48c2716fd0828444f9d9500e44b25e10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Suelo/suelos_abajo_Material_Normal.tga using Guid(48c2716fd0828444f9d9500e44b25e10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d3e6145cc4a3c25381400ae41258d32') in 0.110803 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000041 seconds.
-  path: Assets/Textures/Pool/Suelo/suelos_abajo_Material_SpecularSmoothness.tga
-  artifactKey: Guid(e24a8a14318377845a373e0b6e680d0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Suelo/suelos_abajo_Material_SpecularSmoothness.tga using Guid(e24a8a14318377845a373e0b6e680d0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abd1e845f10cbe4f74a251f79ceb9da4') in 0.059074 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 22.695486 seconds.
-  path: Assets/Textures/Pool/Suelo/sueloUP/suelos_arriba_Ceramic_MaskMap.tga
-  artifactKey: Guid(54ed7afd286dad24ebccbaebeb743f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Suelo/sueloUP/suelos_arriba_Ceramic_MaskMap.tga using Guid(54ed7afd286dad24ebccbaebeb743f5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6f956b8f3e885d75970f8ffc5ea2b9d') in 0.070492 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000048 seconds.
-  path: Assets/Textures/Pool/Suelo/sueloUP/suelos_arriba_Ceramic_Specular.tga
-  artifactKey: Guid(048eaf54da8d1824c9ef044269fd7da0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Suelo/sueloUP/suelos_arriba_Ceramic_Specular.tga using Guid(048eaf54da8d1824c9ef044269fd7da0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '481781c3ebc62436831478f4172fdd2e') in 0.054858 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 113.816988 seconds.
-  path: Assets/Materials/Pool/Techo_UP.mat
-  artifactKey: Guid(1ddff9a875e9b214b9c168e02f55e8a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Materials/Pool/Techo_UP.mat using Guid(1ddff9a875e9b214b9c168e02f55e8a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd34faf0554ab8586ddb86d097a27d194') in 0.049958 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 10.322080 seconds.
-  path: Assets/Textures/Pool/Techo/techo_Material_Normal.tga
-  artifactKey: Guid(c75c3942c63d3794dbd9c079bb6fb1c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Techo/techo_Material_Normal.tga using Guid(c75c3942c63d3794dbd9c079bb6fb1c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '946a584190164c32bda55c7a4fc9f07c') in 0.102170 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000064 seconds.
-  path: Assets/Textures/Pool/Techo/techo_Material_SpecularSmoothness.tga
-  artifactKey: Guid(99b5d41549e4f484d927a6ae3dac3423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Techo/techo_Material_SpecularSmoothness.tga using Guid(99b5d41549e4f484d927a6ae3dac3423) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff04ea0adc52acb47b30adc00b4bfff3') in 0.064148 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 22.938814 seconds.
-  path: Assets/Textures/Pool/Techo/techo/techos_arriba_Ceramic_MaskMap.tga
-  artifactKey: Guid(b54afffcd68d03e48bcb7a4e7d366500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Techo/techo/techos_arriba_Ceramic_MaskMap.tga using Guid(b54afffcd68d03e48bcb7a4e7d366500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82826c1967988165b4b69e8b06812825') in 0.091340 seconds 
-========================================================================
-Received Import Request.
-  Time since last request: 0.000059 seconds.
-  path: Assets/Textures/Pool/Techo/techo/techos_arriba_Ceramic_Specular.tga
-  artifactKey: Guid(ea4289f1a0b187e4ab464ebe6f7160a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Textures/Pool/Techo/techo/techos_arriba_Ceramic_Specular.tga using Guid(ea4289f1a0b187e4ab464ebe6f7160a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbf82f2fa8e7318a56884583c835238f') in 0.053618 seconds 
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.012849 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image D:\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
-Symbol file LoadedFromMemory doesn't match image D:\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 3.19 ms, found 13 plugins.
-Preloading 1 native plugins for Editor in 0.12 ms.
-System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
-  at Unity.XR.Oculus.OculusLoader.AssetPathToAbsolutePath (System.String assetPath) [0x0003d] in D:\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:271 
-  at Unity.XR.Oculus.OculusLoader.EditorLoadOVRPlugin () [0x0007b] in D:\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:256 
-  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
-  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
-   --- End of inner exception stack trace ---
-  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
-  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
-  at UnityEditor.EditorAssemblies.ProcessInitializeOnLoadMethodAttributes () [0x000a5] in <0d6ce211ebbc47e1a35a84c3672ff58f>:0 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
-
-Mono: successfully reloaded assembly
-- Completed reload, in  4.072 seconds
-Domain Reload Profiling:
-	ReloadAssembly (4073ms)
-		BeginReloadAssembly (511ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (62ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (1ms)
-			CreateAndSetChildDomain (146ms)
-		EndReloadAssembly (3328ms)
-			LoadAssemblies (1004ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (637ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (113ms)
-			SetupLoadedEditorAssemblies (1174ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (34ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (3ms)
-				BeforeProcessingInitializeOnLoad (179ms)
-				ProcessInitializeOnLoadAttributes (787ms)
-				ProcessInitializeOnLoadMethodAttributes (155ms)
-				AfterProcessingInitializeOnLoad (14ms)
-				EditorAssembliesLoaded (0ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (34ms)
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 258.78 ms, found 13 plugins.
-Preloading 1 native plugins for Editor in 0.11 ms.
-Unloading 6554 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 60 unused Assets / (1.2 MB). Loaded Objects now: 7268.
-Memory consumption went from 260.6 MB to 259.5 MB.
-Total: 16.362700 ms (FindLiveObjects: 0.791400 ms CreateObjectMapping: 0.596200 ms MarkObjects: 13.678600 ms  DeleteObjects: 1.294700 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Registered in 0.228346 seconds.
+Android Extension - Scanning For ADB Devices 899 ms
