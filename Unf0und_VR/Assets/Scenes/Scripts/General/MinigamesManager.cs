@@ -7,7 +7,7 @@ public class MinigamesManager : MonoBehaviour
     // 24/02/2023 Lluís Capó
 
     [SerializeField] BStateController bowling;
-    [SerializeField] BasketManager basketManager;
+    [SerializeField] List<BasketManager> basketManager;
 
     #region Bowling
     [SerializeField, Header("Bowling objects to disable")]
@@ -54,7 +54,10 @@ public class MinigamesManager : MonoBehaviour
     {
         bowling.gameObject.SetActive(false);
 
-        basketManager.OnStopBasket();
-        basketManager.BasketStop.Invoke();
+        foreach(BasketManager _basket in basketManager) 
+        {
+            _basket.OnStopBasket();
+            _basket.BasketStop.Invoke();
+        }
     }
 }
