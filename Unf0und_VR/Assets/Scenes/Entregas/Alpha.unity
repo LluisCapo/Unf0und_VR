@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.06666667, g: 0.12941177, b: 0.12941177, a: 0.5686275}
   m_FogMode: 2
   m_FogDensity: 0.2
@@ -2524,6 +2524,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bowling: {fileID: 957806962}
   basketManager: {fileID: 626128051}
+  objectsToDisable: []
+  betaHabitation: {fileID: 0}
 --- !u!4 &200092916
 Transform:
   m_ObjectHideFlags: 0
@@ -2701,6 +2703,7 @@ MonoBehaviour:
   minigames: {fileID: 200092915}
   directionalLight: {fileID: 1156217262}
   closeEyes: {fileID: 1066515921}
+  bdManager: {fileID: 0}
   parkObject: {fileID: 1525139508}
   firstLvlObject: {fileID: 234217091}
 --- !u!4 &226045568
@@ -10130,6 +10133,8 @@ MonoBehaviour:
   - {fileID: 505145447}
   noneScoredMat: {fileID: 2100000, guid: fe0e5766370ef5242bbf8ba21811e0e2, type: 2}
   scoredMat: {fileID: 2100000, guid: 20485c94d3bc1fb40bf82165388660aa, type: 2}
+  ballInstantiate: {fileID: 0}
+  ballReference: {fileID: 0}
 --- !u!4 &626128052
 Transform:
   m_ObjectHideFlags: 0
