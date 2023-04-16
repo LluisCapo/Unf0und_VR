@@ -32,7 +32,7 @@ public class MinigamesManager : MonoBehaviour
         foreach (GameObject obj in objectsToDisable) { obj.SetActive(false); }
         betaHabitation.SetActive(true);
 
-        GameManager.Instance.StartBDServer();
+        //GameManager.Instance.StartBDServer();
 
         bowling.gameObject.SetActive(false);
     }

@@ -21,18 +21,19 @@ public class BCanvasController : MonoBehaviour
     }
     public void NextShot()
     {
-        if(_index++ < shotList.Count)
+        if(_index++ < 5)
         {
             _currentShot = shotList[_index];
             Debug.Log("NextShot");
         }
         else
         {
-            int _score = 0;
-            foreach (BShotCanvas shot in shotList) _score += int.Parse(shot.total.text);
-
-            GameManager.Instance.BDManager.CurrentGameInfo.score[0] = _score.ToString();
             GameManager.Instance.MinigamesManager.StopBowling();
+            //int _score = 0;
+            //foreach (BShotCanvas shot in shotList) _score += int.Parse(shot.total.text);
+
+            //GameManager.Instance.BDManager.CurrentGameInfo.score[0] = _score.ToString();
+            //GameManager.Instance.MinigamesManager.StopBowling();
         }
     }
 }
