@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("Minigames manager")] MinigamesManager minigames; //Ported in from MinigamesManager
     [SerializeField] GameObject directionalLight; //Ported in from the directional light in the park scene
     [Header("Camera Efect"), SerializeField] GameObject closeEyes; //Ported in from the camera child
+    [Header("Fog Colors")]
+    public Color parkFog;
+    public float parkFogDensity;
+    public Color gameFog;
+    public float gameFogDensity;
     [Header("Data base manager"), SerializeField] BDManager bdManager;
     [Header("Levels"), SerializeField]
     public GameObject parkObject;
@@ -40,11 +45,17 @@ public class GameManager : MonoBehaviour
     public BDManager BDManager { get { return bdManager; } }
     #endregion 
 
+    private void Start()
+    {
+        SetInParkScene();
+    }
+
     public void SetInParkScene()
     {
         parkObject.SetActive(true);
         firstLvlObject.SetActive(false);
-        RenderSettings.fog = true;
+        RenderSettings.fogColor = parkFog;
+        RenderSettings.fogDensity = parkFogDensity;
         directionalLight.SetActive(true);
     }
     public void ChangeSceneParkToGame()
@@ -68,7 +79,8 @@ public class GameManager : MonoBehaviour
         autoHandPlayer.maxMoveSpeed = playerVelocity;
         parkObject.SetActive(false);
         firstLvlObject.SetActive(true);
-        RenderSettings.fog = false;
+        RenderSettings.fogColor = gameFog;
+        RenderSettings.fogDensity = gameFogDensity;
         directionalLight.SetActive(false);
     }
 }

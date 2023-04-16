@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
@@ -24620,6 +24620,10 @@ MonoBehaviour:
   minigames: {fileID: 0}
   directionalLight: {fileID: 0}
   closeEyes: {fileID: 0}
+  parkFog: {r: 0, g: 0, b: 0, a: 0}
+  parkFogDensity: 0
+  gameFog: {r: 0, g: 0, b: 0, a: 0}
+  gameFogDensity: 0
   bdManager: {fileID: 0}
   parkObject: {fileID: 0}
   firstLvlObject: {fileID: 0}
@@ -32581,6 +32585,10 @@ MonoBehaviour:
   minigames: {fileID: 2022485595}
   directionalLight: {fileID: 0}
   closeEyes: {fileID: 0}
+  parkFog: {r: 0.06666667, g: 0.12941177, b: 0.12941177, a: 0.5686275}
+  parkFogDensity: 0
+  gameFog: {r: 0, g: 0, b: 0, a: 0}
+  gameFogDensity: 0
   bdManager: {fileID: 1441398254}
   parkObject: {fileID: 0}
   firstLvlObject: {fileID: 0}
@@ -80556,7 +80564,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1740189387348653222, guid: 1431cd78aee098c4890c1f6a5766973c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1740189387348653225, guid: 1431cd78aee098c4890c1f6a5766973c, type: 3}
       propertyPath: m_RootOrder
