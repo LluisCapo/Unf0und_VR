@@ -7,4 +7,5 @@ public class MenuLanguage : LanguageBehavior
 {
     public string volumeText;
     public string optionsText;
+    public List<Sprite> imgMenu;
 }
