@@ -126,10 +126,10 @@ GameObject:
   - component: {fileID: 6514533672708591286}
   - component: {fileID: 6514533672708591289}
   - component: {fileID: 6514533672708591290}
-  - component: {fileID: 6514533672708591291}
   - component: {fileID: 6514533672708591284}
   - component: {fileID: 6514533672708591285}
-  - component: {fileID: 568093813089177212}
+  - component: {fileID: 4938344609048328843}
+  - component: {fileID: 5897360823338327366}
   m_Layer: 20
   m_Name: Flashlight
   m_TagString: Untagged
@@ -163,7 +163,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5846681051768656908}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -232,44 +232,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   lockHandOnGrab: 0
---- !u!114 &6514533672708591291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5846681051768656908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 935aaf7da50abf94697c8d70a7a71efe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ignoreMe: 0
-  instantPull: 0
-  grabType: 0
-  archMultiplier: 0.6
-  gravitationVelocity: 1
-  rotate: 1
-  rotationSpeed: 1
-  ignoreHighlights: 1
-  targetedMaterial: {fileID: 0}
-  selectedMaterial: {fileID: 0}
-  showEvents: 1
-  OnPull:
-    m_PersistentCalls:
-      m_Calls: []
-  StartTargeting:
-    m_PersistentCalls:
-      m_Calls: []
-  StopTargeting:
-    m_PersistentCalls:
-      m_Calls: []
-  StartSelecting:
-    m_PersistentCalls:
-      m_Calls: []
-  StopSelecting:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &6514533672708591284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,8 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 244e7e4a8577b0940b0e5b7c85aee81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &568093813089177212
-BoxCollider:
+--- !u!136 &4938344609048328843
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -410,9 +372,48 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.3264451, y: 0.07655889, z: 0.07590389}
-  m_Center: {x: 0.05145955, y: -0.00041745603, z: -0.00088214874}
+  m_Radius: 0.039628766
+  m_Height: 0.34341955
+  m_Direction: 0
+  m_Center: {x: 0.049999997, y: 0, z: 0}
+--- !u!114 &5897360823338327366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5846681051768656908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935aaf7da50abf94697c8d70a7a71efe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreMe: 0
+  instantPull: 1
+  grabType: 0
+  archMultiplier: 0.6
+  gravitationVelocity: 1
+  rotate: 1
+  rotationSpeed: 1
+  ignoreHighlights: 1
+  targetedMaterial: {fileID: 0}
+  selectedMaterial: {fileID: 0}
+  showEvents: 1
+  OnPull:
+    m_PersistentCalls:
+      m_Calls: []
+  StartTargeting:
+    m_PersistentCalls:
+      m_Calls: []
+  StopTargeting:
+    m_PersistentCalls:
+      m_Calls: []
+  StartSelecting:
+    m_PersistentCalls:
+      m_Calls: []
+  StopSelecting:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &6324981374508396108
 GameObject:
   m_ObjectHideFlags: 0

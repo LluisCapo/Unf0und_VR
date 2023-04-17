@@ -27133,7 +27133,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh41764
+  m_Name: pb_Mesh42112
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -32315,7 +32315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6514533672708591286, guid: 65e131d7185d8a54290ac23856bb14c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.139
+      value: 0.2436
       objectReference: {fileID: 0}
     - target: {fileID: 6514533672708591286, guid: 65e131d7185d8a54290ac23856bb14c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32349,9 +32349,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6514533672708591289, guid: 65e131d7185d8a54290ac23856bb14c8, type: 3}
-      propertyPath: m_Mass
-      value: 0.2
+    - target: {fileID: 6514533672708591291, guid: 65e131d7185d8a54290ac23856bb14c8, type: 3}
+      propertyPath: grabType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514533672708591291, guid: 65e131d7185d8a54290ac23856bb14c8, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6626805621252074131, guid: 65e131d7185d8a54290ac23856bb14c8, type: 3}
       propertyPath: m_Layer
@@ -32361,8 +32365,7 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 20
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8120838931989903398, guid: 65e131d7185d8a54290ac23856bb14c8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65e131d7185d8a54290ac23856bb14c8, type: 3}
 --- !u!4 &5130309595215472673
 Transform:
