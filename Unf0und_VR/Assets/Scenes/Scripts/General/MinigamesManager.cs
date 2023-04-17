@@ -34,7 +34,7 @@ public class MinigamesManager : MonoBehaviour
 
         //GameManager.Instance.StartBDServer();
 
-        List<GameObject> bowls = PoolingManager.Instance.GetActiveObject("BowlingBowl");
+        List<GameObject> bowls = PoolingManager.Instance.GetActiveObject("bowlingBowl");
         foreach (GameObject obj in bowls) { obj.SetActive(false); }
         bowling.BallInstantiate.GetBall().SetActive(false);
 
