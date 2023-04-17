@@ -11,7 +11,10 @@ public class BBallInstantiate : MonoBehaviour
     [SerializeField] GameObject _ball;
     [SerializeField] Rigidbody _ballRB;
 
-
+    public GameObject GetBall()
+    {
+        return _ball;
+    }
 
     private void Awake()
     {     

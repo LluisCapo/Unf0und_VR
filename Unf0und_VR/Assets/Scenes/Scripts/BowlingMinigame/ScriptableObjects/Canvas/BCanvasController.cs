@@ -9,7 +9,7 @@ public class BCanvasController : MonoBehaviour
     [Header("Shots List")]
     [SerializeField]
     List<BShotCanvas> shotList;
-    int _index;
+    public int _index;
     BShotCanvas _currentShot;
     #region Getters && Setters
     public BShotCanvas CurrentShot { get { return _currentShot; } }
@@ -21,7 +21,8 @@ public class BCanvasController : MonoBehaviour
     }
     public void NextShot()
     {
-        if(_index++ < 5)
+        _index++;
+        if(_index < 5)
         {
             _currentShot = shotList[_index];
             Debug.Log("NextShot");

@@ -27,12 +27,16 @@ public class MinigamesManager : MonoBehaviour
         //this runs when the player are in the +5th shot
 
         bowling.PlaneController.isUP = true; //mirar si eso funciona o es false
-        bowling.BowlContainer.DesactiveAllBowls();
+        //bowling.BowlContainer.DesactiveAllBowls();
 
         foreach (GameObject obj in objectsToDisable) { obj.SetActive(false); }
         betaHabitation.SetActive(true);
 
         //GameManager.Instance.StartBDServer();
+
+        List<GameObject> bowls = PoolingManager.Instance.GetActiveObject("BowlingBowl");
+        foreach (GameObject obj in bowls) { obj.SetActive(false); }
+        bowling.BallInstantiate.GetBall().SetActive(false);
 
         bowling.gameObject.SetActive(false);
     }
