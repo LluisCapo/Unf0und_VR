@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class GSoundPlayerIndividual : MonoBehaviour
 {
-    [SerializeField]
-    private string soundName;
-
-    private void OnCollisionEnter()
+    public string _nameSound;
+    public GameObject _referencePos;
+    private void Start()
     {
-        Sound();
+        if (!_referencePos)
+        {
+            if (!transform.GetChild(0))
+                _referencePos = transform.GetChild(0).gameObject;
+            else
+                _referencePos = gameObject;
+        }
+            
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        AudioManager.Instance.PlaySoundOnPosition(_nameSound, _referencePos.transform.position);
         gameObject.SetActive(false);
     }
-    public void Sound()
-    {
-        AudioManager.Instance.PlaySoundOnPosition(soundName, gameObject.transform.position);
-    }
+
 }
