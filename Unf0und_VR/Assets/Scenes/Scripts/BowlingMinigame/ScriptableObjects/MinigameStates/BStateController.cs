@@ -37,6 +37,7 @@ public class BStateController : MonoBehaviour
     private void OnEnable()
     {
         Debug.Log("Activa bolos");
+        bowlContainerRef.gameObject.SetActive(true);
         bowlContainerRef.PositioningAllBowls();
         _currentState = firstState;
         _currentState.Init(this);

@@ -9,7 +9,7 @@ public class BCanvasController : MonoBehaviour
     [Header("Shots List")]
     [SerializeField]
     List<BShotCanvas> shotList;
-    int _index;
+    public int _index;
     BShotCanvas _currentShot;
     #region Getters && Setters
     public BShotCanvas CurrentShot { get { return _currentShot; } }
@@ -21,18 +21,20 @@ public class BCanvasController : MonoBehaviour
     }
     public void NextShot()
     {
-        if(_index++ < shotList.Count)
+        _index++;
+        if(_index < 5)
         {
             _currentShot = shotList[_index];
             Debug.Log("NextShot");
         }
         else
         {
-            int _score = 0;
-            foreach (BShotCanvas shot in shotList) _score += int.Parse(shot.total.text);
-
-            GameManager.Instance.BDManager.CurrentGameInfo.score[0] = _score.ToString();
             GameManager.Instance.MinigamesManager.StopBowling();
+            //int _score = 0;
+            //foreach (BShotCanvas shot in shotList) _score += int.Parse(shot.total.text);
+
+            //GameManager.Instance.BDManager.CurrentGameInfo.score[0] = _score.ToString();
+            //GameManager.Instance.MinigamesManager.StopBowling();
         }
     }
 }

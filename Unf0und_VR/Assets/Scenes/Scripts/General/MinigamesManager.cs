@@ -7,7 +7,7 @@ public class MinigamesManager : MonoBehaviour
     // 24/02/2023 Lluís Capó
 
     [SerializeField] BStateController bowling;
-    [SerializeField] BasketManager basketManager;
+    [SerializeField] List<BasketManager> basketManager;
 
     #region Bowling
     [SerializeField, Header("Bowling objects to disable")]
@@ -27,12 +27,16 @@ public class MinigamesManager : MonoBehaviour
         //this runs when the player are in the +5th shot
 
         bowling.PlaneController.isUP = true; //mirar si eso funciona o es false
-        bowling.BowlContainer.DesactiveAllBowls();
+        //bowling.BowlContainer.DesactiveAllBowls();
 
         foreach (GameObject obj in objectsToDisable) { obj.SetActive(false); }
         betaHabitation.SetActive(true);
 
-        GameManager.Instance.StartBDServer();
+        //GameManager.Instance.StartBDServer();
+
+        List<GameObject> bowls = PoolingManager.Instance.GetActiveObject("BowlingBowl");
+        foreach (GameObject obj in bowls) { obj.SetActive(false); }
+        bowling.BallInstantiate.GetBall().SetActive(false);
 
         bowling.gameObject.SetActive(false);
     }
@@ -54,7 +58,10 @@ public class MinigamesManager : MonoBehaviour
     {
         bowling.gameObject.SetActive(false);
 
-        basketManager.OnStopBasket();
-        basketManager.BasketStop.Invoke();
+        foreach(BasketManager _basket in basketManager) 
+        {
+            _basket.OnStopBasket();
+            _basket.BasketStop.Invoke();
+        }
     }
 }
