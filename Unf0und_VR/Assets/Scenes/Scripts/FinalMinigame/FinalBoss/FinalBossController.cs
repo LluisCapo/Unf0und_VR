@@ -10,8 +10,10 @@ public class FinalBossController : MonoBehaviour
 
     public Transform pointToWalk1, pointToWalk2;
 
-    [SerializeField] Transform playerPosition;
+    [SerializeField] Transform playerPosition, chairParent;
+    public Transform chairP;
     [SerializeField] Rigidbody chair;
+    [SerializeField] RuntimeAnimatorController animator;
 
     Animator _anim;
     MovementBehavior _mvb;
@@ -22,6 +24,7 @@ public class FinalBossController : MonoBehaviour
     public MovementBehavior Movement { get { return _mvb; } }
     public Animator Animator { get { return _anim; } }
     public Transform PlayerRef { get { return playerPosition; } }
+    public Transform ChairParent { get { return ChairParent; } }
     public Rigidbody Chair { get { return chair; } }
     #endregion
     private void Start()
@@ -29,6 +32,8 @@ public class FinalBossController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _mvb = GetComponent<MovementBehavior>();
         _rb = GetComponent<Rigidbody>();
+
+        _anim.runtimeAnimatorController = animator;
 
         currentState = walkState;
         currentState.Init(this);

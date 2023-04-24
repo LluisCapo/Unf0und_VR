@@ -2035,6 +2035,7 @@ GameObject:
   - component: {fileID: 7267012979700385354}
   - component: {fileID: 7267012979700385355}
   - component: {fileID: 7267012979700385353}
+  - component: {fileID: 5861599284688175853}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2097,7 +2098,10 @@ MonoBehaviour:
   pointToWalk1: {fileID: 0}
   pointToWalk2: {fileID: 0}
   playerPosition: {fileID: 0}
+  chairParent: {fileID: 0}
+  chairP: {fileID: 0}
   chair: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!54 &7267012979700385355
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2127,6 +2131,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 1
+--- !u!114 &5861599284688175853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8039573364278402303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcda634302295543b47551714b50e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 9100000, guid: 5c18ccd0b53d0864ba434e50b433e60d, type: 2}
 --- !u!1 &8198334691082753603
 GameObject:
   m_ObjectHideFlags: 0
