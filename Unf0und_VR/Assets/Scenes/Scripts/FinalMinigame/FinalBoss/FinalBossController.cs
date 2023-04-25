@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class FinalBossController : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class FinalBossController : MonoBehaviour
     public Transform chairP;
     [SerializeField] Rigidbody chair;
     [SerializeField] RuntimeAnimatorController animator;
+    [SerializeField] FinalBossDetect screamBehavior;
 
     Animator _anim;
     MovementBehavior _mvb;

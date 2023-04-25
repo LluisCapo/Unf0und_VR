@@ -9,18 +9,25 @@ public class FinalBossDetect : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Animator>().runtimeAnimatorController = animator;
-        controller = GetComponent<FinalBossController>();
+        GetComponentInParent<Animator>().runtimeAnimatorController = animator;
+        controller = GetComponentInParent<FinalBossController>();
     }
     private void OnBecameVisible()
     {
         Debug.Log("Scream");
-        GetComponent<Animator>().SetTrigger("Scream");
+        GetComponentInParent<Animator>().SetTrigger("scream");
+    }
+
+    private void OnBecameInvisible()
+    {
+        Debug.Log("NoneScream");
+        GetComponentInParent<Animator>().SetTrigger("cream");
     }
 
     public void OnAnimFinish()
     {
         controller.enabled = true;
+        GetComponentInChildren<FinalBossController>().enabled = false;
         this.enabled = false;
     }
 }
