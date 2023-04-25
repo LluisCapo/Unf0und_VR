@@ -18,16 +18,10 @@ public class FinalBossDetect : MonoBehaviour
         GetComponentInParent<Animator>().SetTrigger("scream");
     }
 
-    private void OnBecameInvisible()
-    {
-        Debug.Log("NoneScream");
-        GetComponentInParent<Animator>().SetTrigger("cream");
-    }
-
     public void OnAnimFinish()
     {
         controller.enabled = true;
-        GetComponentInChildren<FinalBossController>().enabled = false;
+        GetComponentInChildren<FinalBossDetect>().enabled = false;
         this.enabled = false;
     }
 }
