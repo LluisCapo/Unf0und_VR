@@ -6641,6 +6641,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4854141748438902548}
+  - {fileID: 4854141749049800593}
+  - {fileID: 4854141749100372556}
   - {fileID: 4854141749613020951}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -7248,8 +7250,6 @@ Transform:
   - {fileID: 4854141749750599926}
   - {fileID: 4854141748594248870}
   - {fileID: 4854141748714642406}
-  - {fileID: 4854141749049800593}
-  - {fileID: 4854141749100372556}
   m_Father: {fileID: 4854141748331158881}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13422,8 +13422,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4854141749049800592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.85, y: 0.85, z: 0.85}
+  m_LocalPosition: {x: -0.1229994, y: 0.30900002, z: 0.09100314}
+  m_LocalScale: {x: 0.8499999, y: 0.85, z: 0.8499999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4854141749326310853}
@@ -13433,8 +13433,8 @@ Transform:
   - {fileID: 4854141748298105640}
   - {fileID: 4854141749505002205}
   - {fileID: 4854141748980878647}
-  m_Father: {fileID: 4854141748438902548}
-  m_RootOrder: 4
+  m_Father: {fileID: 4854141748331158881}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4854141749049800606
 Rigidbody:
@@ -13474,18 +13474,18 @@ MonoBehaviour:
   palmTransform: {fileID: 4854141749369800577}
   left: 0
   reachDistance: 0.25
-  enableMovement: 0
+  enableMovement: 1
   follow: {fileID: 4854141748294631515}
   maxFollowDistance: 0.5
   throwPower: 2
   enableInterpolation: 1
   advancedFollowSettings: 1
-  enableIK: 0
+  enableIK: 1
   swayStrength: 1
   gripOffset: 0.1
   usingPoseAreas: 1
   queryTriggerInteraction: 1
-  usingHighlight: 0
+  usingHighlight: 1
   highlightLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -13916,16 +13916,16 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4854141749100372547}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.85, y: 0.85, z: 0.85}
+  m_LocalPosition: {x: -0.1229994, y: 0.30900002, z: 0.09100314}
+  m_LocalScale: {x: -0.8499999, y: 0.85, z: 0.8499999}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4854141748265400975}
   - {fileID: 4854141747940080038}
   - {fileID: 4854141748079812353}
   - {fileID: 4854141749253377926}
-  m_Father: {fileID: 4854141748438902548}
-  m_RootOrder: 5
+  m_Father: {fileID: 4854141748331158881}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4854141749100372553
 Rigidbody:
@@ -13965,18 +13965,18 @@ MonoBehaviour:
   palmTransform: {fileID: 4854141748160357085}
   left: 1
   reachDistance: 0.25
-  enableMovement: 0
+  enableMovement: 1
   follow: {fileID: 4854141749795917644}
   maxFollowDistance: 0.5
   throwPower: 2
   enableInterpolation: 1
   advancedFollowSettings: 1
-  enableIK: 0
+  enableIK: 1
   swayStrength: 1
   gripOffset: 0.1
   usingPoseAreas: 1
   queryTriggerInteraction: 1
-  usingHighlight: 0
+  usingHighlight: 1
   highlightLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20676,7 +20676,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4854141748331158881}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4854141749613020956
 CapsuleCollider:

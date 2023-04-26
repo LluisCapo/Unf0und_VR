@@ -24,6 +24,7 @@ public class FinalDoor : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //GetComponent<DoorController>().GetComponent<Light>().SetActive(false);
+        lightAnim.gameObject.SetActive(true);
         lightAnim.SetTrigger("blink");
         audioSource.Play();
         controller.OnFirstEventCall();

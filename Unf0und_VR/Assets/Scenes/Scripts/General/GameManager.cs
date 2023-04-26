@@ -2,6 +2,7 @@ using Autohand;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class GameManager : MonoBehaviour
     [Header("Levels"), SerializeField]
     public GameObject parkObject;
     public GameObject firstLvlObject;
+    public AudioSource audiorooms;
+    public AudioClip cliproom;
 
     float playerVelocity;
     #endregion
@@ -56,6 +59,7 @@ public class GameManager : MonoBehaviour
         firstLvlObject.SetActive(false);
         RenderSettings.fogColor = parkFog;
         RenderSettings.fogDensity = parkFogDensity;
+        RenderSettings.fogMode = FogMode.Exponential;
         directionalLight.SetActive(true);
     }
     public void ChangeSceneParkToGame()
@@ -81,6 +85,14 @@ public class GameManager : MonoBehaviour
         firstLvlObject.SetActive(true);
         RenderSettings.fogColor = gameFog;
         RenderSettings.fogDensity = gameFogDensity;
+        RenderSettings.fogMode = FogMode.ExponentialSquared;
         directionalLight.SetActive(false);
+        audiorooms.clip = cliproom;
+        audiorooms.Play();
+    }
+
+    public void TestBowling()
+    {
+        RenderSettings.fogDensity = .05f;
     }
 }

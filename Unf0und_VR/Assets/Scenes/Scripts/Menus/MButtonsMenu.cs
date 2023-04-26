@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.XR;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MButtonsMenu : MonoBehaviour
 {
+
     public void NweGame()
     {
-        SceneManager.LoadScene("Beta");
+        SceneManager.LoadScene("Aaron");
+        
     }
 
     public void Exit()
