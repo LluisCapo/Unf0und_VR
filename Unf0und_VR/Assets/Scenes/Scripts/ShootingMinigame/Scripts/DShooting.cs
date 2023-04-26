@@ -13,7 +13,14 @@ public class DShooting : MonoBehaviour
     private RaycastHit _hit;
 
     private GameObject lastBullet, projectile;
-
+    private bool _canShoot;
+    [SerializeField]
+    private int bulletAmount = 30;
+    private int maxBullet;
+    private void Start()
+    {
+        maxBullet = bulletAmount;
+    }
     private void OnEnable()
     {
         _rb = GetComponent<Rigidbody>();
@@ -29,6 +36,7 @@ public class DShooting : MonoBehaviour
     {
         try
         {
+            if (_canShoot && bulletAmount > 0)
             _anim.SetTrigger("launch");
             //lastBullet = PoolingManager.Instance.GetPooledObject("Bullet");
             //lastBullet.SetActive(true);
@@ -45,10 +53,12 @@ public class DShooting : MonoBehaviour
                 BulletMark.transform.Rotate(Vector3.right * 90);
                 BulletMark.transform.Translate(Vector3.up * 0.005f);
                 //BulletMark.transform.localScale = BulletMark.transform.localScale / 10;
-                if (_hit.collider.GetComponent<SScoreBehaviour>())
-                    _hit.collider.gameObject.GetComponent<SScoreBehaviour>().RecieveScore(_hit.collider.gameObject.GetComponent<DDartBoardManagment>().GetDartBoardScore());
-
+                if (_hit.collider.GetComponent<DDartBoardManagment>())
+                    _hit.collider.gameObject.GetComponent<DDartBoardManagment>().BulletEntry();
+                _canShoot= false;
+                Invoke("ShootingBeheavour", 0.3f);
                 BulletMark.SetActive(true);
+                bulletAmount--;
             }
             //Debug.Log("Disparo: " + lastBullet.GetComponent<Rigidbody>().velocity);
         }
@@ -58,12 +68,23 @@ public class DShooting : MonoBehaviour
         }
     }
 
+    private void ShootingBeheavour()
+    {
+        _canShoot= true;
+    }
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(shootPoint.transform.position, -transform.forward);
     }
 
+
+    public void Reload()
+    {
+        bulletAmount = maxBullet;
+    }
 
     public void EjectProjectile()
     {
