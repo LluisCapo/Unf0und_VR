@@ -14,8 +14,8 @@ public class FinalBossDetect : MonoBehaviour
     }
     private void OnBecameVisible()
     {
-        Debug.Log("Scream");
-        GetComponentInParent<Animator>().SetTrigger("scream");
+        //Debug.Log("Scream");
+        //GetComponentInParent<Animator>().SetTrigger("scream");
     }
 
     public void OnAnimFinish()
