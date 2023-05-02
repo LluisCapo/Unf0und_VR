@@ -18,6 +18,12 @@ public class FinalBossDetect : MonoBehaviour
         //GetComponentInParent<Animator>().SetTrigger("scream");
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.K))
+            GetComponentInParent<Animator>().SetTrigger("scream");
+    }
+
     public void OnAnimFinish()
     {
         controller.enabled = true;
