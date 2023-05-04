@@ -71,11 +71,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(waitToChange());
     }
 
-    public void StartBDServer()
+    /*public void StartBDServer()
     {
         if (bdManager.CurrentGameInfo.email[0].Length > 2)
             bdManager.BDStart();
-    }
+    }*/
 
     IEnumerator waitToChange()
     {

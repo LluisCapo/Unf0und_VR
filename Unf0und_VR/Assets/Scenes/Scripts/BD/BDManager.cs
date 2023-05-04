@@ -6,15 +6,18 @@ using TMPro;
 using Newtonsoft.Json;
 using System.IO;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
+
+[Serializable]
+public class JSONInfo
+{
+    public string[] nick;
+    public string[] score;
+}
 
 public class BDManager : MonoBehaviour
 {
-    public BDInfoManager CurrentGameInfo;
-    public BDInfoManager InfoFromTheServer;
-
-    BDInfoManager _BDInfo;
-
-    public void BDStart()
+    public void BDStart(byte[] msg)
     {
         String data;
         IPHostEntry host = Dns.GetHostEntry("localhost");
@@ -26,18 +29,14 @@ public class BDManager : MonoBehaviour
             reciver.Connect(remoteEP);
             NetworkStream ns = new NetworkStream(reciver);
             StreamReader sr = new StreamReader(ns);
-            StreamWriter sw = new StreamWriter(ns);
-            sw.WriteLine($"{CurrentGameInfo.nick[0]}/{CurrentGameInfo.email[0]}/{CurrentGameInfo.score[0]}");
-            sw.Flush();
+            ns.Write(msg, 0, msg.Length);
 
-            _BDInfo = null;
+            JSONInfo info = new JSONInfo();
 
             while ((data = sr.ReadLine()) != null)
-                _BDInfo = JsonConvert.DeserializeObject<BDInfoManager>(data);
+                info = JsonConvert.DeserializeObject<JSONInfo>(data);
 
-            InfoFromTheServer.nick = _BDInfo.nick;
-            InfoFromTheServer.email = _BDInfo.email;
-            InfoFromTheServer.score = _BDInfo.score;
+            Debug.Log(info.nick[0]);
 
             reciver.Close();
         }
@@ -45,41 +44,6 @@ public class BDManager : MonoBehaviour
         {
             Debug.Log(e.Message);
         }
-
     }
-
-    /*private void BdInsetSelect(String _nick, String _email, String _score)
-    {
-        String data;
-        IPHostEntry host = Dns.GetHostEntry("localhost");
-        IPAddress ipAddress = host.AddressList[0];
-        IPEndPoint remoteEP = new IPEndPoint(ipAddress, 9000);
-        Socket reciver = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-        try
-        {
-            reciver.Connect(remoteEP);
-            NetworkStream ns = new NetworkStream(reciver);
-            StreamReader sr = new StreamReader(ns);
-            StreamWriter sw = new StreamWriter(ns);
-            sw.WriteLine($"{_nick}/{_email}/{_score}");
-            sw.Flush();
-
-            _BDInfo = null;
-
-            while ((data = sr.ReadLine()) != null)
-                _BDInfo = JsonConvert.DeserializeObject<BDInfoManager>(data);
-
-            currentBDInfo.nick = _BDInfo.nick;
-            currentBDInfo.email = _BDInfo.email;
-            currentBDInfo.score = _BDInfo.score;
-
-            reciver.Close();
-        }
-        catch (Exception e)
-        {
-            Debug.Log(e.Message);
-        }
-
-    }*/
 
 }
