@@ -14,13 +14,6 @@ public class DShooting : MonoBehaviour
 
     private GameObject lastBullet, projectile;
     private bool _canShoot;
-    [SerializeField]
-    private int bulletAmount = 30;
-    private int maxBullet;
-    private void Start()
-    {
-        maxBullet = bulletAmount;
-    }
     private void OnEnable()
     {
         _rb = GetComponent<Rigidbody>();
@@ -36,7 +29,7 @@ public class DShooting : MonoBehaviour
     {
         try
         {
-            if (_canShoot && bulletAmount > 0)
+            if (_canShoot)
             _anim.SetTrigger("launch");
             //lastBullet = PoolingManager.Instance.GetPooledObject("Bullet");
             //lastBullet.SetActive(true);
@@ -58,7 +51,6 @@ public class DShooting : MonoBehaviour
                 _canShoot= false;
                 Invoke("ShootingBeheavour", 0.3f);
                 BulletMark.SetActive(true);
-                bulletAmount--;
             }
             //Debug.Log("Disparo: " + lastBullet.GetComponent<Rigidbody>().velocity);
         }
@@ -79,13 +71,6 @@ public class DShooting : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawRay(shootPoint.transform.position, -transform.forward);
     }
-
-
-    public void Reload()
-    {
-        bulletAmount = maxBullet;
-    }
-
     public void EjectProjectile()
     {
         try
