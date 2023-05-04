@@ -4,7 +4,9 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlatformBeheavour : MonoBehaviour
 {
@@ -13,11 +15,14 @@ public class PlatformBeheavour : MonoBehaviour
     [SerializeField]
     private List<Transform> _paths = new List<Transform>();
     [SerializeField]
-    private float _delay, _speed, _incrementalSpeed, _decrementalTiming, _platformForce, _incrementalForce;
+    private float _delay, _speed, _incrementalSpeed, _decrementalTiming, _platformForce, _incrementalForce, _distance;
 
+    public UnityEvent MovementHasFinished;
 
     private int _pathInd, _index;
     private Rigidbody _springPlatform;
+    public GameObject _player;
+
     void Start()
     {
         _springPlatform = transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
@@ -44,7 +49,7 @@ public class PlatformBeheavour : MonoBehaviour
     {
         bool firstTime = true;
         //_pathInd < _paths.Count
-        while (_speed < 10)
+        while (_speed < 5)
         {
             Vector3 direction = _paths[_pathInd].transform.position - transform.position;
             
@@ -68,7 +73,8 @@ public class PlatformBeheavour : MonoBehaviour
                 yield return null;
             }
         }
-
+        //MovementHasFinished.Invoke();
+        JumpScare();
         yield return null;
     }
 
@@ -80,4 +86,27 @@ public class PlatformBeheavour : MonoBehaviour
         _platformForce += _incrementalForce;
 
     }
+
+    IEnumerator JumpScare()
+    {
+        bool running = true;
+        while (running)
+        {
+            Vector3 direction = _player.transform.position - transform.position;
+
+            if (direction.magnitude < _distance)
+            {
+                running = false;
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, _speed * Time.deltaTime);
+                yield return null;
+            }
+        }
+        yield return null;
+    }
+
+
+
 }
