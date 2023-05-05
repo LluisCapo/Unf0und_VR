@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.Mathematics;
@@ -18,13 +17,14 @@ public class PlatformBeheavour : MonoBehaviour
     private float _delay, _speed, _incrementalSpeed, _decrementalTiming, _platformForce, _incrementalForce, _distance;
 
     public UnityEvent MovementHasFinished;
-
+    
     private int _pathInd, _index;
-    private Rigidbody _springPlatform;
+    private Rigidbody _springPlatform, _rb;
     public GameObject _player;
 
     void Start()
     {
+        _rb= GetComponent<Rigidbody>();
         _springPlatform = transform.GetChild(0).gameObject.GetComponent<Rigidbody>();
         _pathInd = 0;
         foreach(Transform _child in transform.parent.GetChild(transform.parent.childCount-1))
@@ -49,7 +49,7 @@ public class PlatformBeheavour : MonoBehaviour
     {
         bool firstTime = true;
         //_pathInd < _paths.Count
-        while (_speed < 5)
+        while (_speed <= 2.4)
         {
             Vector3 direction = _paths[_pathInd].transform.position - transform.position;
             
@@ -74,7 +74,7 @@ public class PlatformBeheavour : MonoBehaviour
             }
         }
         //MovementHasFinished.Invoke();
-        JumpScare();
+        StartCoroutine("JumpScare");
         yield return null;
     }
 
@@ -89,24 +89,39 @@ public class PlatformBeheavour : MonoBehaviour
 
     IEnumerator JumpScare()
     {
+        PlatformActing platform = _platform.GetComponent<PlatformActing>();
+        GameObject ObjectZ = platform._Platform[platform._Platform.Count - 1].hip.transform.GetChild(1).gameObject;
+        DebugObject(ObjectZ);
+        float fixedZ = ObjectZ.transform.position.z - transform.position.z;
         bool running = true;
+        //
         while (running)
         {
-            Vector3 direction = _player.transform.position - transform.position;
+            
+            Vector3 direction = new Vector3(_player.transform.position.x - transform.position.x, 0f, _player.transform.position.z - transform.position.z).normalized;
+            _rb.MovePosition(_rb.position + direction * _speed * Time.fixedDeltaTime);
+            running= false;
+            //Vector3 direction = _player.transform.position - new Vector3(transform.position.x, fixedZ, transform.position.z);
+            //if (direction.magnitude < _distance)
+            //{
+            //    running = false;
+            //}
+            //else
+            //{
 
-            if (direction.magnitude < _distance)
-            {
-                running = false;
-            }
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position, _player.transform.position, _speed * Time.deltaTime);
-                yield return null;
-            }
+            //    // Movemos el objeto en la dirección calculada a la velocidad especificada
+
+            //    //transform.position = Vector3.MoveTowards(new Vector3(transform.position.x, fixedZ, transform.position.z), _player.transform.position, _speed * Time.deltaTime);
+            //    yield return null;
+            //}
+
         }
         yield return null;
     }
 
-
+    private void DebugObject(GameObject _o)
+    {
+        Debug.Log(_o.name);
+    }
 
 }
