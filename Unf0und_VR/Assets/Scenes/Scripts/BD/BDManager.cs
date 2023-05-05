@@ -12,11 +12,13 @@ using Unity.VisualScripting;
 public class JSONInfo
 {
     public string[] nick;
+    public string[] email;
     public string[] score;
 }
 
 public class BDManager : MonoBehaviour
 {
+    public BDInfoManager infoFromServer;
     public void BDStart(byte[] msg)
     {
         String data;
@@ -35,6 +37,8 @@ public class BDManager : MonoBehaviour
 
             while ((data = sr.ReadLine()) != null)
                 info = JsonConvert.DeserializeObject<JSONInfo>(data);
+
+            infoFromServer.SetPharams(info.nick, info.email, info.score);
 
             Debug.Log(info.nick[0]);
 

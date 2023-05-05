@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 [CreateAssetMenu(menuName = "Boss State/throw", fileName = "new Throwing")]
 public class FBThrowing : FBState
@@ -40,10 +41,26 @@ public class FBThrowing : FBState
     }
     public override void Throw(FinalBossController _controller)
     {
+        _controller.transform.LookAt(_controller.PlayerRef.position);
+        _dir = new Vector3(_controller.transform.forward.x, .8f, _controller.transform.forward.z);
         chair.velocity = Vector3.zero;
-        chair.AddForce(_dir * force, ForceMode.Impulse);
+        chair.AddForce(_dir * GetForce(_controller), ForceMode.Impulse);
         chair.transform.parent = null;
         isThrowed = true;
         //Debug.Log("throw");
+    }
+
+    private float GetForce(FinalBossController _controller)
+    {
+        int angulo = 45;
+        float distancia = Vector3.Distance(_controller.transform.position, _controller.PlayerRef.position);
+        float tiempoDeVuelo = (2 * GetVelocidadInicial(_controller) * Mathf.Sin(angulo)) / Physics.gravity.magnitude;
+        return (distancia / tiempoDeVuelo) * _controller.Chair.mass / Mathf.Sin(2 * angulo);
+    }
+
+    private float GetVelocidadInicial(FinalBossController _controller)
+    {
+        float distancia = Vector3.Distance(_controller.transform.position, _controller.PlayerRef.position);
+        return Mathf.Sqrt((distancia * Physics.gravity.magnitude) / Mathf.Sin(2 * 45f));
     }
 }
