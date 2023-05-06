@@ -36,6 +36,7 @@ public class DShooting : MonoBehaviour
             //lastBullet.transform.position = shootPoint.position;
             //lastBullet.GetComponent<BBullet>().MakeForce(shootPoint); //, LayerMask.GetMask("BBullet")
             Debug.Log("hoplaaaaaaaaaa");
+            AudioManager.Instance.PlaySoundOnPosition("PistolShoot", shootPoint.position);
             //Debug.DrawRay(shootPoint.transform.position, shootPoint.forward, Color.red);
             if (Physics.Raycast(shootPoint.transform.position, -transform.forward, out _hit))
             {
