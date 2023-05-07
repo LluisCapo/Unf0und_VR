@@ -23,7 +23,13 @@ public class GSoundPlayerIndividual : MonoBehaviour
     {
         _playAnimationEvent.Invoke();
         AudioManager.Instance.PlaySoundOnPosition(_nameSound, _referencePos.transform.position);
-        //gameObject.SetActive(false);
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+    }
+
+    public void StartAnimation()
+    {
+        _playAnimationEvent.Invoke();
+        AudioManager.Instance.PlaySoundOnPosition(_nameSound, _referencePos.transform.position);
     }
 
 }
