@@ -7,7 +7,7 @@ public class GSoundPlayerIndividual : MonoBehaviour
 {
     public string _nameSound;
     public GameObject _referencePos;
-    public UnityEvent _playAnimationEvent;
+    public UnityEvent _playAnimationEvent, onFinishAnimation;
     private void Start()
     {
         if (!_referencePos)
@@ -30,6 +30,11 @@ public class GSoundPlayerIndividual : MonoBehaviour
     {
         _playAnimationEvent.Invoke();
         AudioManager.Instance.PlaySoundOnPosition(_nameSound, _referencePos.transform.position);
+    }
+
+    public void OnFinishAnimation()
+    {
+        onFinishAnimation.Invoke();
     }
 
 }

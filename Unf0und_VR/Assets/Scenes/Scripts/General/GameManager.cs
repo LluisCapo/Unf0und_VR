@@ -91,6 +91,17 @@ public class GameManager : MonoBehaviour
         audiorooms.Play();
     }
 
+    public void StopPlayerMove()
+    {
+        playerVelocity = autoHandPlayer.maxMoveSpeed;
+        autoHandPlayer.maxMoveSpeed = 0;
+    }
+
+    public void SetPlayerMove()
+    {
+        autoHandPlayer.maxMoveSpeed = playerVelocity;
+    }
+
     public void TestBowling()
     {
         RenderSettings.fogDensity = .05f;
