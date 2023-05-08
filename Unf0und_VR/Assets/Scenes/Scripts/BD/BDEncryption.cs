@@ -18,51 +18,56 @@ public class BDEncryption : MonoBehaviour
     public BDInfoToInsert playerInfo;
     private void Start()
     {
-        //Send();
 
+        Send("reguii/reguii@tupu.com/36/Unf0und_VR");
+    }
+    public void Send(string msgToSend)
+    {
         //Genero contra
-        byte[] pwd = Encoding.ASCII.GetBytes("hola");//GenerateRandomKey();
-        //Genero clave encriptada
-        byte[] contraCif = EncryptAsim(GenerateRandomKey(), GetKey());
-        //Encripto texto
-        byte[] mesgCif = EncryptSim("Hola buenas tardes", pwd);
-        //Envio contraseña + texto
-        Debug.Log("n -> " + mesgCif.Length + "   " + Encoding.ASCII.GetString(mesgCif));
+        byte[] pwd = GenerateRandomKey();
 
+        //Genero contra encriptada con clave pública
+        byte[] contraCif = EncryptAsim(pwd, GetKey());
+
+        //Encripto mensaje con clave
+        byte[] mesgCif = EncryptSim(msgToSend, pwd);
+
+        //Envio contraseña cifrada con clave + texto cifrado con contraseña
+        Debug.Log("n -> " + mesgCif.Length + "   " + Encoding.ASCII.GetString(mesgCif));
         byte[] mesgToSend = new byte[contraCif.Length + mesgCif.Length];
 
-        for(int i = 0; i < contraCif.Length; i++)
+        for (int i = 0; i < contraCif.Length; i++)
             mesgToSend[i] = contraCif[i];
 
-        for(int i = contraCif.Length; i < mesgToSend.Length - 1; i++)
-            mesgToSend[i] = mesgCif[i - 255];
+        for (int i = contraCif.Length; i <= mesgToSend.Length - 1; i++)
+            mesgToSend[i] = mesgCif[i - 256];
 
-        Debug.Log($"Contra --> {contraCif.Length}   mesg --> {mesgCif.Length}   total --> {mesgToSend.Length}  {mesgToSend[mesgToSend.Length-1]}");
-        //GetComponent<BDManager>().BDStart(mesgToSend);
-        //GetComponent<BDManager>().BDStart(contraCif);
+        Debug.Log(Encoding.ASCII.GetString(mesgToSend));
 
-        //GetComponent<BDManager>().BDStart(EncryptAsim("hola soc en raul", GetKey()));
-    }
-    public void Send()
-    {
-        //Aqui se encripta
-        //byte[] a = Encrypt($"{nick.text}/{score.text}", xd());
-        byte[] a = EncryptAsim($"{playerInfo.nick}/{playerInfo.email}/{playerInfo.score}", GetKey());
+        Debug.Log($"Contra --> {contraCif.Length}   mesg --> {mesgCif.Length}   total --> {mesgToSend.Length}  {mesgToSend[mesgToSend.Length - 1]}");
 
-        string aS = System.Text.Encoding.ASCII.GetString(a);
-        Debug.Log(aS);
-        Debug.Log(System.Text.Encoding.ASCII.GetBytes(aS).Length);
-
-        GetComponent<BDManager>().BDStart(a);
+        GetComponent<BDManager>().BDStart(mesgToSend);
     }
 
 
-    public byte[] EncryptAsim(string _pw, RSA _key)
+    /*public byte[] EncryptAsim(string _pw, RSA _key)
     {
         byte[] plainBytes = Encoding.ASCII.GetBytes(_pw);
         RSAEncryptionPadding padding = RSAEncryptionPadding.Pkcs1;
 
         return _key.Encrypt(plainBytes, padding);
+    }*/
+
+    public byte[] CifradoAlReves(byte[] _key)
+    {
+        byte[] newByte = new byte[_key.Length];
+
+        for(int i = _key.Length - 1; i >= 0; i--)
+            newByte[_key.Length - 1 - i] = _key[i];
+
+        Debug.Log(Encoding.ASCII.GetString(newByte));
+
+        return newByte;
     }
 
     public byte[] EncryptAsim(byte[] _pw, RSA _key)
@@ -75,7 +80,7 @@ public class BDEncryption : MonoBehaviour
 
     public RSA GetKey()
     {
-        byte[] crtData = File.ReadAllBytes("C://Users/super/Downloads/ServerConCifrado/CLAUS/Claus/Lluis.crt");
+        byte[] crtData = File.ReadAllBytes("C://Users/Lluis Capo/Downloads/CLAUS/Claus/Lluis.crt");
         X509Certificate2 cert = new X509Certificate2(crtData);
 
         // Obtener la clave pública del certificado
@@ -105,15 +110,14 @@ public class BDEncryption : MonoBehaviour
     }
     public byte[] EncryptSim(string plainText, byte[] passwordBytes)
     {
-        byte[] messageBytes = Encoding.ASCII.GetBytes(plainText);
+        //byte[] key = new System.Security.Cryptography.SHA256Managed().ComputeHash(passwordBytes);
 
-        TwofishEngine twofish = new TwofishEngine();
-        twofish.Init(true, new KeyParameter(passwordBytes));
+        byte[] plaintext = Encoding.ASCII.GetBytes(plainText);
+        //byte[] ciphertext = new byte[plaintext.Length];
 
-        byte[] encrypted = new byte[twofish.GetBlockSize()];
-        twofish.ProcessBlock(messageBytes, 0, encrypted, 0);
+        RC4 rc4 = new RC4(passwordBytes);
+        return rc4.Encrypt(plaintext);
 
-        return encrypted;
     }
 
 
