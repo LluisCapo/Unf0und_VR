@@ -15,5 +15,6 @@ public class GFlashlight : MonoBehaviour
     public void LigthFunction()
     {
         _light.gameObject.SetActive(!_light.gameObject.activeInHierarchy);
+        
     }
 }
