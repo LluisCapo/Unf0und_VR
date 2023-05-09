@@ -17,8 +17,10 @@ public class BDEncryption : MonoBehaviour
 {
 
     public BDInfoToInsert playerInfo;
+    private string publicKeyPath;
     private void Start()
     {
+        publicKeyPath = "C://Users/super/Downloads/ServerConCifrado/CLAUS/Claus/Lluis.crt";
         Send($"{playerInfo.nick}/{playerInfo.email}/{playerInfo.score}/Unf0und_VR");
     }
     public void Send(string msgToSend)
@@ -51,7 +53,7 @@ public class BDEncryption : MonoBehaviour
     }
     public RSA GetKey()
     {
-        byte[] crtData = File.ReadAllBytes("C://Users/Lluis Capo/Downloads/CLAUS/Claus/Lluis.crt");
+        byte[] crtData = File.ReadAllBytes(publicKeyPath);
         X509Certificate2 cert = new X509Certificate2(crtData);
 
         // Obtener la clave pública del certificado
