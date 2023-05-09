@@ -9,7 +9,9 @@ public class GFlashlight : MonoBehaviour
 
     private void Awake()
     {
-        _light = transform.GetChild(transform.childCount).GetChild(0).gameObject;
+        _light = transform.GetChild(transform.childCount - 1).GetChild(0).gameObject;
+        
+        //Debug.Log()
     }
 
     public void LigthFunction()

@@ -13,7 +13,7 @@ public class DShooting : MonoBehaviour
     private RaycastHit _hit;
 
     private GameObject lastBullet, projectile;
-
+    private bool _canShoot;
     private void OnEnable()
     {
         _rb = GetComponent<Rigidbody>();
@@ -29,12 +29,14 @@ public class DShooting : MonoBehaviour
     {
         try
         {
+            if (_canShoot)
             _anim.SetTrigger("launch");
             //lastBullet = PoolingManager.Instance.GetPooledObject("Bullet");
             //lastBullet.SetActive(true);
             //lastBullet.transform.position = shootPoint.position;
             //lastBullet.GetComponent<BBullet>().MakeForce(shootPoint); //, LayerMask.GetMask("BBullet")
             Debug.Log("hoplaaaaaaaaaa");
+            AudioManager.Instance.PlaySoundOnPosition("PistolShoot", shootPoint.position);
             //Debug.DrawRay(shootPoint.transform.position, shootPoint.forward, Color.red);
             if (Physics.Raycast(shootPoint.transform.position, -transform.forward, out _hit))
             {
@@ -45,9 +47,10 @@ public class DShooting : MonoBehaviour
                 BulletMark.transform.Rotate(Vector3.right * 90);
                 BulletMark.transform.Translate(Vector3.up * 0.005f);
                 //BulletMark.transform.localScale = BulletMark.transform.localScale / 10;
-                if (_hit.collider.GetComponent<SScoreBehaviour>())
-                    _hit.collider.gameObject.GetComponent<SScoreBehaviour>().RecieveScore(_hit.collider.gameObject.GetComponent<DDartBoardManagment>().GetDartBoardScore());
-
+                if (_hit.collider.GetComponent<DDartBoardManagment>())
+                    _hit.collider.gameObject.GetComponent<DDartBoardManagment>().BulletEntry();
+                _canShoot= false;
+                Invoke("ShootingBeheavour", 0.3f);
                 BulletMark.SetActive(true);
             }
             //Debug.Log("Disparo: " + lastBullet.GetComponent<Rigidbody>().velocity);
@@ -58,13 +61,17 @@ public class DShooting : MonoBehaviour
         }
     }
 
+    private void ShootingBeheavour()
+    {
+        _canShoot= true;
+    }
+
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(shootPoint.transform.position, -transform.forward);
     }
-
-
     public void EjectProjectile()
     {
         try

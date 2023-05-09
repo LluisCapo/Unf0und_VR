@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GSoundPlayerIndividual : MonoBehaviour
 {
     public string _nameSound;
     public GameObject _referencePos;
+    public UnityEvent _playAnimationEvent, onFinishAnimation;
     private void Start()
     {
         if (!_referencePos)
@@ -19,8 +21,20 @@ public class GSoundPlayerIndividual : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        _playAnimationEvent.Invoke();
         AudioManager.Instance.PlaySoundOnPosition(_nameSound, _referencePos.transform.position);
-        gameObject.SetActive(false);
+        gameObject.GetComponent<BoxCollider>().enabled = false;
+    }
+
+    public void StartAnimation()
+    {
+        _playAnimationEvent.Invoke();
+        AudioManager.Instance.PlaySoundOnPosition(_nameSound, _referencePos.transform.position);
+    }
+
+    public void OnFinishAnimation()
+    {
+        onFinishAnimation.Invoke();
     }
 
 }

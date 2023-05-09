@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         firstLvlObject.SetActive(false);
         RenderSettings.fogColor = parkFog;
         RenderSettings.fogDensity = parkFogDensity;
+        RenderSettings.fogMode = FogMode.Exponential;
         directionalLight.SetActive(true);
     }
     public void ChangeSceneParkToGame()
@@ -70,11 +71,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(waitToChange());
     }
 
-    public void StartBDServer()
+    /*public void StartBDServer()
     {
         if (bdManager.CurrentGameInfo.email[0].Length > 2)
             bdManager.BDStart();
-    }
+    }*/
 
     IEnumerator waitToChange()
     {
@@ -84,8 +85,25 @@ public class GameManager : MonoBehaviour
         firstLvlObject.SetActive(true);
         RenderSettings.fogColor = gameFog;
         RenderSettings.fogDensity = gameFogDensity;
+        RenderSettings.fogMode = FogMode.ExponentialSquared;
         directionalLight.SetActive(false);
         audiorooms.clip = cliproom;
         audiorooms.Play();
+    }
+
+    public void StopPlayerMove()
+    {
+        playerVelocity = autoHandPlayer.maxMoveSpeed;
+        autoHandPlayer.maxMoveSpeed = 0;
+    }
+
+    public void SetPlayerMove()
+    {
+        autoHandPlayer.maxMoveSpeed = playerVelocity;
+    }
+
+    public void TestBowling()
+    {
+        RenderSettings.fogDensity = .05f;
     }
 }
