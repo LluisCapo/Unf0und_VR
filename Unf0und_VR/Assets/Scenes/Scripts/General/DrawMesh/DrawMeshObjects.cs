@@ -7,14 +7,15 @@ using VisualDesignCafe.Nature.Materials.Editor.Sections;
 
 public class DrawMeshObjects : MonoBehaviour
 {
-    public  List<UnityEngine.Mesh> mesh;
-    public Vector3 vector3;
-    public Quaternion quaternion;
+    public UnityEngine.Mesh mesh;
     public Material material;
-    public int layer;
-    private void Start()
+    public LayerMask layer;
+    public float obj;
+    public float separacion;
+
+    private void Update()
     {
-        for(int i = 0; i < mesh.Count;i++)
-            Graphics.DrawMesh(mesh[i], vector3, quaternion, material, layer);
+        for (float i = 0; i < obj; i+= separacion)
+            Graphics.DrawMesh(mesh, new Vector3(transform.position.x+i, transform.position.y, transform.position.z), transform.rotation, material, layer);
     }
 }
