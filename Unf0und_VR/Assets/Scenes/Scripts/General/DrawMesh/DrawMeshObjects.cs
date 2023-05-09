@@ -10,8 +10,8 @@ public class DrawMeshObjects : MonoBehaviour
     public  List<UnityEngine.Mesh> mesh;
     public Vector3 vector3;
     public Quaternion quaternion;
-    Material material;
-    int layer;
+    public Material material;
+    public int layer;
     private void Start()
     {
         for(int i = 0; i < mesh.Count;i++)
