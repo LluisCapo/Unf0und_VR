@@ -22,7 +22,7 @@ public class BDManager : MonoBehaviour
     public void BDStart(byte[] msg)
     {
         String data;
-        IPHostEntry host = Dns.GetHostEntry("localhost");
+        IPHostEntry host = Dns.GetHostEntry("192.168.220.56");
         IPAddress ipAddress = host.AddressList[0];
         IPEndPoint remoteEP = new IPEndPoint(ipAddress, 9000);
         Socket reciver = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);

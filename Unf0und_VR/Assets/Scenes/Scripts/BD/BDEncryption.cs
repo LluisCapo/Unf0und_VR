@@ -1,17 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using System.IO;
-using Org.BouncyCastle.Crypto.Generators;
-using Org.BouncyCastle.Crypto.Parameters;
-using Org.BouncyCastle.Crypto.Engines;
-using UnityEngine.InputSystem;
-using System.Diagnostics.Contracts;
 
 public class BDEncryption : MonoBehaviour
 {
@@ -20,7 +11,7 @@ public class BDEncryption : MonoBehaviour
     private string publicKeyPath;
     private void Start()
     {
-        publicKeyPath = "C://Users/super/Downloads/ServerConCifrado/CLAUS/Claus/Lluis.crt";
+        publicKeyPath = "C:/Users/Tarda/Downloads/Claus/Lluis.crt";
         Send($"{playerInfo.nick}/{playerInfo.email}/{playerInfo.score}/Unf0und_VR");
     }
     public void Send(string msgToSend)
