@@ -19,7 +19,7 @@ public class Sbarrer : MonoBehaviour
 
 
     public void EnableCollision()
-    { 
+    {
         _BarrerCollider.enabled = true; 
     }
     public void DisableCollider()
@@ -30,10 +30,12 @@ public class Sbarrer : MonoBehaviour
 
     public void Open()
     {
+        Debug.Log("OpenDoor");
         _anim.SetInteger("state", 1);
     }
     public void Close()
     {
+        Debug.Log("CloseDoor");
         _anim.SetInteger("state", 0);
     }
     private void OnTriggerExit(Collider other)

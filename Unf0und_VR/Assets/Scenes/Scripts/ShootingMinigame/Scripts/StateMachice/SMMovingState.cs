@@ -25,6 +25,7 @@ public class SMMovingState : SStateBehavior
             _controller.rb.velocity = new Vector3(0, 0, 0);
             _controller.SetWaiting();
             _controller.rb.AddForce(_controller.transform.up * 0.8f, ForceMode.Impulse);
+            _controller.objective.transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
             if (hasPersonalizatedPoint)
                 _controller.enabled = false;
         }

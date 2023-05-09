@@ -18,29 +18,32 @@ public class DShooting : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
+        _canShoot= true;
     }
     public void ShootGun()
     {
-        _anim.SetTrigger("shoot");
-        Debug.Log("Ha presionado el objeto");
+        if (_canShoot)
+        {
+            AudioManager.Instance.PlaySoundOnPosition("PistolShoot", shootPoint.position);
+            _anim.SetTrigger("shoot");
+            Debug.Log("Ha presionado el objeto");
+        }
+
     }
 
     public void LaunchBullet()
     {
         try
         {
-            if (_canShoot)
             _anim.SetTrigger("launch");
             //lastBullet = PoolingManager.Instance.GetPooledObject("Bullet");
             //lastBullet.SetActive(true);
             //lastBullet.transform.position = shootPoint.position;
             //lastBullet.GetComponent<BBullet>().MakeForce(shootPoint); //, LayerMask.GetMask("BBullet")
             Debug.Log("hoplaaaaaaaaaa");
-            AudioManager.Instance.PlaySoundOnPosition("PistolShoot", shootPoint.position);
             //Debug.DrawRay(shootPoint.transform.position, shootPoint.forward, Color.red);
             if (Physics.Raycast(shootPoint.transform.position, -transform.forward, out _hit))
             {
-                
                 GameObject BulletMark = PoolingManager.Instance.GetPooledObject("BulletMark");
                 BulletMark.transform.position = _hit.point; //new Vector3(_contactPoint.point.x, _contactPoint.point.y, _contactPoint.point.z);
                 BulletMark.transform.rotation = Quaternion.LookRotation(_hit.normal);
@@ -49,8 +52,10 @@ public class DShooting : MonoBehaviour
                 //BulletMark.transform.localScale = BulletMark.transform.localScale / 10;
                 if (_hit.collider.GetComponent<DDartBoardManagment>())
                     _hit.collider.gameObject.GetComponent<DDartBoardManagment>().BulletEntry();
-                _canShoot= false;
-                Invoke("ShootingBeheavour", 0.3f);
+               
+                Invoke("ShootingBeheavour", 0.1f);
+
+                _canShoot = false;
                 BulletMark.SetActive(true);
             }
             //Debug.Log("Disparo: " + lastBullet.GetComponent<Rigidbody>().velocity);
