@@ -10,7 +10,7 @@ public class DetecterBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(gameObject.name);
+        Debug.Log(gameObject.name + "  with  " + other.gameObject.name + "  on  " + other.gameObject.layer);
         whenCollide.Invoke();
         gameObject.SetActive(false);
     }
