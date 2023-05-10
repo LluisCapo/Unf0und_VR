@@ -15,7 +15,7 @@ public class DrawMeshObjects : MonoBehaviour
 
     private void Update()
     {
-        for (float i = 0; i < obj; i+= separacion)
+        for (float i = 0; i <= (separacion * obj); i+= separacion)
             Graphics.DrawMesh(mesh, new Vector3(transform.position.x+i, transform.position.y, transform.position.z), transform.rotation, material, layer);
     }
 }
