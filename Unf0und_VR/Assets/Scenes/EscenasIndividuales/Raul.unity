@@ -1650,6 +1650,8 @@ MonoBehaviour:
     soundToPool: {fileID: 8300000, guid: cc8a8620bd617754ab7c584c5623b13d, type: 3}
   - Name: PistolShoot
     soundToPool: {fileID: 8300000, guid: d1963ed0711802746bc329983db8411c, type: 3}
+  - Name: BulletFalling
+    soundToPool: {fileID: 8300000, guid: 485538423fb08774cb0b9590bf6e91d9, type: 3}
 --- !u!4 &425350177
 Transform:
   m_ObjectHideFlags: 0
@@ -2967,7 +2969,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 700972153}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b991a9c83ede91c4b8788cc54097ce10, type: 3}
   m_Name: 
@@ -2982,6 +2984,7 @@ MonoBehaviour:
   decrementalDelay: 0.4
   distanceDifference: 0.1
   platform: {fileID: 8579036320700374734}
+  objective: {fileID: 8164078559317886021}
   camaraReference: {fileID: 1783950352}
   rb: {fileID: 0}
   OnTimeReaches:
@@ -4489,9 +4492,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941415269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.635, y: 1.235, z: -5.9096}
-  m_LocalScale: {x: 0.00051514804, y: 0.00051514804, z: 0.00051514804}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: -8.6335, y: 1.24, z: -5.96}
+  m_LocalScale: {x: 0.00037394662, y: 0.00037394662, z: 0.00037394662}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 619788863}
   - {fileID: 1674438192}
@@ -5524,7 +5527,8 @@ GameObject:
   - component: {fileID: 1020734326}
   - component: {fileID: 1020734329}
   - component: {fileID: 1020734328}
-  - component: {fileID: 1020734327}
+  - component: {fileID: 1020734331}
+  - component: {fileID: 1020734330}
   m_Layer: 21
   m_Name: default (1)
   m_TagString: Untagged
@@ -5547,34 +5551,6 @@ Transform:
   m_Father: {fileID: 1151388028063225726}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 185}
---- !u!114 &1020734327
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020734325}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f07829197b8920c44b2795f83b6cb37f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dartBoardScore: 10
-  GiveScore:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1183524624}
-        m_TargetAssemblyTypeName: SScoreBehaviour, Assembly-CSharp
-        m_MethodName: RecieveScore
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!23 &1020734328
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5625,6 +5601,48 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1020734325}
   m_Mesh: {fileID: -2432090755550338912, guid: fd0ac2a6b937ee74c92be2cf57fc34d8, type: 3}
+--- !u!64 &1020734330
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020734325}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: fd0ac2a6b937ee74c92be2cf57fc34d8, type: 3}
+--- !u!114 &1020734331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020734325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f07829197b8920c44b2795f83b6cb37f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dartBoardScore: 1
+  GiveScore:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 676963342}
+        m_TargetAssemblyTypeName: SScoreBehaviour, Assembly-CSharp
+        m_MethodName: RecieveScore
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1030315913
 GameObject:
   m_ObjectHideFlags: 0
@@ -32751,7 +32769,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450652074157606}
-  - component: {fileID: 919132147600981149}
   m_Layer: 0
   m_Name: Victorian Dressmaker Dummy scan
   m_TagString: Untagged
@@ -32759,19 +32776,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &919132147600981149
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147600981148}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.023768581, y: 0.04505401, z: 0.022632403}
-  m_Center: {x: 0.0024366786, y: -0.0016486844, z: -0.002472978}
 --- !u!1 &919132147755546134
 GameObject:
   m_ObjectHideFlags: 0
@@ -38451,9 +38455,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 700972159}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+        m_TargetAssemblyTypeName: SMachineController, Assembly-CSharp
+        m_MethodName: SetMoving
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -63940,7 +63944,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4854141749747754071}
   m_LocalRotation: {x: -0, y: -0.7042407, z: -0, w: 0.70996135}
-  m_LocalPosition: {x: 0.6, y: 0.3, z: 56.2}
+  m_LocalPosition: {x: 0.6, y: 0.3, z: 54.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -79386,7 +79390,7 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8164078559317886021}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -45,6 +46,7 @@ public class DShooting : MonoBehaviour
             if (Physics.Raycast(shootPoint.transform.position, -transform.forward, out _hit))
             {
                 GameObject BulletMark = PoolingManager.Instance.GetPooledObject("BulletMark");
+                BulletMark.transform.parent = _hit.transform;
                 BulletMark.transform.position = _hit.point; //new Vector3(_contactPoint.point.x, _contactPoint.point.y, _contactPoint.point.z);
                 BulletMark.transform.rotation = Quaternion.LookRotation(_hit.normal);
                 BulletMark.transform.Rotate(Vector3.right * 90);
@@ -52,8 +54,9 @@ public class DShooting : MonoBehaviour
                 //BulletMark.transform.localScale = BulletMark.transform.localScale / 10;
                 if (_hit.collider.GetComponent<DDartBoardManagment>())
                     _hit.collider.gameObject.GetComponent<DDartBoardManagment>().BulletEntry();
-               
-                Invoke("ShootingBeheavour", 0.1f);
+                if(_hit.collider.gameObject.TryGetComponent<MeshCollider>(out MeshCollider msh))
+                    msh.enabled = false;
+                Invoke("ShootingBeheavour", 0.15f);
 
                 _canShoot = false;
                 BulletMark.SetActive(true);

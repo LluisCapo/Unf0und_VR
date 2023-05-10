@@ -26,7 +26,7 @@ public class SMachineController : MonoBehaviour
         _mvb= GetComponent<MovementBehavior>();
         foreach (Transform _child in transform.parent.GetChild(transform.parent.childCount - 1))
             _paths.Add(_child);
-        SetMoving();
+        //SetMoving();
 
     }
 

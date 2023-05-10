@@ -13,7 +13,7 @@ public class Sbarrer : MonoBehaviour
     {
         _BarrerCollider = GetComponent<BoxCollider>();
         _anim = GetComponent<Animator>();
-        _BarrerCollider.enabled = false;
+        DisableCollider();
     }
 
 
@@ -32,6 +32,7 @@ public class Sbarrer : MonoBehaviour
     {
         Debug.Log("OpenDoor");
         _anim.SetInteger("state", 1);
+        EnableCollision();
     }
     public void Close()
     {
