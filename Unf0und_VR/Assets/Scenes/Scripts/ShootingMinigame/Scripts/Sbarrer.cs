@@ -13,13 +13,13 @@ public class Sbarrer : MonoBehaviour
     {
         _BarrerCollider = GetComponent<BoxCollider>();
         _anim = GetComponent<Animator>();
-        _BarrerCollider.enabled = false;
+        DisableCollider();
     }
 
 
 
     public void EnableCollision()
-    { 
+    {
         _BarrerCollider.enabled = true; 
     }
     public void DisableCollider()
@@ -30,10 +30,13 @@ public class Sbarrer : MonoBehaviour
 
     public void Open()
     {
+        Debug.Log("OpenDoor");
         _anim.SetInteger("state", 1);
+        EnableCollision();
     }
     public void Close()
     {
+        Debug.Log("CloseDoor");
         _anim.SetInteger("state", 0);
     }
     private void OnTriggerExit(Collider other)

@@ -15,6 +15,7 @@ public class SMWaitingState : SStateBehavior
     {
         //incrementa vel
         //decrementa score
+        _controller.objective.transform.GetChild(0).GetComponent<MeshCollider>().enabled = false;
         _controller.delay -= _controller.incrementalSpeed;
         if(_controller.delay <= 3)
         {
