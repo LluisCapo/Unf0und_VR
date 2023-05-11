@@ -14,20 +14,20 @@ public class FinalBossDetect : MonoBehaviour
     }
     private void OnBecameVisible()
     {
-        Debug.Log("Scream");
-        GetComponentInParent<Animator>().SetTrigger("scream");
+        //Debug.Log("Scream");
+        //GetComponentInParent<Animator>().SetTrigger("scream");
     }
 
-    private void OnBecameInvisible()
+    private void Update()
     {
-        Debug.Log("NoneScream");
-        GetComponentInParent<Animator>().SetTrigger("cream");
+        if (Input.GetKeyDown(KeyCode.K))
+            GetComponentInParent<Animator>().SetTrigger("scream");
     }
 
     public void OnAnimFinish()
     {
         controller.enabled = true;
-        GetComponentInChildren<FinalBossController>().enabled = false;
+        GetComponentInChildren<FinalBossDetect>().enabled = false;
         this.enabled = false;
     }
 }

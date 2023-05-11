@@ -10,6 +10,7 @@ public class DetecterBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("A detecter has been activated");
         whenCollide.Invoke();
         gameObject.SetActive(false);
     }

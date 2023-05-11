@@ -18,7 +18,7 @@ public class BBowlingPickupState : BState
     }
     public override void OnFinishWaiting()
     {
-        int _bowlsDropped = _bowlContainer.CountNonDroppedBowls();
+         int _bowlsDropped = _bowlContainer.CountNonDroppedBowls();
         _bowlContainer.DesactiveAllBowls();
         _stateController.ChangeState(nextState);
     }

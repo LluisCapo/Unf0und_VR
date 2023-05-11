@@ -28,7 +28,7 @@ public class FBWalking : FBState
     {
         _controller.Movement.Move(_dir);
 
-        if (Vector3.Distance(_controller.transform.position, _currentPoint) < 1f)
+        if (Vector3.Distance(_controller.transform.position, _currentPoint) < 2f)
             _controller.ChangeState(_controller.throwingState);
     }
 }

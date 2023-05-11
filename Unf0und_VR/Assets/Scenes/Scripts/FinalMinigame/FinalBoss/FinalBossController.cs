@@ -15,7 +15,6 @@ public class FinalBossController : MonoBehaviour
     public Transform chairP;
     [SerializeField] Rigidbody chair;
     [SerializeField] RuntimeAnimatorController animator;
-    [SerializeField] FinalBossDetect screamBehavior;
 
     Animator _anim;
     MovementBehavior _mvb;
