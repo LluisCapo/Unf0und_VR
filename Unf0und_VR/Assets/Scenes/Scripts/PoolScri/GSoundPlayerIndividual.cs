@@ -28,7 +28,7 @@ public class GSoundPlayerIndividual : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _playAnimationEvent.Invoke();
-        AudioManager.Instance.PlaySoundOnPosition(_nameSound, _referencePos.transform.position);
+        AudioManager.Instance.PlaySoundAttachedAtPosition(_nameSound, _referencePos);
         gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 
