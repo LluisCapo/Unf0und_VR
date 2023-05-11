@@ -21,11 +21,12 @@ public class BCanvasController : MonoBehaviour
     }
     public void NextShot()
     {
+        Debug.Log("shot ---> " + _index);
         _index++;
         if(_index < 5)
         {
             _currentShot = shotList[_index];
-            Debug.Log("NextShot");
+            Debug.LogError("NextShot");
         }
         else
         {

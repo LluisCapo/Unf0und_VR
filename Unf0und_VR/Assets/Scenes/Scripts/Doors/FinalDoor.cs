@@ -9,6 +9,7 @@ public class FinalDoor : MonoBehaviour
     [SerializeField] ClosingDoorBehavior controller;
     [SerializeField] Animator lightAnim;
     public AudioSource audioSource;
+    public GameObject closeDoorleft;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class FinalDoor : MonoBehaviour
         //GetComponent<DoorController>().GetComponent<Light>().SetActive(false);
         lightAnim.gameObject.SetActive(true);
         lightAnim.SetTrigger("blink");
+        closeDoorleft.SetActive(true);
         audioSource.Play();
         controller.OnFirstEventCall();
         GetComponent<BoxCollider>().enabled = false;

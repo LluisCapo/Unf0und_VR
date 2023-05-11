@@ -26,4 +26,9 @@ public class MButtonsMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Raul");
     }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("Raul");
+    }
 }
