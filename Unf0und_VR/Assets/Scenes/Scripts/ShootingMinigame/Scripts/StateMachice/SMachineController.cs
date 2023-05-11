@@ -16,6 +16,8 @@ public class SMachineController : MonoBehaviour
     SStateBehavior currentState;
     MovementBehavior _mvb;
     public Rigidbody rb;
+
+    [Header("This event is executed when the minigame ends.")]
     public UnityEvent OnTimeReaches;
 
     public MovementBehavior MovementBehavior { get { return _mvb; } }
@@ -32,7 +34,8 @@ public class SMachineController : MonoBehaviour
 
     void Update()
     {
-        currentState.OnUpdate(this);
+        if(currentState != null)
+            currentState.OnUpdate(this);
     }
     public void SetMoving()
     {

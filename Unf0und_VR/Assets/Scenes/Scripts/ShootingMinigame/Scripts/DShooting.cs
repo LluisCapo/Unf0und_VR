@@ -53,9 +53,12 @@ public class DShooting : MonoBehaviour
                 BulletMark.transform.Translate(Vector3.up * 0.005f);
                 //BulletMark.transform.localScale = BulletMark.transform.localScale / 10;
                 if (_hit.collider.GetComponent<DDartBoardManagment>())
+                {
                     _hit.collider.gameObject.GetComponent<DDartBoardManagment>().BulletEntry();
-                if(_hit.collider.gameObject.TryGetComponent<MeshCollider>(out MeshCollider msh))
-                    msh.enabled = false;
+                    //if (_hit.collider.gameObject.TryGetComponent<MeshCollider>(out MeshCollider msh))
+                    //    msh.enabled = false;
+                }
+                
                 Invoke("ShootingBeheavour", 0.15f);
 
                 _canShoot = false;

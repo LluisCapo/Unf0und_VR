@@ -22,7 +22,7 @@ public class PlatformActing : MonoBehaviour
     [SerializeField]
     public Dictionary<string, List<GameObject>> _hipsPlatform = new Dictionary<string, List<GameObject>>();
 
-    private float _actualTime = 0;
+    //private float _actualTime = 0;
 
     private void Awake()
     {
@@ -37,19 +37,19 @@ public class PlatformActing : MonoBehaviour
 
 
 
-    public void Rotate(float _distance, float _speed, string _name)
+    public void Rotate(float _distance, float _speed, string _name, GameObject gm)
     {
         float _time = _distance / _speed;
         //_distance *= 10000;
         //_time *= 10000;
         float _rotation = _speed * _time;
-        GameObject SelectedPart = null;
-        foreach (GameObject g in _hipsPlatform[_name])
-                SelectedPart = g;
+        //GameObject SelectedPart = null;
+        //foreach (GameObject g in _hipsPlatform[_name])
+        //        SelectedPart = gm;
         char[] nameChar = _name.ToCharArray();
         string axis = nameChar[nameChar.Length - 1].ToString().ToLower();
         //UnityEngine.Random.Range(20, 360)
-        StartCoroutine(RotateObject(SelectedPart, _time, _speed, _rotation * (_distance *100), axis));
+        StartCoroutine(RotateObject(gm, _time, _speed, _rotation * (_distance *100), axis));
 
     }
     private IEnumerator RotateObject(GameObject obj, float duration, float speed, float distance, string direction)
