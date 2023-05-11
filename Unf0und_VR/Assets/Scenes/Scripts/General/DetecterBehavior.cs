@@ -10,7 +10,7 @@ public class DetecterBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("A detecter has been activated");
+        Debug.Log(gameObject.name + "  with  " + other.gameObject.name + "  on  " + other.gameObject.layer);
         whenCollide.Invoke();
         gameObject.SetActive(false);
     }

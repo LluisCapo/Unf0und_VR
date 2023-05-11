@@ -50,6 +50,7 @@ public class BasketManager : MonoBehaviour
     {
         if (_score < lLights.Count)
         {
+            AudioManager.Instance.PlaySound("basketScore_SFX");
             lLights[_score].material = scoredMat;
             _score++;
 

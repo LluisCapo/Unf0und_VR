@@ -1,29 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using System.IO;
-using Org.BouncyCastle.Crypto.Generators;
-using Org.BouncyCastle.Crypto.Parameters;
-using Org.BouncyCastle.Crypto.Engines;
-using UnityEngine.InputSystem;
-using System.Diagnostics.Contracts;
 
 public class BDEncryption : MonoBehaviour
 {
 
     public BDInfoToInsert playerInfo;
     private string publicKeyPath;
-    private void Start()
+    public void StartBDCall()
     {
-        publicKeyPath = "C://Users/super/Downloads/ServerConCifrado/CLAUS/Claus/Lluis.crt";
+        publicKeyPath = "C:/Users/Tarda/Downloads/Claus/Lluis.crt";
         Send($"{playerInfo.nick}/{playerInfo.email}/{playerInfo.score}/Unf0und_VR");
     }
-    public void Send(string msgToSend)
+    private void Send(string msgToSend)
     {
         //Genero contra
         byte[] pwd = GenerateRandomKey();
@@ -44,14 +35,14 @@ public class BDEncryption : MonoBehaviour
 
         GetComponent<BDManager>().BDStart(mesgToSend);
     }
-    public byte[] EncryptAsim(byte[] _pw, RSA _key)
+    private byte[] EncryptAsim(byte[] _pw, RSA _key)
     {
         //byte[] plainBytes = Encoding.ASCII.GetBytes(_pw);
         RSAEncryptionPadding padding = RSAEncryptionPadding.Pkcs1;
 
         return _key.Encrypt(_pw, padding);
     }
-    public RSA GetKey()
+    private RSA GetKey()
     {
         byte[] crtData = File.ReadAllBytes(publicKeyPath);
         X509Certificate2 cert = new X509Certificate2(crtData);
@@ -60,7 +51,7 @@ public class BDEncryption : MonoBehaviour
         RSA publicKey = cert.GetRSAPublicKey();
         return publicKey;
     }
-    public byte[] EncryptSim(string plainText, byte[] passwordBytes)
+    private byte[] EncryptSim(string plainText, byte[] passwordBytes)
     {
         //byte[] key = new System.Security.Cryptography.SHA256Managed().ComputeHash(passwordBytes);
 
@@ -71,7 +62,7 @@ public class BDEncryption : MonoBehaviour
         return rc4.Encrypt(plaintext);
 
     }
-    public byte[] GenerateRandomKey()
+    private byte[] GenerateRandomKey()
     {
         byte[] key = new byte[64];
         using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
@@ -81,8 +72,7 @@ public class BDEncryption : MonoBehaviour
 
         return key;
     }
-
-    public byte[] ConcatBytes(byte[] contraCif, byte[] mesgCif)
+    private byte[] ConcatBytes(byte[] contraCif, byte[] mesgCif)
     {
         byte[] mesgToSend = new byte[contraCif.Length + mesgCif.Length];
 

@@ -69,6 +69,6 @@ public class BStateController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _currentState.OnTrigerEnter(other, this);
-        Debug.Log("Entra");
+        Debug.Log("Entra  ---> " + _currentState.name);
     }
 }

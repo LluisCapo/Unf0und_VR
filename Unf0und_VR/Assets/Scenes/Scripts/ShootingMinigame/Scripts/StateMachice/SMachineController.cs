@@ -11,7 +11,7 @@ public class SMachineController : MonoBehaviour
     [SerializeField, Header("Pathing")] public List<Transform> _paths = new List<Transform>();
     public Transform PointToGo;
     [Header("Float Parametres")] public float incrementalSpeed, delay, decrementalDelay, distanceDifference;
-    [Header("GameObjects Parameters")] public GameObject platform;
+    [Header("GameObjects Parameters")] public GameObject platform, objective;
     [Header("Transform Parameters")] public Transform camaraReference;
     SStateBehavior currentState;
     MovementBehavior _mvb;
@@ -26,7 +26,7 @@ public class SMachineController : MonoBehaviour
         _mvb= GetComponent<MovementBehavior>();
         foreach (Transform _child in transform.parent.GetChild(transform.parent.childCount - 1))
             _paths.Add(_child);
-        SetMoving();
+        //SetMoving();
 
     }
 
