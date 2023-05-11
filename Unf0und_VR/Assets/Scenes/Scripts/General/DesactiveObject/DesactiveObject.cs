@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DesactiveObject : MonoBehaviour
 {
-    public GameObject _object;
+    public UnityEvent _object;
 
-    public void DesactiveO()
+    public void EventInvoke()
     {
-        _object.SetActive(false); 
+        _object.Invoke(); 
     }
 }

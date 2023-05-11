@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     public GameObject firstLvlObject;
     public AudioSource audiorooms;
     public AudioClip cliproom;
+    public GameObject deadBossObject;
+    public string namedeadaudio;
 
     float playerVelocity;
     #endregion
@@ -105,5 +107,11 @@ public class GameManager : MonoBehaviour
     public void TestBowling()
     {
         RenderSettings.fogDensity = .05f;
+    }
+
+    public void DeadPlayer()
+    {
+        deadBossObject.SetActive(true);
+        AudioManager.Instance.PlaySoundOnPosition(namedeadaudio, deadBossObject.transform.position);
     }
 }
