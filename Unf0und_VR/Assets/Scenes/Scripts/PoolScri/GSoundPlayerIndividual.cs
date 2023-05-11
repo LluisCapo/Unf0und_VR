@@ -21,7 +21,8 @@ public class GSoundPlayerIndividual : MonoBehaviour
     }
     private void OnEnable()
     {
-        gameObject.GetComponent<BoxCollider>().enabled = true;
+        if(gameObject.GetComponent<BoxCollider>())
+            gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 
     private void OnTriggerEnter(Collider other)
