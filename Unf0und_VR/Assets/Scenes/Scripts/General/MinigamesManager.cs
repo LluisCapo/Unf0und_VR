@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MinigamesManager : MonoBehaviour
 {
@@ -13,8 +14,7 @@ public class MinigamesManager : MonoBehaviour
     [SerializeField, Header("Bowling objects to disable")]
     List<GameObject> objectsToDisable;
 
-    [SerializeField, Header("Beta habitation (not in the final game)")]
-    GameObject betaHabitation;
+    [SerializeField, Header("Event bowling end")] UnityEvent onBowlingPas;
     public void StartBowling() 
     {
         Debug.Log("Start Bowling");
@@ -30,11 +30,11 @@ public class MinigamesManager : MonoBehaviour
         //bowling.BowlContainer.DesactiveAllBowls();
 
         foreach (GameObject obj in objectsToDisable) { obj.SetActive(false); }
-        betaHabitation.SetActive(true);
+        onBowlingPas.Invoke();
 
         //GameManager.Instance.StartBDServer();
 
-        List<GameObject> bowls = PoolingManager.Instance.GetActiveObject("BowlingBowl");
+        List<GameObject> bowls = PoolingManager.Instance.GetActiveObject("bowlingBowl");
         foreach (GameObject obj in bowls) { obj.SetActive(false); }
         bowling.BallInstantiate.GetBall().SetActive(false);
 

@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     public GameObject firstLvlObject;
     public AudioSource audiorooms;
     public AudioClip cliproom;
+    public GameObject deadBossObject;
+    public string namedeadaudio;
 
     float playerVelocity;
     #endregion
@@ -71,11 +73,11 @@ public class GameManager : MonoBehaviour
         StartCoroutine(waitToChange());
     }
 
-    public void StartBDServer()
+    /*public void StartBDServer()
     {
         if (bdManager.CurrentGameInfo.email[0].Length > 2)
             bdManager.BDStart();
-    }
+    }*/
 
     IEnumerator waitToChange()
     {
@@ -91,8 +93,25 @@ public class GameManager : MonoBehaviour
         audiorooms.Play();
     }
 
+    public void StopPlayerMove()
+    {
+        playerVelocity = autoHandPlayer.maxMoveSpeed;
+        autoHandPlayer.maxMoveSpeed = 0;
+    }
+
+    public void SetPlayerMove()
+    {
+        autoHandPlayer.maxMoveSpeed = playerVelocity;
+    }
+
     public void TestBowling()
     {
         RenderSettings.fogDensity = .05f;
+    }
+
+    public void DeadPlayer()
+    {
+        deadBossObject.SetActive(true);
+        AudioManager.Instance.PlaySoundOnPosition(namedeadaudio, deadBossObject.transform.position);
     }
 }
