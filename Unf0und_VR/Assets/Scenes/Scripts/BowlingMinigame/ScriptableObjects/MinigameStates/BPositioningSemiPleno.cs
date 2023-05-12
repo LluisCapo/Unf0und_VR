@@ -14,12 +14,13 @@ public class BPositioningSemiPleno : BState
 
     public override void OnFinishWaiting()
     {
+        _stateController.detectBall.enabled = true;
         _stateController.ChangeState(nextState);
     }
 
     public override void OnTrigerEnter(Collider _collider, MonoBehaviour _class)
     {
-        Debug.Log("ball hit");
+        _stateController.detectBall.enabled = false;
         _stateController.StartCoroutine(_stateController.StartWaiting(this, 5f));
     }
 }

@@ -25,7 +25,7 @@ public class MinigamesManager : MonoBehaviour
     public void StopBowling()
     {
         //this runs when the player are in the +5th shot
-
+        GetComponent<BoxCollider>().enabled = false;
         bowling.PlaneController.isUP = true; //mirar si eso funciona o es false
         //bowling.BowlContainer.DesactiveAllBowls();
 
