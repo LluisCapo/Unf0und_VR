@@ -1,23 +1,23 @@
 Using pre-set license
 Built from '2021.3/staging' branch; Version is '2021.3.9f1 (ad3870b89536) revision 11352176'; Using compiler version '192829333'; Build Type 'Release'
-OS: 'Windows 10  (10.0.19045) 64bit ProfessionalWorkstation' Language: 'es' Physical Memory: 8140 MB
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'es' Physical Memory: 16236 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2021.3.9f1\Editor\Unity.exe
+D:\Unity\2021.3.9f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-D:/Unf0und_VR/Unf0und_VR
+C:/Users/Borjiti/Documents/GitHub/Unf0und_VR/Unf0und_VR
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50793
-Successfully changed project path to: D:/Unf0und_VR/Unf0und_VR
-D:/Unf0und_VR/Unf0und_VR
+61125
+Successfully changed project path to: C:/Users/Borjiti/Documents/GitHub/Unf0und_VR/Unf0und_VR
+C:/Users/Borjiti/Documents/GitHub/Unf0und_VR/Unf0und_VR
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
     "memorysetup-bucket-allocator-granularity=16"
     "memorysetup-bucket-allocator-bucket-count=8"
@@ -47,61 +47,201 @@ D:/Unf0und_VR/Unf0und_VR
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 989.23 ms, found 13 plugins.
-Preloading 1 native plugins for Editor in 59.96 ms.
+Refreshing native plugins compatible for Editor in 293.75 ms, found 13 plugins.
+Preloading 1 native plugins for Editor in 1.57 ms.
 Initialize engine version: 2021.3.9f1 (ad3870b89536)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path D:/Unf0und_VR/Unf0und_VR/Assets
+[Subsystems] Discovering subsystems at path D:/Unity/2021.3.9f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Borjiti/Documents/GitHub/Unf0und_VR/Unf0und_VR/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce GTX 1660 Ti (ID=0x2182)
+    Renderer: NVIDIA GeForce GTX 1650 (ID=0x1f91)
     Vendor:   NVIDIA
-    VRAM:     5979 MB
+    VRAM:     3949 MB
     Driver:   31.0.15.3141
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56824
+Mono path[0] = 'D:/Unity/2021.3.9f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/2021.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/Unity/2021.3.9f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56972
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.013155 seconds.
+Register platform support module: D:/Unity/2021.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003906 seconds.
 Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 164.80 ms, found 13 plugins.
-Preloading 1 native plugins for Editor in 0.22 ms.
+Refreshing native plugins compatible for Editor in 281.86 ms, found 13 plugins.
+Preloading 1 native plugins for Editor in 0.13 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.922 seconds
+- Completed reload, in  1.429 seconds
 Domain Reload Profiling:
-	ReloadAssembly (923ms)
-		BeginReloadAssembly (154ms)
+	ReloadAssembly (1429ms)
+		BeginReloadAssembly (141ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (629ms)
-			LoadAssemblies (152ms)
+			CreateAndSetChildDomain (2ms)
+		EndReloadAssembly (1087ms)
+			LoadAssemblies (138ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (122ms)
+			SetupTypeCache (214ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (33ms)
-			SetupLoadedEditorAssemblies (409ms)
+			RebuildScriptCaches (55ms)
+			SetupLoadedEditorAssemblies (712ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (67ms)
-				SetLoadedEditorAssemblies (2ms)
-				RefreshPlugins (165ms)
-				BeforeProcessingInitializeOnLoad (2ms)
-				ProcessInitializeOnLoadAttributes (116ms)
-				ProcessInitializeOnLoadMethodAttributes (57ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (282ms)
+				BeforeProcessingInitializeOnLoad (4ms)
+				ProcessInitializeOnLoadAttributes (317ms)
+				ProcessInitializeOnLoadMethodAttributes (97ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 1.852749 seconds.
-Android Extension - Scanning For ADB Devices 4614 ms
+Registered in 0.035138 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Borjiti\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\Borjiti\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 367.63 ms, found 13 plugins.
+Preloading 1 native plugins for Editor in 0.15 ms.
+Package Manager log level set to [2]
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
+  at Unity.XR.Oculus.OculusLoader.AssetPathToAbsolutePath (System.String assetPath) [0x0003d] in C:\Users\Borjiti\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:271 
+  at Unity.XR.Oculus.OculusLoader.EditorLoadOVRPlugin () [0x0007b] in C:\Users\Borjiti\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:256 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <9aad1b3a47484d63ba2b3985692d80e9>:0 
+  at UnityEditor.EditorAssemblies.ProcessInitializeOnLoadMethodAttributes () [0x000a5] in <0d6ce211ebbc47e1a35a84c3672ff58f>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+Mono: successfully reloaded assembly
+- Completed reload, in  4.155 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4157ms)
+		BeginReloadAssembly (208ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (34ms)
+		EndReloadAssembly (3699ms)
+			LoadAssemblies (220ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (806ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (203ms)
+			SetupLoadedEditorAssemblies (1980ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (368ms)
+				BeforeProcessingInitializeOnLoad (346ms)
+				ProcessInitializeOnLoadAttributes (1044ms)
+				ProcessInitializeOnLoadMethodAttributes (211ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 3.54 ms, found 13 plugins.
+Preloading 1 native plugins for Editor in 0.20 ms.
+Unloading 6785 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 101 unused Assets / (2.9 MB). Loaded Objects now: 7232.
+Memory consumption went from 281.3 MB to 278.4 MB.
+Total: 14.777100 ms (FindLiveObjects: 0.940000 ms CreateObjectMapping: 0.947300 ms MarkObjects: 11.216400 ms  DeleteObjects: 1.671800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 84988.030607 seconds.
+  path: Assets/Models/FinalBoss
+  artifactKey: Guid(572068604925a18419919c4b6342d3f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss using Guid(572068604925a18419919c4b6342d3f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd7c81e74d8ad7472046904a96f04c58') in 0.226114 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.396147 seconds.
+  path: Assets/Models/FinalBoss/Ch44_1001_Diffuse.png
+  artifactKey: Guid(56986de1e2e172b43a7bbc989713b65c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss/Ch44_1001_Diffuse.png using Guid(56986de1e2e172b43a7bbc989713b65c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ce8abbdc94c7a0fefd2092bb5242e91e') in 0.765901 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Models/FinalBoss/Ch44_1002_Specular.png
+  artifactKey: Guid(f56beeaad46b0a34f9f54c3c7c6729e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss/Ch44_1002_Specular.png using Guid(f56beeaad46b0a34f9f54c3c7c6729e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '214aba4ea909a2d3a29e758c297112b6') in 0.089105 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000123 seconds.
+  path: Assets/Models/FinalBoss/Ch44_1001_Glossiness.png
+  artifactKey: Guid(0cbce37121aecd145afed74b63b06050) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss/Ch44_1001_Glossiness.png using Guid(0cbce37121aecd145afed74b63b06050) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6fda47232e371cadbdac7001b2371e6a') in 0.077214 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Models/FinalBoss/Ch44_1002_Emissive.png
+  artifactKey: Guid(a342af5afaba65d4bbebdc31db85573f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss/Ch44_1002_Emissive.png using Guid(a342af5afaba65d4bbebdc31db85573f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '078d077133a37808b93b5d0cb07eec30') in 0.076147 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Models/FinalBoss/Ch44_1001_Specular.png
+  artifactKey: Guid(06c34baf423edba4d97a2fee4c281378) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss/Ch44_1001_Specular.png using Guid(06c34baf423edba4d97a2fee4c281378) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b70649ea6fc3e59ab8d4316219a2c5c') in 0.126742 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000299 seconds.
+  path: Assets/Models/FinalBoss/Ch44_1001_Normal.png
+  artifactKey: Guid(09a8d3c448f22b147b604c1ed5c0ed54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss/Ch44_1001_Normal.png using Guid(09a8d3c448f22b147b604c1ed5c0ed54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9e9c735098157cd7c3cee83a88e8306') in 0.126252 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Models/FinalBoss/Ch44_1002_Diffuse.png
+  artifactKey: Guid(013c0c99fd996a243b9acf6004c74867) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss/Ch44_1002_Diffuse.png using Guid(013c0c99fd996a243b9acf6004c74867) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '544959ae488f5ed8201e72a7d0ba52ac') in 0.091960 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Models/FinalBoss/Ch44_1002_Glossiness.png
+  artifactKey: Guid(5abe37d6cd1b4424894c9492e697d724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss/Ch44_1002_Glossiness.png using Guid(5abe37d6cd1b4424894c9492e697d724) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dec84dcaaa802c65abbebf15ca0bad77') in 0.084356 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Models/FinalBoss/Ch44_1002_Normal.png
+  artifactKey: Guid(82e5bedc2c3cd1444b1eba002ee51dad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/FinalBoss/Ch44_1002_Normal.png using Guid(82e5bedc2c3cd1444b1eba002ee51dad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5ba0c6b750ca0231505c3bb3f4abf78') in 0.101245 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 29.518006 seconds.
+  path: Assets/Models/Boss/ZombieScreamMixamo.fbx
+  artifactKey: Guid(e18e1bbfda5261242b06207786d5fe0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Boss/ZombieScreamMixamo.fbx using Guid(e18e1bbfda5261242b06207786d5fe0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9e411e9492308e5f4a30518d8f60b69') in 0.768902 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1676.858785 seconds.
+  path: Assets/Prefabs/FinalGame/Skeletonzombie T Avelange.fbx
+  artifactKey: Guid(cb3953ede54d34a4f90489588e9c8140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/FinalGame/Skeletonzombie T Avelange.fbx using Guid(cb3953ede54d34a4f90489588e9c8140) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2aae9a46c48b0f38d4a0b6df78734d4d') in 2.911021 seconds 
