@@ -66515,6 +66515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UN_Lantern (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4c778d3a731aed74193e484f1b014409, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4351134839566842465, guid: 4c778d3a731aed74193e484f1b014409, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -66725,7 +66729,7 @@ MonoBehaviour:
   isGrabbable: 1
   CopySettings: {fileID: 0}
   grabType: 0
-  handType: 0
+  handType: 2
   singleHandOnly: 0
   allowHeldSwapping: 1
   instantGrab: 0
@@ -66748,7 +66752,19 @@ MonoBehaviour:
   showEvents: 1
   onGrab:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1685838690}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onRelease:
     m_PersistentCalls:
       m_Calls: []
@@ -70925,6 +70941,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1683654745}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1685838690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3495179584376256967, guid: 37a707d57ec0558499ed4d6415c31e2b, type: 3}
+  m_PrefabInstance: {fileID: 532140787}
+  m_PrefabAsset: {fileID: 0}
 --- !u!64 &1692881227
 MeshCollider:
   m_ObjectHideFlags: 0
