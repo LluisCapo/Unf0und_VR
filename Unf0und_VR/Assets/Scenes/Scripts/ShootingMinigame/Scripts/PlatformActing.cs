@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using static UnityEditor.Progress;
 using Unity.VisualScripting;
 using UnityEngine.Assertions.Must;
 using Unity.Mathematics;
