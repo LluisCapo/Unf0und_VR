@@ -12,17 +12,6 @@ public class FinalBossDetect : MonoBehaviour
         GetComponentInParent<Animator>().runtimeAnimatorController = animator;
         controller = GetComponentInParent<FinalBossController>();
     }
-    private void OnBecameVisible()
-    {
-        //Debug.Log("Scream");
-        //GetComponentInParent<Animator>().SetTrigger("scream");
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-            GetComponentInParent<Animator>().SetTrigger("scream");
-    }
 
     public void OnAnimFinish()
     {
