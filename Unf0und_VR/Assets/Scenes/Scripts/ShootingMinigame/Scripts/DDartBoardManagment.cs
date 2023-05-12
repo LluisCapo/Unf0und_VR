@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DDartBoardManagment : MonoBehaviour
+public class DDartBoardManagment : ObjectDamagedBehavior
 {
     #region StartFunctions
     private void OnEnable()
@@ -20,7 +20,7 @@ public class DDartBoardManagment : MonoBehaviour
 
     #endregion
     #region Functions
-    public void BulletEntry()
+    public override void BulletEntry()
     {
         GiveScore.Invoke(_dartBoardScore);
     }

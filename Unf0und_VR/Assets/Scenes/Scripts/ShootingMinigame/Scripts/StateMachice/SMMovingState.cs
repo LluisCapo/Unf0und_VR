@@ -23,13 +23,17 @@ public class SMMovingState : SStateBehavior
     {
         if (Vector3.Distance(_controller.transform.position, _controller.PointToGo.position) <= _controller.distanceDifference)
         {
-            _controller.platform.GetComponent<PlatformActing>().Rotate((_controller.PointToGo.transform.position - _controller.transform.position).magnitude, _controller.GetComponent<MovementBehavior>().GetVelocity(), "MuñecaX");
+            _controller.platform.GetComponent<PlatformActing>().Rotate((_controller.PointToGo.transform.position - _controller.transform.position).magnitude, _controller.GetComponent<MovementBehavior>().GetVelocity(), "MuñecaX", _controller.PointToGo.gameObject);
             _controller.rb.velocity = new Vector3(0, 0, 0);
             _controller.SetWaiting();
             _controller.rb.AddForce(_controller.transform.up * 0.8f, ForceMode.Impulse);
             _controller.objective.transform.GetChild(0).GetComponent<MeshCollider>().enabled = true;
             if (hasPersonalizatedPoint)
+            {
+                _controller.OnTimeReaches.Invoke();
                 _controller.enabled = false;
+            }
+                
         }
         else
             _controller.MovementBehavior.Move(_controller.PointToGo.position - _controller.transform.position);

@@ -64,7 +64,7 @@ public class PlatformBeheavour : MonoBehaviour
             {
                 if(firstTime)
                 {
-                    _platform.GetComponent<PlatformActing>().Rotate(direction.magnitude, _speed, "CodoZ");
+                    //_platform.GetComponent<PlatformActing>().Rotate(direction.magnitude, _speed, "CodoZ");
                     firstTime= false;
                 }
                     
