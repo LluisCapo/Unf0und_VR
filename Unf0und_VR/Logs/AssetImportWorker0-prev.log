@@ -4,7 +4,7 @@ OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'ca' Physical Memory
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
 
 COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2021.3.9f1\Editor\Unity.exe
+C:\Program Files\Unity\Hub\Editor\2021.3.9f1-x86_64\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
@@ -15,7 +15,7 @@ D:/Usuaris/super/Documents/GitHub/Unf0und_VR/Unf0und_VR
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63567
+50454
 Successfully changed project path to: D:/Usuaris/super/Documents/GitHub/Unf0und_VR/Unf0und_VR
 D:/Usuaris/super/Documents/GitHub/Unf0und_VR/Unf0und_VR
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -47,10 +47,10 @@ D:/Usuaris/super/Documents/GitHub/Unf0und_VR/Unf0und_VR
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Refreshing native plugins compatible for Editor in 136.72 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.98 ms.
+Refreshing native plugins compatible for Editor in 180.21 ms, found 13 plugins.
+Preloading 1 native plugins for Editor in 0.70 ms.
 Initialize engine version: 2021.3.9f1 (ad3870b89536)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.3.9f1-x86_64/Editor/Data/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path D:/Usuaris/super/Documents/GitHub/Unf0und_VR/Unf0und_VR/Assets
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
@@ -60,42 +60,42 @@ Direct3D:
     VRAM:     8042 MB
     Driver:   30.0.14.7239
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56420
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1-x86_64/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1-x86_64/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.3.9f1-x86_64/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56788
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.008054 seconds.
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1-x86_64/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.3.9f1-x86_64/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.008497 seconds.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 129.74 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.14 ms.
+Refreshing native plugins compatible for Editor in 163.94 ms, found 13 plugins.
+Preloading 1 native plugins for Editor in 0.20 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.759 seconds
+- Completed reload, in  0.802 seconds
 Domain Reload Profiling:
-	ReloadAssembly (759ms)
-		BeginReloadAssembly (83ms)
+	ReloadAssembly (803ms)
+		BeginReloadAssembly (81ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (1ms)
-		EndReloadAssembly (553ms)
-			LoadAssemblies (80ms)
+		EndReloadAssembly (595ms)
+			LoadAssemblies (79ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (113ms)
+			SetupTypeCache (110ms)
 			ReleaseScriptCaches (0ms)
 			RebuildScriptCaches (30ms)
-			SetupLoadedEditorAssemblies (348ms)
+			SetupLoadedEditorAssemblies (394ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (68ms)
+				InitializePlatformSupportModulesInManaged (64ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (130ms)
-				BeforeProcessingInitializeOnLoad (3ms)
-				ProcessInitializeOnLoadAttributes (95ms)
+				RefreshPlugins (164ms)
+				BeforeProcessingInitializeOnLoad (2ms)
+				ProcessInitializeOnLoadAttributes (112ms)
 				ProcessInitializeOnLoadMethodAttributes (52ms)
 				AfterProcessingInitializeOnLoad (0ms)
 				EditorAssembliesLoaded (0ms)
@@ -103,14 +103,24 @@ Domain Reload Profiling:
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.007728 seconds.
+Registered in 0.011927 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file data-00000216CEC06300 doesn't match image D:\Usuaris\super\Documents\GitHub\Unf0und_VR\Unf0und_VR\Assets\Visual Design Cafe\Nature Renderer\Plugins\VisualDesignCafe.Rendering.Nature.dll
+Symbol file LoadedFromMemory is not a mono symbol file
 Symbol file LoadedFromMemory doesn't match image D:\Usuaris\super\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
 Symbol file LoadedFromMemory doesn't match image D:\Usuaris\super\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file data-00000216CF9F87E0 doesn't match image D:\Usuaris\super\Documents\GitHub\Unf0und_VR\Unf0und_VR\Assets\Visual Design Cafe\Nature Renderer\Plugins\VisualDesignCafe.Rendering.Instancing.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000216CFA3B130 doesn't match image D:\Usuaris\super\Documents\GitHub\Unf0und_VR\Unf0und_VR\Assets\Visual Design Cafe\Nature Renderer\Plugins\VisualDesignCafe.Memory.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000216CFAACF10 doesn't match image D:\Usuaris\super\Documents\GitHub\Unf0und_VR\Unf0und_VR\Assets\Visual Design Cafe\Nature Renderer\Plugins\VisualDesignCafe.Rendering.Instancing.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000216CFB34360 doesn't match image D:\Usuaris\super\Documents\GitHub\Unf0und_VR\Unf0und_VR\Assets\Visual Design Cafe\Nature Renderer\Plugins\VisualDesignCafe.Rendering.Nature.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Refreshing native plugins compatible for Editor in 138.15 ms, found 11 plugins.
-Preloading 1 native plugins for Editor in 0.06 ms.
+Refreshing native plugins compatible for Editor in 180.57 ms, found 13 plugins.
+Preloading 1 native plugins for Editor in 0.07 ms.
 Package Manager log level set to [2]
 System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NullReferenceException: Object reference not set to an instance of an object
   at Unity.XR.Oculus.OculusLoader.AssetPathToAbsolutePath (System.String assetPath) [0x0003d] in D:\Usuaris\super\Documents\GitHub\Unf0und_VR\Unf0und_VR\Library\PackageCache\com.unity.xr.oculus@3.0.2\Runtime\OculusLoader.cs:271 
@@ -128,29 +138,29 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
 
 Mono: successfully reloaded assembly
-- Completed reload, in  1.952 seconds
+- Completed reload, in  2.194 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1953ms)
-		BeginReloadAssembly (205ms)
+	ReloadAssembly (2195ms)
+		BeginReloadAssembly (202ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (8ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (124ms)
-		EndReloadAssembly (1608ms)
-			LoadAssemblies (76ms)
+		EndReloadAssembly (1856ms)
+			LoadAssemblies (84ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (362ms)
+			SetupTypeCache (395ms)
 			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (93ms)
-			SetupLoadedEditorAssemblies (989ms)
+			RebuildScriptCaches (109ms)
+			SetupLoadedEditorAssemblies (1038ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (16ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (138ms)
-				BeforeProcessingInitializeOnLoad (155ms)
-				ProcessInitializeOnLoadAttributes (552ms)
-				ProcessInitializeOnLoadMethodAttributes (119ms)
+				RefreshPlugins (181ms)
+				BeforeProcessingInitializeOnLoad (162ms)
+				ProcessInitializeOnLoadAttributes (530ms)
+				ProcessInitializeOnLoadMethodAttributes (141ms)
 				AfterProcessingInitializeOnLoad (8ms)
 				EditorAssembliesLoaded (0ms)
 			ExecutionOrderSort2 (0ms)
@@ -159,12 +169,12 @@ Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 1.50 ms, found 11 plugins.
+Refreshing native plugins compatible for Editor in 2.14 ms, found 13 plugins.
 Preloading 1 native plugins for Editor in 0.08 ms.
-Unloading 6192 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 78 unused Assets / (1.1 MB). Loaded Objects now: 6630.
-Memory consumption went from 242.3 MB to 241.2 MB.
-Total: 7.324700 ms (FindLiveObjects: 0.936100 ms CreateObjectMapping: 0.321700 ms MarkObjects: 5.548800 ms  DeleteObjects: 0.516600 ms)
+Unloading 6784 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 100 unused Assets / (2.9 MB). Loaded Objects now: 7261.
+Memory consumption went from 300.8 MB to 297.8 MB.
+Total: 8.070400 ms (FindLiveObjects: 0.980400 ms CreateObjectMapping: 0.373200 ms MarkObjects: 5.894600 ms  DeleteObjects: 0.820800 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -178,16 +188,202 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 5665.995412 seconds.
-  path: Assets/Scenes/EscenasIndividuales/Lluis/Pospo Profile 1.asset
-  artifactKey: Guid(cc441a057431bcc44a59b4f282c4dde6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EscenasIndividuales/Lluis/Pospo Profile 1.asset using Guid(cc441a057431bcc44a59b4f282c4dde6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14db19aaac74486884ae401c56dff012') in 0.053219 seconds 
+  Time since last request: 199.966319 seconds.
+  path: Assets/Scenes/EscenasIndividuales/Lluis.unity
+  artifactKey: Guid(30ed7856e6405a34bb49efd2a1c1fd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/EscenasIndividuales/Lluis.unity using Guid(30ed7856e6405a34bb49efd2a1c1fd0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c8208c3532ffe795bfcc1a43e00937a') in 0.011773 seconds 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Scenes/EscenasIndividuales/Lluis
-  artifactKey: Guid(d372988db4d812e4c922a07d0b6311e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/EscenasIndividuales/Lluis using Guid(d372988db4d812e4c922a07d0b6311e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '123607564797a0be90b56b20ce92950b') in 0.001453 seconds 
+  Time since last request: 0.000032 seconds.
+  path: Assets/Prefabs/Pool.prefab
+  artifactKey: Guid(1b88ba242a7a203459920242e9f9e451) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Pool.prefab using Guid(1b88ba242a7a203459920242e9f9e451) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad52320d41e058a2c6d06c97985cd832') in 3.795077 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 30.640763 seconds.
+  path: Assets/AutoHand/Examples/Prefabs/Demo/Flower + vent.fbx
+  artifactKey: Guid(74df12c91f6e602439a242ecd8c76e72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AutoHand/Examples/Prefabs/Demo/Flower + vent.fbx using Guid(74df12c91f6e602439a242ecd8c76e72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9497b8b7ccb3489b9c115a6fefb1fc1f') in 0.264231 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Materials/CineMaterials/UN_Cine_Techo/CineTecho.mat
+  artifactKey: Guid(85df567ad10fac140871b5a15a8b3151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/CineMaterials/UN_Cine_Techo/CineTecho.mat using Guid(85df567ad10fac140871b5a15a8b3151) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e580e443516cce4a6d3201f08aa6b2f') in 0.400332 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Cypress_Bark.mat
+  artifactKey: Guid(b3b1064828dfaa1478b9eb16c4dd51b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Cypress_Bark.mat using Guid(b3b1064828dfaa1478b9eb16c4dd51b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6934796801a623e993e4ec04568e0e08') in 0.092898 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Models/brother/source/source/Evan Afton/Evan.fbx
+  artifactKey: Guid(6ec6c60b97d7b954e87da45604653900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/brother/source/source/Evan Afton/Evan.fbx using Guid(6ec6c60b97d7b954e87da45604653900) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e03b6c6a1929c754cfd4e1554d1815ba') in 1.003626 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Models/Tutorial/Assets/Projector/FilmSoft 2.mat
+  artifactKey: Guid(24978bc8c924afc489a3c418b7984015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tutorial/Assets/Projector/FilmSoft 2.mat using Guid(24978bc8c924afc489a3c418b7984015) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33238e4856310f36d721a6274a06e355') in 0.043545 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/AutoHand/Examples/Mesh/Materials/cupboard 2.mat
+  artifactKey: Guid(092be5dc34c4a8f458a78b768e164ef6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AutoHand/Examples/Mesh/Materials/cupboard 2.mat using Guid(092be5dc34c4a8f458a78b768e164ef6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29aa798d85174be35a913b4881d01e94') in 0.081132 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Objects/Dummy/Platform/source/platform/Platform.fbx
+  artifactKey: Guid(261a71818156db24489dbb5b099c2055) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Objects/Dummy/Platform/source/platform/Platform.fbx using Guid(261a71818156db24489dbb5b099c2055) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c83a60e60e0ea4542a274c6f1dabd993') in 0.312288 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Models/Tutorial/Assets/Projector/filmoscope_low.mat
+  artifactKey: Guid(ca5155135267dbb41ac2836a64793adc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Tutorial/Assets/Projector/filmoscope_low.mat using Guid(ca5155135267dbb41ac2836a64793adc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '213548513990ecdcd24e6eaa09a7c0f2') in 0.830691 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Packages/com.unity.probuilder/Content/Resources/Materials/Collider.mat
+  artifactKey: Guid(bbb235fff4f48426b863b36058ab66d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.probuilder/Content/Resources/Materials/Collider.mat using Guid(bbb235fff4f48426b863b36058ab66d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c829a789962fe9c9c1b0a4b222907fa') in 0.046928 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Timeline/Camera Gizmo.mat
+  artifactKey: Guid(3f90e092079cb3d4ca36fbbea6236408) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Timeline/Camera Gizmo.mat using Guid(3f90e092079cb3d4ca36fbbea6236408) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f43862d51dc7f1ca404bc735839b87da') in 0.156847 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/AutoHand/Examples/Mesh/Materials/cupboard.mat
+  artifactKey: Guid(82afc7b0a7cb7444b85937e4691182fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AutoHand/Examples/Mesh/Materials/cupboard.mat using Guid(82afc7b0a7cb7444b85937e4691182fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '226f19322dab8cf3f9eac8c7c3728940') in 0.074795 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Materials/Park/Columpio.mat
+  artifactKey: Guid(0af582dc23d380d4c92f777ef4f43bac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Park/Columpio.mat using Guid(0af582dc23d380d4c92f777ef4f43bac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81571e2b9114a421dce9dafc753801eb') in 0.182033 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Prefabs/Pool/Un_Pool_Up.fbx
+  artifactKey: Guid(1cc93c802949c0e419e43721ce1e4533) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Pool/Un_Pool_Up.fbx using Guid(1cc93c802949c0e419e43721ce1e4533) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93b4a61764f09f2ab6220e365337f7c4') in 0.087073 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Conifer_Cap.mat
+  artifactKey: Guid(869de798d1018874785f1dfbb10a01a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Conifer_Cap.mat using Guid(869de798d1018874785f1dfbb10a01a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2de08fbd9c7e35ac8568f27d9d10a3ec') in 0.025094 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Conifer_Bark.mat
+  artifactKey: Guid(c27accfbe09d7274ea785a7b4e21a7c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Conifer_Bark.mat using Guid(c27accfbe09d7274ea785a7b4e21a7c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e554f95fbb028e9763240f1c599b24d8') in 0.180131 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Prefabs/Park/Farola/Farola.mat
+  artifactKey: Guid(923b7fa048045644ebfef9877a5631ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Park/Farola/Farola.mat using Guid(923b7fa048045644ebfef9877a5631ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87b8c26a7fb331f2dbc5250bd9750215') in 0.266710 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Materials/recreativas/columna/Columna.mat
+  artifactKey: Guid(492d87bd330b8a142bef08f15af8f433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/recreativas/columna/Columna.mat using Guid(492d87bd330b8a142bef08f15af8f433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b60849d62b76740c752811429bebc895') in 0.230865 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Objects/Dummy/Target/source/Victorian Dressmaker Dummy scan.obj
+  artifactKey: Guid(fd0ac2a6b937ee74c92be2cf57fc34d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Objects/Dummy/Target/source/Victorian Dressmaker Dummy scan.obj using Guid(fd0ac2a6b937ee74c92be2cf57fc34d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a70516c79b68acebe6379e99419f9984') in 0.051250 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Models/brother/Looking Through Files Low.fbx
+  artifactKey: Guid(ed24c59a129959945bd93e5b31c2bde6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/brother/Looking Through Files Low.fbx using Guid(ed24c59a129959945bd93e5b31c2bde6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '572781ce8fbe876ccc2cfd0c3ecbdb80') in 0.780221 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Prefabs/casquillo.fbx
+  artifactKey: Guid(8568a87b6016d6d49a69f0ca930d5762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Prefabs/casquillo.fbx using Guid(8568a87b6016d6d49a69f0ca930d5762) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9b0e2d4589ffb5a146321c01d9810b1') in 0.123541 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Conifer_Billboard.mat
+  artifactKey: Guid(f38129caef3a2854e806254192b46337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Conifer_Billboard.mat using Guid(f38129caef3a2854e806254192b46337) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b6509bb59392e9c8a8f7197dbd986b5') in 0.232615 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Models/brother/source/source/Evan Afton/copiaMat/Flesh.mat
+  artifactKey: Guid(bf73613f2e0f7ed418cf28ddb1c04034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/brother/source/source/Evan Afton/copiaMat/Flesh.mat using Guid(bf73613f2e0f7ed418cf28ddb1c04034) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d832d039615850287329e7d3a516051') in 0.038323 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000302 seconds.
+  path: Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Materials/Cypress_Bark.mat
+  artifactKey: Guid(f995df3418732fb4ea23b356c02e25fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Materials/Cypress_Bark.mat using Guid(f995df3418732fb4ea23b356c02e25fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53766eec97d65b241b990aa2f9628eff') in 0.104374 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Scenes/Scripts/ShootingMinigame/Objects/Barrier/Fence 2.0.obj
+  artifactKey: Guid(1e496fab4f7023b4ebc09afe05172300) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Scripts/ShootingMinigame/Objects/Barrier/Fence 2.0.obj using Guid(1e496fab4f7023b4ebc09afe05172300) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0022b633edf8786527aec65c015b38c') in 0.051383 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/AutoHand/Examples/Mesh/Materials/cupboard 1.mat
+  artifactKey: Guid(580e3f16b77786144a4fec57163790ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/AutoHand/Examples/Mesh/Materials/cupboard 1.mat using Guid(580e3f16b77786144a4fec57163790ce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31b0c40e8462b854aff378164e59bbe2') in 0.067861 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.002299 seconds.
+  path: Assets/Materials/Park/Escalada.mat
+  artifactKey: Guid(6176b19877c7a33498b69d57227f90a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Park/Escalada.mat using Guid(6176b19877c7a33498b69d57227f90a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dca155d815001cd945adc736dcc2759d') in 0.354343 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Materials/CineMaterials/UN_Cine_Pantalla/CinePantalla.mat
+  artifactKey: Guid(b3417aca685a01441afa82f4a90d8aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/CineMaterials/UN_Cine_Pantalla/CinePantalla.mat using Guid(b3417aca685a01441afa82f4a90d8aba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81e4cbb6823524d025095ec171048afa') in 0.276507 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Prefabs/vallaMetal/source/Simple Metal Fence 2.0/model/Obj/Fence 2.0.obj
+  artifactKey: Guid(be6c9eeac0286ed418e7651e60506ac9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/vallaMetal/source/Simple Metal Fence 2.0/model/Obj/Fence 2.0.obj using Guid(be6c9eeac0286ed418e7651e60506ac9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16439e6b849ff61b288d5d9d17ead92d') in 0.073932 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Materials/Conifer_Bark.mat
+  artifactKey: Guid(ec4c06a182765544895a679bdb5c4bcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Materials/Conifer_Bark.mat using Guid(ec4c06a182765544895a679bdb5c4bcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bc3be6df8c57e939e9a2020a3d6f267') in 0.134227 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.012200 seconds.
+  path: Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Timeline/Camera Gizmo HD.mat
+  artifactKey: Guid(272c68470e4b1314097d5d652e02350b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Timeline/Camera Gizmo HD.mat using Guid(272c68470e4b1314097d5d652e02350b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bba01236de48bffa50d2f93095f5bdbb') in 0.019108 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Conifer_Branches.mat
+  artifactKey: Guid(2d8f43f89265fc742ae7f01886320b95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Design Cafe/Nature Renderer Demo/Realistic/Art/Trees/Source Assets/Conifer_Branches.mat using Guid(2d8f43f89265fc742ae7f01886320b95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d57ce3c6f9cb19d704a181d4a68d3c5') in 0.186919 seconds 
 Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
 AssetImportWorker is now disconnected from the server
 Process exiting

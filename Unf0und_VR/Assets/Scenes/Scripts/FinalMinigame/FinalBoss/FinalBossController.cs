@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
 public class FinalBossController : MonoBehaviour
 {
@@ -10,9 +11,10 @@ public class FinalBossController : MonoBehaviour
 
     public Transform pointToWalk1, pointToWalk2;
 
-    [SerializeField] Transform playerPosition;
+    [SerializeField] Transform playerPosition, chairParent;
+    public Transform chairP;
     [SerializeField] Rigidbody chair;
-    [SerializeField] GameObject chairGO;
+    [SerializeField] RuntimeAnimatorController animator;
 
     Animator _anim;
     MovementBehavior _mvb;
@@ -23,14 +25,16 @@ public class FinalBossController : MonoBehaviour
     public MovementBehavior Movement { get { return _mvb; } }
     public Animator Animator { get { return _anim; } }
     public Transform PlayerRef { get { return playerPosition; } }
+    public Transform ChairParent { get { return ChairParent; } }
     public Rigidbody Chair { get { return chair; } }
-    public GameObject ChairGO { get { return chairGO; } }
     #endregion
     private void Start()
     {
         _anim = GetComponent<Animator>();
         _mvb = GetComponent<MovementBehavior>();
         _rb = GetComponent<Rigidbody>();
+
+        _anim.runtimeAnimatorController = animator;
 
         currentState = walkState;
         currentState.Init(this);
@@ -39,8 +43,8 @@ public class FinalBossController : MonoBehaviour
     private void Update()
     {
         currentState.OnUpdate(this);
-       
-        //DEBUG
+
+        //
         Testing();
     }
 

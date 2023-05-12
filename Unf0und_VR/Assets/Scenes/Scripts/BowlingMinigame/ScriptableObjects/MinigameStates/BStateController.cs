@@ -37,6 +37,7 @@ public class BStateController : MonoBehaviour
     private void OnEnable()
     {
         Debug.Log("Activa bolos");
+        bowlContainerRef.gameObject.SetActive(true);
         bowlContainerRef.PositioningAllBowls();
         _currentState = firstState;
         _currentState.Init(this);
@@ -59,6 +60,7 @@ public class BStateController : MonoBehaviour
         _currentState = firstState;
         _currentState.Init(this);
     }
+
     public IEnumerator StartWaiting(BState _state, float _seconds)
     {
         yield return new WaitForSeconds(_seconds);
@@ -67,6 +69,6 @@ public class BStateController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _currentState.OnTrigerEnter(other, this);
-        Debug.Log("Entra");
+        Debug.Log("Entra  ---> " + _currentState.name);
     }
 }

@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.06666667, g: 0.12941177, b: 0.12941177, a: 0.5686275}
   m_FogMode: 2
   m_FogDensity: 0.2
@@ -2523,7 +2523,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bowling: {fileID: 957806962}
-  basketManager: {fileID: 626128051}
+  basketManager:
+  - {fileID: 0}
+  objectsToDisable: []
+  betaHabitation: {fileID: 0}
 --- !u!4 &200092916
 Transform:
   m_ObjectHideFlags: 0
@@ -2701,8 +2704,15 @@ MonoBehaviour:
   minigames: {fileID: 200092915}
   directionalLight: {fileID: 1156217262}
   closeEyes: {fileID: 1066515921}
+  parkFog: {r: 0, g: 0, b: 0, a: 0}
+  parkFogDensity: 0
+  gameFog: {r: 0, g: 0, b: 0, a: 0}
+  gameFogDensity: 0
+  bdManager: {fileID: 0}
   parkObject: {fileID: 1525139508}
   firstLvlObject: {fileID: 234217091}
+  audiorooms: {fileID: 0}
+  cliproom: {fileID: 0}
 --- !u!4 &226045568
 Transform:
   m_ObjectHideFlags: 0
@@ -6348,6 +6358,7 @@ MonoBehaviour:
   - {fileID: 1301336451}
   - {fileID: 1106434375}
   - {fileID: 782008400}
+  _index: 0
 --- !u!114 &386104323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8167,6 +8178,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fce136b77a478f14ab42100d53dbbc51, type: 3}
       propertyPath: m_Name
       value: UN_saladejuegos_maquinabaloncesto
+      objectReference: {fileID: 0}
+    - target: {fileID: 5021228346462164004, guid: fce136b77a478f14ab42100d53dbbc51, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.356
       objectReference: {fileID: 0}
     - target: {fileID: 5233112405309087440, guid: fce136b77a478f14ab42100d53dbbc51, type: 3}
       propertyPath: m_IsActive
@@ -10130,6 +10145,8 @@ MonoBehaviour:
   - {fileID: 505145447}
   noneScoredMat: {fileID: 2100000, guid: fe0e5766370ef5242bbf8ba21811e0e2, type: 2}
   scoredMat: {fileID: 2100000, guid: 20485c94d3bc1fb40bf82165388660aa, type: 2}
+  ballInstantiate: {fileID: 0}
+  ballReference: {fileID: 0}
 --- !u!4 &626128052
 Transform:
   m_ObjectHideFlags: 0

@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MinigamesManager : MonoBehaviour
 {
     // 24/02/2023 Lluís Capó
 
     [SerializeField] BStateController bowling;
-    [SerializeField] BasketManager basketManager;
+    [SerializeField] List<BasketManager> basketManager;
 
     #region Bowling
+    [SerializeField, Header("Bowling objects to disable")]
+    List<GameObject> objectsToDisable;
+
+    [SerializeField, Header("Event bowling end")] UnityEvent onBowlingPas;
     public void StartBowling() 
     {
         Debug.Log("Start Bowling");
@@ -17,10 +22,22 @@ public class MinigamesManager : MonoBehaviour
            con el inicio de la bolera, recomendación hacer el SerActive(true) con una coroutine */
         bowling.gameObject.SetActive(true);
     }
-    public void StopBowling() 
+    public void StopBowling()
     {
-        /* Poner aquí todo tipo de efectos de particulas y cualquier cosa relacionada
-           con el final de la bolera, recomendación hacer el SerActive(false) con una coroutine */
+        //this runs when the player are in the +5th shot
+
+        bowling.PlaneController.isUP = true; //mirar si eso funciona o es false
+        //bowling.BowlContainer.DesactiveAllBowls();
+
+        foreach (GameObject obj in objectsToDisable) { obj.SetActive(false); }
+        onBowlingPas.Invoke();
+
+        //GameManager.Instance.StartBDServer();
+
+        List<GameObject> bowls = PoolingManager.Instance.GetActiveObject("bowlingBowl");
+        foreach (GameObject obj in bowls) { obj.SetActive(false); }
+        bowling.BallInstantiate.GetBall().SetActive(false);
+
         bowling.gameObject.SetActive(false);
     }
     #endregion
@@ -41,7 +58,10 @@ public class MinigamesManager : MonoBehaviour
     {
         bowling.gameObject.SetActive(false);
 
-        basketManager.OnStopBasket();
-        basketManager.BasketStop.Invoke();
+        foreach(BasketManager _basket in basketManager) 
+        {
+            _basket.OnStopBasket();
+            _basket.BasketStop.Invoke();
+        }
     }
 }

@@ -27,6 +27,8 @@ public class BasketManager : MonoBehaviour
 
     [SerializeField] List<MeshRenderer> lLights;
     [SerializeField] Material noneScoredMat, scoredMat;
+    [SerializeField] Transform ballInstantiate;
+    [SerializeField] Rigidbody ballReference;
     int _score;
 
     private void Start()
@@ -48,6 +50,7 @@ public class BasketManager : MonoBehaviour
     {
         if (_score < lLights.Count)
         {
+            AudioManager.Instance.PlaySound("basketScore_SFX");
             lLights[_score].material = scoredMat;
             _score++;
 
@@ -60,6 +63,12 @@ public class BasketManager : MonoBehaviour
     public void OnStopBasket()
     {
         button.enabled = true;
+    }
+
+    public void SetBallOnPosition()
+    {
+        ballReference.velocity = Vector3.zero;
+        ballReference.transform.position = ballInstantiate.position;
     }
 
     public void TimeOut()

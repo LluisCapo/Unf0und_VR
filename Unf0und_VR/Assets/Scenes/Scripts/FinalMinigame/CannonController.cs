@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class CannonController : MonoBehaviour
@@ -28,19 +29,20 @@ public class CannonController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Vector3 objectScale = collision.gameObject.transform.localScale;
-        collision.gameObject.transform.parent = transform;
-        collision.gameObject.transform.localScale= objectScale;
+        //Vector3 objectScale = collision.gameObject.transform.localScale;
+        //collision.gameObject.transform.SetParent(transform);
+        //collision.transform.position = Vector3.zero;
+        //collision.gameObject.transform.localScale = objectScale;
     }
     public void CannonShoot() 
     {
-        if(transform.childCount > 0)
+        /*if(transform.childCount >=1)
         {
-            ballPrefab = GetComponentInChildren<GameObject>();
+            ballPrefab = transform.GetChild(0).gameObject;
             //GameObject ball = Instantiate(ballPrefab, firePoint.position, Quaternion.identity);
-            ballPrefab.transform.parent = null;
+            ballPrefab.transform.SetParent(null);
             ballPrefab.GetComponent<Rigidbody>().AddForce(transform.forward * speedC);
-        }
+        }*/
         
     }
 
