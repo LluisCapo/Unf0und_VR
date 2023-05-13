@@ -5,7 +5,7 @@ using UnityEngine;
 public class FMChairController : MonoBehaviour
 {
     [SerializeField] float secondsToDesable;
-    //public void StartDesable() { StartCoroutine(wait()); }
+    [SerializeField] Rigidbody _rb;
 
     private void OnEnable()
     {
@@ -15,5 +15,11 @@ public class FMChairController : MonoBehaviour
     {
         yield return new WaitForSeconds(secondsToDesable);
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(_rb.velocity.y != 0)
+            GameManager.Instance.DeadPlayer();
     }
 }
