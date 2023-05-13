@@ -10,9 +10,13 @@ public class DrawMeshObjectsCine : MonoBehaviour
     public float obj;
     public float separacionY;
 
+
     private void Update()
     {
         for (float i = 0; i <= (separacionY * obj); i += separacionY)
-            Graphics.DrawMesh(mesh, new Vector3(transform.position.x, transform.position.y + (i/5), transform.position.z - i), transform.rotation, material, layer);
+            Graphics.DrawMesh(mesh, new Vector3(transform.position.x, transform.position.y + (i/5), transform.position.z - i),Quaternion.Euler(-90, gameObject.transform.localRotation.y,0),material, layer);
+
+
+
     }
 }
