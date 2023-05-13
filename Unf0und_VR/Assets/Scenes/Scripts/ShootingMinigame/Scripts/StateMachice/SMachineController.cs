@@ -11,7 +11,7 @@ public class SMachineController : MonoBehaviour
     public Transform PointToGo;
     [Header("Float Parametres")] public float incrementalSpeed, delay, decrementalDelay, distanceDifference;
     [Header("GameObjects Parameters")] public GameObject platform, objective;
-    [Header("Transform Parameters")] public Transform camaraReference;
+    [Header("Transform Parameters")] public Transform camaraPoint, cameraReference;
     SStateBehavior currentState;
     MovementBehavior _mvb;
     public Rigidbody rb;

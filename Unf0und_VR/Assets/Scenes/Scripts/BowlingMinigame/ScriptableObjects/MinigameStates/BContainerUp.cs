@@ -15,7 +15,7 @@ public class BContainerUp : BState
     }
     public override void OnUpdate(BStateController _class)
     {
-        if (_class.PlaneController.transform.localPosition.y >= 4.3f)
+        if (_class.PlaneController.transform.localPosition.y >= 3.83f)
         {
             if (_class.isSemipleno)
                 _class.ChangeState(ifSemipleno);
