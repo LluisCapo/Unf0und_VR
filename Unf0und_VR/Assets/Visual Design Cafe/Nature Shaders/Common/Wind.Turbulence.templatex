@@ -16,6 +16,11 @@
 float GetSmoothTurbulenceOffset( float timeOffset )
 {
     #if SHADERPASS == SHADERPASS_MOTION_VECTORS
+        // BUG:
+        // We should be able to use SHADERPASS_MOTION_VECTORS_PREV_FRAME here
+        // to return the previous time without having to check the time offset.
+        // However, the shader compiler does not recognize g_PrevSmoothTime as
+        // being used if we do that.
         return timeOffset < 0 ? g_PrevSmoothTime.z : g_SmoothTime.z;
     #else
         return g_SmoothTime.z;

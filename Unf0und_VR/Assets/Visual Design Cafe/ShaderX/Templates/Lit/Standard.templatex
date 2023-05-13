@@ -350,7 +350,7 @@
         #if defined(_ALPHABLEND_ON) || defined(_ALPHAPREMULTIPLY_ON)
             output.a = alphaFromSurface;
         #else
-            output.a = alphaFromSurface;
+            UNITY_OPAQUE_ALPHA(output.a);
         #endif
         return output;
     }

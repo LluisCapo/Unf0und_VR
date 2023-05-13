@@ -39,9 +39,6 @@
         float _StencilWriteMaskDistortionVec;
     CBUFFER_END
 
-    // Modules
-    {% embed "HD.Debug" %}
-
     // Vertex
     SurfaceInput vert( VertexAttributes input )
     {
@@ -116,6 +113,8 @@
         {% endif %}
 
         {% if pass.name == "MotionVectors" and VertexMethod %}
+            #define SHADERPASS_MOTION_VECTORS_PREV_FRAME
+            
             // Output current vertex position.
             output.currentPositionCS = mul(UNITY_MATRIX_UNJITTERED_VP, float4(positionRWS, 1.0));
 
@@ -125,12 +124,8 @@
 
             // Output previous vertex position.
             output.previousPositionCS = mul(UNITY_MATRIX_PREV_VP, float4(previousOutput.positionWS, 1.0));
-        {% endif %}
 
-        {% if pass.name == "FullScreenDebug" and unity.version.major >= 2021 %}
-            #ifdef DEBUG_DISPLAY
-                DebugVertexDensity( output.positionCS );
-            #endif
+            #undef SHADERPASS_MOTION_VECTORS_PREV_FRAME
         {% endif %}
 
         return output;
@@ -151,6 +146,83 @@
         float unity_OneOverOutputBoost;
         float unity_MaxOutputValue;
     {% endif %}
+
+    #ifdef DEBUG_DISPLAY
+        float4 ForwardDebug( 
+            FragInputs input, 
+            SurfaceData surfaceData,
+            BuiltinData builtinData,
+            BSDFData bsdfData,
+            PositionInputs posInput )
+        {
+            float4 outColor = (float4)0;
+
+            // Same code in ShaderPassForwardUnlit.shader
+            // Reminder: _DebugViewMaterialArray[i]
+            //   i==0 -> the size used in the buffer
+            //   i>0  -> the index used (0 value means nothing)
+            // The index stored in this buffer could either be
+            //   - a gBufferIndex (always stored in _DebugViewMaterialArray[1] as only one supported)
+            //   - a property index which is different for each kind of material even if reflecting the same thing (see MaterialSharedProperty)
+            bool viewMaterial = false;
+            int bufferSize = (int)_DebugViewMaterialArray[0];
+            if (bufferSize != 0)
+            {
+                bool needLinearToSRGB = false;
+                float3 result = float3(1.0, 0.0, 1.0);
+
+                // Loop through the whole buffer
+                // Works because GetSurfaceDataDebug will do nothing if the index is not a known one
+                for (int index = 1; index <= bufferSize; index++)
+                {
+                    int indexMaterialProperty = (int)_DebugViewMaterialArray[index];
+
+                    // skip if not really in use
+                    if (indexMaterialProperty != 0)
+                    {
+                        viewMaterial = true;
+
+                        GetPropertiesDataDebug(indexMaterialProperty, result, needLinearToSRGB);
+                        GetVaryingsDataDebug(indexMaterialProperty, input, result, needLinearToSRGB);
+                        {% if unity.version.major >= 2020 %}
+                            GetBuiltinDataDebug(indexMaterialProperty, builtinData, posInput, result, needLinearToSRGB);
+                        {% else %}
+                            GetBuiltinDataDebug(indexMaterialProperty, builtinData, result, needLinearToSRGB);
+                        {% endif %}
+                        GetSurfaceDataDebug(indexMaterialProperty, surfaceData, result, needLinearToSRGB);
+                        GetBSDFDataDebug(indexMaterialProperty, bsdfData, result, needLinearToSRGB);
+                    }
+                }
+
+                // TEMP!
+                // For now, the final blit in the backbuffer performs an sRGB write
+                // So in the meantime we apply the inverse transform to linear data to compensate.
+                if (!needLinearToSRGB)
+                    result = SRGBToLinear(max(0, result));
+
+                outColor = float4(result, 1.0);
+            }
+
+            if( !viewMaterial )
+            {
+                if (_DebugFullScreenMode == FULLSCREENDEBUGMODE_VALIDATE_DIFFUSE_COLOR || _DebugFullScreenMode == FULLSCREENDEBUGMODE_VALIDATE_SPECULAR_COLOR)
+                {
+                    float3 result = float3(0.0, 0.0, 0.0);
+
+                    GetPBRValidatorDebug(surfaceData, result);
+
+                    outColor = float4(result, 1.0f);
+                }
+                else if (_DebugFullScreenMode == FULLSCREENDEBUGMODE_TRANSPARENCY_OVERDRAW)
+                {
+                    float4 result = _DebugTransparencyOverdrawWeight * float4(TRANSPARENCY_OVERDRAW_COST, TRANSPARENCY_OVERDRAW_COST, TRANSPARENCY_OVERDRAW_COST, TRANSPARENCY_OVERDRAW_A);
+                    outColor = result;
+                }
+            }
+
+            return outColor;
+        }
+    #endif
 
     void BuildSurfaceData(
         FragInputs fragInputs, 
@@ -207,27 +279,25 @@
         // normals
         float3 normalTS = float3(0.0f, 0.0f, 1.0f);
         normalTS = surface.Normal;
-
-        {% if unity.version.major >= 2021 %}
-            ApplyDecalsToSurface_Gradient(
-                fragInputs,
-                posInput,
-                /* inout */ surfaceData,
-                surface.Alpha,
-                normalTS );
-        {% endif %}
-
         GetNormalWS( fragInputs, normalTS, surfaceData.normalWS, float3( 1.0, 1.0, 1.0 ) );
-
-        {% if unity.version.major >= 2021 %}
-            ApplyDecalsToSurface(
-                fragInputs,
-                posInput,
-                /* inout */ surfaceData,
-                surface.Alpha  );
-        {% endif %}
-        
         surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
+
+        // Decals
+        /*
+        #if HAVE_DECALS
+            if (_EnableDecals)
+            {
+                // Both uses and modifies 'surfaceData.normalWS'.
+                {% if unity.version.major >= 2021 %}
+                    DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, fragInputs.tangentToWorld[2].xyz, surface.Alpha);
+                    ApplyDecalToSurfaceData(decalSurfaceData, fragInputs.tangentToWorld[2].xyz, surfaceData);
+                {% else %}
+                    DecalSurfaceData decalSurfaceData = GetDecalSurfaceData(posInput, surface.Alpha);
+                    ApplyDecalToSurfaceData(decalSurfaceData, surfaceData);
+                {% endif %}
+            }
+        #endif
+        */
         
         // TODO: Sample bent normals from BentNormalMap
         bentNormalWS = surfaceData.normalWS;
@@ -332,14 +402,6 @@
                 #define MOTION_VECTOR_TARGET SV_Target1
             #endif
         #endif
-
-        #if defined(WRITE_NORMAL_BUFFER) && defined(WRITE_MSAA_DEPTH)
-            #define SV_TARGET_DECAL SV_Target2
-        #elif defined(WRITE_NORMAL_BUFFER) || defined(WRITE_MSAA_DEPTH)
-            #define SV_TARGET_DECAL SV_Target1
-        #else
-            #define SV_TARGET_DECAL SV_Target0
-        #endif
     {% endif %}
 
     {% if unity.version.string == "2021.1" %}
@@ -351,9 +413,6 @@
         #endif
     {% endif %}
     
-    {% if pass.name == "FullScreenDebug" %}
-        [earlydepthstencil]
-    {% endif %}
     void frag(SurfaceInput input
         {% if pass.name == "GBuffer" %}
             , OUTPUT_GBUFFER(outGBuffer)
@@ -418,21 +477,17 @@
                 , out float outputDepth : SV_Depth
             #endif
         {% elseif pass.name == "DepthOnly" %}
-            #ifdef WRITE_MSAA_DEPTH
-                // We need the depth color as SV_Target0 for alpha to coverage
-                , out float4 depthColor : SV_Target0
-                #ifdef WRITE_NORMAL_BUFFER
-                    , out float4 outNormalBuffer : SV_Target1
-                #endif
-            #else
-                #ifdef WRITE_NORMAL_BUFFER
-                    , out float4 outNormalBuffer : SV_Target0
-                #endif
+            #ifdef WRITE_NORMAL_BUFFER
+                , out float4 outNormalBuffer : SV_Target0
+                    #ifdef WRITE_MSAA_DEPTH
+                        , out float1 depthColor : SV_Target1
+                    #endif
+            #elif defined(WRITE_MSAA_DEPTH)
+                , out float4 outNormalBuffer : SV_Target0
+                , out float1 depthColor : SV_Target1
             #endif
-
-            // Decal buffer must be last as it is bind but we can optionally write into it (based on _DISABLE_DECALS)
-            #if defined(WRITE_DECAL_BUFFER) && !defined(_DISABLE_DECALS)
-                , out float4 outDecalBuffer : SV_TARGET_DECAL
+            #ifdef _DEPTHOFFSET_ON
+                , out float outputDepth : SV_Depth
             #endif
         {% elseif pass.name == "Meta" %}
             , out half4 outColor : SV_Target
@@ -465,10 +520,6 @@
                     , out float4 outNormalBuffer : SV_TARGET_NORMAL
                 #endif
             {% endif %}
-        {% elseif pass.name == "FullScreenDebug" %}
-            // No output
-        {% else %}
-            , out half4 outColor : SV_Target
         {% endif %}
             )
     {
@@ -547,11 +598,7 @@
                 #endif
 
                 // Output the debug data.
-                {% if unity.version.major >= 2021 %}
-                    outColor = ForwardDebug( fragInputs, surfaceData, builtinData, bsdfData, posInput );
-                {% else %}
-                    outColor = 0;
-                {% endif %}
+                outColor = ForwardDebug( fragInputs, surfaceData, builtinData, bsdfData, posInput );
             #else
 
                 #ifdef _SURFACE_TYPE_TRANSPARENT
@@ -633,14 +680,6 @@
             #elif defined(WRITE_MSAA_DEPTH)
                 outNormalBuffer = float4( 0.0, 0.0, 0.0, 1.0 );
                 depthColor = input.positionCS.z;
-                #ifdef _ALPHATOMASK_ON
-                    // Alpha channel is used for alpha to coverage
-                    depthColor.a = SharpenAlpha(builtinData.opacity, builtinData.alphaClipTreshold);
-                #endif
-            #endif
-
-            #if defined(WRITE_DECAL_BUFFER) && !defined(_DISABLE_DECALS)
-                EncodeDecalPrepass( surfaceData, outDecalBuffer );
             #endif
 
         {% elseif pass.name == "Meta" %}
@@ -692,23 +731,11 @@
             #ifdef WRITE_MSAA_DEPTH
                 depthColor = input.positionCS.z;
 
-                #ifdef _ALPHATOMASK_ON
-                    // Alpha channel is used for alpha to coverage
-                    depthColor.a = SharpenAlpha(builtinData.opacity, builtinData.alphaClipTreshold);
-                #endif
-
                 {% if unity.version.major == "2019" %}
                     // Due to the binding order of these three render targets, we need to have them both declared
                     outNormalBuffer = float4(0.0, 0.0, 0.0, 1.0);
                 {% endif %}
             #endif
-
-        {% elseif pass.name == "FullScreenDebug" %}
-            {% if unity.version.major >= 2021 %}
-                #ifdef DEBUG_DISPLAY
-                    DebugQuadOverdraw( posInput.positionSS.xy, input );
-                #endif
-            {% endif %}
 
         {% else %}
             outColor = 0;

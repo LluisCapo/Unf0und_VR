@@ -195,13 +195,14 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
 
             ZTest LEqual
 
+            // TODO: Make sure this works on all platforms.
+            {% if alpha_to_coverage %}
+                AlphaToMask On
+            {% endif %}
+
             // Embed the default pass setup. 
             // This will overwrite any values that need to be different for specifc passes.
             {% embed "Lit/Pass" %}
-
-            {% if config.global.alpha_to_mask.supported and alpha_to_mask %}
-                {% embed "../Common/Alpha to Mask Pass" %}
-            {% endif %}
 
             HLSLPROGRAM
 
@@ -238,18 +239,12 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
                 #define _ALPHA_CLIP_DISABLED
             #endif 
 
-            #pragma {{shader_feature_local}} _ _COLOR_TINT _COLOR_HSL
-            #if !defined(_COLOR_TINT) && !defined(_COLOR_HSL)
-                #define _COLOR_TINT
-            #endif
+            #pragma {{shader_feature_local}} _COLOR_TINT _COLOR_HSL
 
-            #pragma {{shader_feature_local}} _ _BAKED_MESH_DATA
+            #pragma {{shader_feature_local}} _BAKED_MESH_DATA
 
             {% if wind %}
-                #pragma {{shader_feature_local}}_vertex _ _WIND_OFF _WIND
-                #if !defined(_WIND_OFF) && !defined(_WIND)
-                    #define _WIND_OFF
-                #endif
+                #pragma {{shader_feature_local}} _WIND_OFF _WIND
                 #if defined(_WIND)
                     #define _WIND_ON
                 #endif
@@ -269,7 +264,7 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
             {% endif %}
 
             {% if secondary_maps %}
-                #pragma {{shader_feature_local}} _ _SECONDARY_MAPS
+                #pragma {{shader_feature_local}} _SECONDARY_MAPS
             {% endif %}
 
             {% if emission %}
@@ -278,12 +273,12 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
             {% endif %}
 
             {% if config.global.overlay.supported and overlay %}
-                #pragma {{shader_feature_local}} _ _OVERLAY
+                #pragma {{shader_feature_local}} _OVERLAY
             {% endif %}
 
             {% if translucent %}
                 #pragma {{shader_feature_local}} _ _TRANSLUCENCY _TRANSLUCENCY_MAP
-
+                
                 #if defined(_TRANSLUCENCY) || defined(_TRANSLUCENCY_MAP)
                     #define _TRANSLUCENCY
                     #define _TRANSLUCENCY_ON
@@ -334,12 +329,12 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
 
             // Input
             {% capture SurfaceInput %}
-                float noise : TEXCOORD10; // TODO: pack noise into positionWS.w or normalWS.w
                 {% if config.global.overlay.supported and overlay %}
                     #ifdef _OVERLAY
-                        float4 overlay : TEXCOORD11;
+                        float4 overlay : TEXCOORD10;
                     #endif
                 {% endif %}
+                float noise : TEXCOORD11; // TODO: pack noise into positionWS.w or normalWS.w
             {% endcapture %}
 
             {% capture Surface %}
@@ -571,10 +566,6 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
             // Include common features.
             {% embed "Common.Uniform" %}
 
-            {% if config.global.alpha_to_mask.supported and alpha_to_mask %}
-                {% embed "../Common/Alpha to Mask" %}
-            {% endif %}
-
             {% standard or universal %}
                 {% if translucent %}
                     {% embed "../Common/Translucency" %}
@@ -618,7 +609,7 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
                             float4x4 unity_MatrixPreviousMI;
                         #endif
                     {% endstandard %}
-                    {% embed "../Integrations/Nature Renderer" %}
+                    {% embed "../Integrations/Nature Renderer 2021" %}
                 {% elif config.global.nature_renderer.version == 2020 %}
                     {% embed "../Integrations/Nature Renderer 2020" %}
                 {% endif %}
@@ -695,8 +686,7 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
                             phaseOffset,
                             _InteractionDuration,
                             _InteractionStrength,
-                            _InteractionPushDown,
-                            timeOffset.x );
+                            _InteractionPushDown );
                     #endif
                 {% endif %}
                 
@@ -773,7 +763,15 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
 
                 // Alpha clip
                 #ifdef _ALPHATEST
-                    albedo.a = AlphaTest(albedo.a, _AlphaTestThreshold);
+                    {% if alpha_to_coverage %}
+                        {% if pass.type == "ShadowCaster" or pass.type == "Deferred" %}
+                            AlphaTest( albedo.a, _AlphaTestThreshold );
+                        {% else %}
+                            albedo.a = (albedo.a - _AlphaTestThreshold) / max(fwidth(albedo.a), 0.0001) + 0.5;
+                        {% endif %}
+                    {% else %}
+                        AlphaTest( albedo.a, _AlphaTestThreshold );
+                    {% endif %}
                 #else
                     albedo.a = 1;
                 #endif
@@ -905,7 +903,7 @@ Shader "{{name_prefix}}Nature Shaders/{{shader.name}}"
                         SurfaceLighting lighting,
                         inout half4 color )
                     {
-                        {% if pass.type == "Forward" or pass.light_mode == "UniversalGBuffer" %}
+                        {% if pass.type == "Forward" %}
                             #if defined(_TRANSLUCENCY) || defined(_TRANSLUCENCY_MAP)
                                 #if defined(POINT) || defined(POINT_COOKIE) || defined(SPOT)
                                     // Ignore these light types. Only directional is supported.

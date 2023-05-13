@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
-using static UnityEditor.Progress;
 using Unity.VisualScripting;
 using UnityEngine.Assertions.Must;
 using Unity.Mathematics;
@@ -22,7 +21,7 @@ public class PlatformActing : MonoBehaviour
     [SerializeField]
     public Dictionary<string, List<GameObject>> _hipsPlatform = new Dictionary<string, List<GameObject>>();
 
-    private float _actualTime = 0;
+    //private float _actualTime = 0;
 
     private void Awake()
     {
@@ -84,6 +83,7 @@ public class PlatformActing : MonoBehaviour
             float angleDelta = speed * Time.deltaTime * directionMultiplier;
             Quaternion currentRotation = Quaternion.Lerp(startRotation, endRotation, t);
             obj.transform.rotation = currentRotation;
+            Debug.Log(currentRotation + " " + obj.name);
             timer += Time.deltaTime;
             yield return null;
         }

@@ -11,4 +11,9 @@ public class DesactiveObject : MonoBehaviour
     {
         _object.Invoke(); 
     }
+
+    private void OnTriggerEnter()
+    {
+        _object.Invoke();
+    }
 }

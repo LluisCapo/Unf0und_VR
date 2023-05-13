@@ -92,12 +92,6 @@ struct SurfaceInput
             {% enduniversal %}
         {% endif %}
 
-        {% universal %}
-            {% if pass.name == "GBuffer" %}
-                float4 shadowCoord : {% semantic TEXCOORD %};
-            {% endif %}
-        {% enduniversal %}
-
         // Meta for editor visualization
         {% standard %}
             {% if pass.name == "META" %}
@@ -120,14 +114,6 @@ struct SurfaceInput
     // Unity's default instancing settings.
     UNITY_VERTEX_INPUT_INSTANCE_ID
     UNITY_VERTEX_OUTPUT_STEREO
-
-    {% hd %}
-        // High-Definition Render Pipeline needs the primitive ID for fullscreen
-        // quad overdraw debugging.
-        #if defined(PLATFORM_SUPPORTS_PRIMITIVE_ID_IN_PIXEL_SHADER) && SHADER_STAGE_FRAGMENT && defined(SURFACE_NEEDS_PRIMITIVE_ID)
-            uint primitiveID : SV_PrimitiveID;
-        #endif
-    {% endhd %}
 
     // VFACE always needs to be the last semantic in the list, 
     // otherwise the compiler will throw an error.

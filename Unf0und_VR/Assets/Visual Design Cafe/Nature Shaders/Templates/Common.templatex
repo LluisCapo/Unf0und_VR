@@ -3,30 +3,24 @@ float2 TransformUV( float2 uv, float4 tilingAndOffset )
     return uv * tilingAndOffset.xy + tilingAndOffset.zw;
 }
 
-{% if config.global.alpha_to_mask.supported and alpha_to_mask %}
-    // AlphaTest is handled in "Alpha to Mask" module.
-{% else %}
-    float AlphaTest( float alpha, float threshold )
-    {
-        {% hd %}
-            {% if pass.name == "Forward" or pass.name == "GBuffer" %}
-                #if defined(SHADERPASS_FORWARD_BYPASS_ALPHA_TEST) \
-                    || defined(SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST)
-                    // Ignore clip in forward and gbuffer passes. We already did the clip in the Depth Prepass, and we use ZTest Equal for this pass to discard the transparent pixels.
-                #else
-                    clip( alpha - threshold );
-                #endif
-            {% else %}
+void AlphaTest( float alpha, float threshold )
+{
+    {% hd %}
+        {% if pass.name == "Forward" or pass.name == "GBuffer" %}
+            #if defined(SHADERPASS_FORWARD_BYPASS_ALPHA_TEST) \
+                || defined(SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST)
+                // Ignore clip in forward and gbuffer passes. We already did the clip in the Depth Prepass, and we use ZTest Equal for this pass to discard the transparent pixels.
+            #else
                 clip( alpha - threshold );
-            {% endif %}
-        {% endhd %}
-        {% standard or universal %}
+            #endif
+        {% else %}
             clip( alpha - threshold );
-        {% endstandard %}
-
-        return alpha;
-    }
-{% endif %}
+        {% endif %}
+    {% endhd %}
+    {% standard or universal %}
+        clip( alpha - threshold );
+    {% endstandard %}
+}
 
 {% if wind %}
 void GetFade(

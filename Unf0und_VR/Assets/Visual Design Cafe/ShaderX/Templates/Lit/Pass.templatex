@@ -4,6 +4,10 @@
 // https://www.visualdesigncafe.com/shaderx
 {% endcomment %}
 
+{% if pass.name != "Universal Forward" and pass.name != "FORWARD" and pass.name != "FORWARD_DELTA" and pass.name != "Forward" %}
+    AlphaToMask Off
+{% endif %}
+
 {% standard %}
     {% if pass.name == "FORWARD_DELTA" %}
         Blend One One
@@ -74,7 +78,5 @@
             Comp Always
             Pass Replace
         }
-    {% elseif pass.name == "FullScreenDebug" %}
-        ZWrite Off
     {% endif %}
 {% endhd %}

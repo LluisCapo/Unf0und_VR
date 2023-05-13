@@ -27,9 +27,14 @@ public class FBWalking : FBState
     public override void OnUpdate(FinalBossController _controller)
     {
         _controller.Movement.Move(_dir);
-
-        if (Vector3.Distance(_controller.transform.position, _currentPoint) < 2f)
+        Debug.Log(DistX(_controller.transform.position, _currentPoint));
+        if (DistX(_controller.transform.position, _currentPoint) < 1f && DistX(_controller.transform.position, _currentPoint) > -1f)
             _controller.ChangeState(_controller.throwingState);
+    }
+
+    private float DistX(Vector3 a, Vector3 b)
+    {
+        return (b.x - a.x);
     }
 }
 

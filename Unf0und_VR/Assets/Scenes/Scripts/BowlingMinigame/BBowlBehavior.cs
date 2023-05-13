@@ -25,5 +25,6 @@ public class BBowlBehavior : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _isDropped = true;
+        Debug.LogWarning("Bolo tirado");
     }
 }

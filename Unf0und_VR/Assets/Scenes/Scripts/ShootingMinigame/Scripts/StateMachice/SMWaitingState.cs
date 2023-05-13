@@ -17,7 +17,7 @@ public class SMWaitingState : SStateBehavior
         //decrementa score
         _controller.objective.transform.GetChild(0).GetComponent<MeshCollider>().enabled = false;
         _controller.delay -= _controller.incrementalSpeed;
-        if(_controller.delay <= 3)
+        if(_controller.delay <= 1.5)
         {
             _controller.delay = 100;
             _controller.SetPlayer();

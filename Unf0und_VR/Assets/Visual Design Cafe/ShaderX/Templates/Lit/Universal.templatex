@@ -6,15 +6,6 @@
 
 {% universal %}
 
-    Properties
-    {
-        [ToggleUI] _Decals("Support Decals", Float) = 1.0
-    }
-
-    // Per-material keyword to disable decals. Is set in the LitMaterial
-    // class when validating the material, based on the _Decals property.
-    #pragma shader_feature_local_fragment _DISABLE_DECALS
-
     // Vertex
     #if defined(SHADERPASS_SHADOWCASTER)
         float3 _LightDirection;
@@ -106,24 +97,14 @@
         #endif
 
         {% if pass.name == "Universal Forward" %}
-            #if defined(_MAIN_LIGHT_SHADOWS) || defined(_MAIN_LIGHT_SHADOWS_CASCADE)
+            #ifdef _MAIN_LIGHT_SHADOWS
                 output.shadowCoord = TransformWorldToShadowCoord( positionWS );
-            #elif defined(_MAIN_LIGHT_SHADOWS_SCREEN)
-                output.shadowCoord = ComputeScreenPos(output.positionCS);
             #endif
 
             #ifdef VARYINGS_NEED_FOG_AND_VERTEX_LIGHT
                 half3 vertexLight = VertexLighting(positionWS, normalWS);
                 half fogFactor = ComputeFogFactor(output.positionCS.z);
                 output.fogFactorAndVertexLight = half4(fogFactor, vertexLight);
-            #endif
-        {% endif %}
-
-        {% if pass.name == "GBuffer" %}
-            #if defined(_MAIN_LIGHT_SHADOWS) || defined(_MAIN_LIGHT_SHADOWS_CASCADE)
-                output.shadowCoord = TransformWorldToShadowCoord( positionWS );
-            #elif defined(_MAIN_LIGHT_SHADOWS_SCREEN)
-                output.shadowCoord =  ComputeScreenPos( output.positionCS );
             #endif
         {% endif %}
 
@@ -158,13 +139,7 @@
         return normalWS;
     }
 
-    {% if pass.name == "GBuffer" %}
-        #define FRAGMENT_OUTPUT FragmentOutput
-    {% else %}
-        #define FRAGMENT_OUTPUT half4
-    {% endif %}
-
-    FRAGMENT_OUTPUT frag(SurfaceInput input) : SV_TARGET 
+    half4 frag(SurfaceInput input) : SV_TARGET 
     {    
         UNITY_SETUP_INSTANCE_ID(input);
         UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
@@ -193,14 +168,14 @@
         surface.Normal = float3(0,0,1);
         SurfaceMethod( input, surface );
 
-        {% if pass.name == "Universal Forward" or pass.name == "GBuffer" %}
+        {% if pass.name == "Universal Forward" %}
             
             float3x3 tangentToWorld;
             surface.Normal = 
                 SurfaceNormalToWorldSpaceNormal( surface.Normal, input.normalWS, input.tangentWS, tangentToWorld );
 
             // Calculate per-pixel shadow coordinates for shadow cascades.
-            #if defined(_MAIN_LIGHT_SHADOWS) || defined(_MAIN_LIGHT_SHADOWS_CASCADE)
+            #if defined(MAIN_LIGHT_CALCULATE_SHADOWS)
                 input.shadowCoord = TransformWorldToShadowCoord(input.positionWS);
             #endif
 
@@ -227,31 +202,13 @@
                     SampleSHPixel( input.ambientOrLightmapUV.xyz, surface.Normal.xyz );
             #endif
 
-            #ifdef _SPECULAR_SETUP
-                float3 specular = surface.Specular;
-                float metallic = 1;
-            #else   
-                float3 specular = 0;
-                float metallic = surface.Metallic;
-            #endif
-
-            #if defined(_DBUFFER) && !defined(_DISABLE_DECALS)
-                ApplyDecal(
-                    input.positionCS,
-                    surface.Albedo,
-                    specular,
-                    surface.Normal,
-                    surface.Metallic,
-                    surface.Occlusion,
-                    surface.Smoothness);
-            #endif
-        {% endif %}
-
-        {% if pass.name == "Universal Forward" %}
             {% if LightingMethod %}
+
                 // Custom lighting method.
                 half4 color = {{LightingMethod}}( input, surface, /* inout */ lighting );
+
             {% else %}
+
                 // Unity's URP lighting method.
                 InputData inputData = (InputData)0;
                 inputData.positionWS = input.positionWS;
@@ -268,6 +225,14 @@
                 {% if unity.version.major >= 2021 %}
                     inputData.tangentToWorld = tangentToWorld;
                 {% endif %}
+
+                #ifdef _SPECULAR_SETUP
+                    float3 specular = surface.Specular;
+                    float metallic = 1;
+                #else   
+                    float3 specular = 0;
+                    float metallic = surface.Metallic;
+                #endif
 
                 #ifdef _LIGHTING_QUALITY_LOW
                     half4 color = 
@@ -294,6 +259,7 @@
                             surface.Emission,
                             surface.Alpha);
                 #endif
+
             {% endif %}
 
             {% if PostLightingMethod %}
@@ -302,40 +268,6 @@
 
             color.rgb = MixFog( color.rgb, input.fogFactorAndVertexLight.x ); 
             return color;
-
-        {% elseif pass.name == "GBuffer" %} // GBuffer
-            // Unity's URP lighting method.
-            InputData inputData = (InputData)0;
-            inputData.positionWS = input.positionWS;
-            inputData.normalWS = surface.Normal;
-            inputData.viewDirectionWS = input.viewDirectionWS.xyz;
-            inputData.shadowCoord = input.shadowCoord;
-            inputData.fogCoord = 0;
-            inputData.vertexLighting = 0;
-            inputData.bakedGI = lighting.indirect.diffuse;
-            {% if unity.version.major >= 2020 %}
-                inputData.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
-                inputData.shadowMask = SAMPLE_SHADOWMASK(input.lightmapUV);
-            {% endif %}
-
-            inputData.tangentToWorld = tangentToWorld;
-
-            // in LitForwardPass GlobalIllumination (and temporarily LightingPhysicallyBased) are called inside UniversalFragmentPBR
-            // in Deferred rendering we store the sum of these values (and of emission as well) in the GBuffer
-            BRDFData brdfData;
-            InitializeBRDFData(surface.Albedo, surface.Metallic, 0, surface.Smoothness, surface.Alpha, brdfData);
-
-            Light mainLight = GetMainLight(inputData.shadowCoord, inputData.positionWS, inputData.shadowMask);
-            MixRealtimeAndBakedGI(mainLight, inputData.normalWS, inputData.bakedGI, inputData.shadowMask);
-            half3 color = GlobalIllumination(brdfData, inputData.bakedGI, surface.Occlusion, inputData.positionWS, inputData.normalWS, inputData.viewDirectionWS);
-
-            {% if PostLightingMethod %}
-                half4 c = half4(color,0);
-                PostLightingMethod( input, surface, lighting, /* inout */ c );
-                color.rgb = c.rgb;
-            {% endif %}
-
-            return BRDFDataToGbuffer(brdfData, inputData, surface.Smoothness, surface.Emission + color, surface.Occlusion);
 
         {% elseif pass.name == "Meta" %}
             MetaInput metaInput = (MetaInput)0;
@@ -347,10 +279,14 @@
             return half4(surface.Albedo, surface.Alpha);
 
         {% elseif pass.name == "DepthNormals" %}
-            return half4(NormalizeNormalPerPixel(input.normalWS), 0.0);
-
-        {% elseif pass.name == "DepthOnly" %}
-            return half4(0, 0, 0, surface.Alpha);
+            float3x3 _;
+            return float4(
+                PackNormalOctRectEncode(
+                    TransformWorldToViewDir(
+                        SurfaceNormalToWorldSpaceNormal( surface.Normal, input.normalWS, input.tangentWS, _ ), 
+                        true)),
+                0.0, 
+                0.0);
 
         {% else %}
             return 0;

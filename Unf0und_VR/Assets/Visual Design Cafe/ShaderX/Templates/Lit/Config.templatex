@@ -18,19 +18,10 @@
 // Don't really need them at the moment since there are no specific quality settings yet.
 // #pragma multi_compile MATERIAL_QUALITY_HIGH MATERIAL_QUALITY_MEDIUM MATERIAL_QUALITY_LOW  
 
-#pragma {{shader_feature_local}} _ _LIGHTING_QUALITY_HIGH _LIGHTING_QUALITY_LOW 
-#if !defined(_LIGHTING_QUALITY_HIGH) && !defined(_LIGHTING_QUALITY_LOW)
-    #define _LIGHTING_QUALITY_HIGH
-#endif
+#pragma {{shader_feature_local}} _LIGHTING_QUALITY_HIGH _LIGHTING_QUALITY_LOW 
+#pragma multi_compile _ LOD_FADE_CROSSFADE
 
-{% strip lod_crossfade %}
-    #pragma multi_compile _ LOD_FADE_CROSSFADE
-{% endstrip %}
-
-#pragma {{shader_feature_local}} _ _SURFACE_MAP_OFF _SURFACE_MAP_PACKED _SURFACE_MAP_METALLIC_GLOSS
-#if !defined(_SURFACE_MAP_OFF) && !defined(_SURFACE_MAP_PACKED) && !defined(_SURFACE_MAP_METALLIC_GLOSS)
-    #define _SURFACE_MAP_OFF
-#endif
+#pragma {{shader_feature_local}} _SURFACE_MAP_OFF _SURFACE_MAP_PACKED _SURFACE_MAP_METALLIC_GLOSS
 #pragma {{shader_feature_local}} _ _ALPHATEST
 #pragma {{shader_feature_local}} _ _NORMALMAP
 #pragma {{shader_feature_local}} _ _SPECULARHIGHLIGHTS_OFF
@@ -101,6 +92,7 @@
     #pragma target 3.0
     #pragma prefer_hlslcc gles
     #pragma exclude_renderers d3d11_9x
+    #pragma multi_compile_fog
 
     // Variants
     {% if pass.name == "Universal Forward" %}
@@ -110,90 +102,33 @@
         {% if unity.version.major >= 2021 %}
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
             #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
-            {% strip decals %}
-                #pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
-            {% endstrip %}
-            {% strip reflection_probe_blending %}
-                #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
-            {% endstrip %}
-            {% strip reflection_probe_box_projection %}
-                #pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
-            {% endstrip %}
-            {% strip light_layers %}
-                #pragma multi_compile_fragment _ _LIGHT_LAYERS
-            {% endstrip %}
-            {% strip light_cookies %}
-                #pragma multi_compile_fragment _ _LIGHT_COOKIES
-            {% endstrip %}
+            #pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
+            #pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
+            #pragma multi_compile_fragment _ _LIGHT_LAYERS
+            #pragma multi_compile_fragment _ _LIGHT_COOKIES
             #pragma multi_compile _ _CLUSTERED_RENDERING
         {% else %}
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS
             #pragma multi_compile _ _MAIN_LIGHT_SHADOWS_CASCADE
         {% endif %}
-        {% strip additional_lights %}
-            #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS _ADDITIONAL_OFF
-        {% endstrip %}
-        {% strip additional_light_shadows %}
-            #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
-        {% endstrip %}
+        #pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS _ADDITIONAL_OFF
+        #pragma multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS
         #pragma multi_compile_fragment _ _SHADOWS_SOFT
 
         // -------------------------------------
         // Unity defined keywords
-        {% strip lightmap %}
-            #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
-            #pragma multi_compile _ LIGHTMAP_ON
-            #pragma multi_compile _ DIRLIGHTMAP_COMBINED
-            // Legacy
-            #pragma multi_compile _ _MIXED_LIGHTING_SUBTRACTIVE
-        {% endstrip %}
-        {% strip shadow_mask %}
-            #pragma multi_compile _ SHADOWS_SHADOWMASK
-        {% endstrip %}
-
-        {% strip fog %}
-            #pragma multi_compile_fog
-        {% endstrip %}
+        #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
+        #pragma multi_compile _ SHADOWS_SHADOWMASK
+        #pragma multi_compile _ DIRLIGHTMAP_COMBINED
+        #pragma multi_compile _ LIGHTMAP_ON
+        #pragma multi_compile_fog
         {% if unity.version.major >= 2021 %}
-            {% strip debug %}
-                #pragma multi_compile_fragment _ DEBUG_DISPLAY
-            {% endstrip %}
+            #pragma multi_compile_fragment _ DEBUG_DISPLAY
         {% endif %}
 
-    {% elseif pass.name == "GBuffer" %}
-        {% if unity.version.major >= 2021 %}
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/UnityGBuffer.hlsl"
-
-            // -------------------------------------
-            // Universal Pipeline keywords
-            #pragma multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN
-            //#pragma multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS
-            //#pragma multi_compile _ _ADDITIONAL_LIGHT_SHADOWS
-            {% strip reflection_probe_blending %}
-                #pragma multi_compile_fragment _ _REFLECTION_PROBE_BLENDING
-            {% endstrip %}
-            {% strip reflection_probe_box_projection %}
-                #pragma multi_compile_fragment _ _REFLECTION_PROBE_BOX_PROJECTION
-            {% endstrip %}
-            #pragma multi_compile_fragment _ _SHADOWS_SOFT
-            {% strip decals %}
-                #pragma multi_compile_fragment _ _DBUFFER_MRT1 _DBUFFER_MRT2 _DBUFFER_MRT3
-            {% endstrip %}
-            {% strip light_layers %}
-                #pragma multi_compile_fragment _ _LIGHT_LAYERS
-            {% endstrip %}
-            #pragma multi_compile_fragment _ _RENDER_PASS_ENABLED
-        
-            // -------------------------------------
-            // Unity defined keywords
-            {% strip lightmap %}
-                #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
-                #pragma multi_compile _ LIGHTMAP_ON
-                #pragma multi_compile _ DIRLIGHTMAP_COMBINED
-                #pragma multi_compile _ SHADOWS_SHADOWMASK
-            {% endstrip %}
-            #pragma multi_compile_fragment _ _GBUFFER_NORMALS_OCT
-        {% endif %}
+        // Legacy
+        #pragma multi_compile _ _MIXED_LIGHTING_SUBTRACTIVE
 
     {% elseif pass.name == "ShadowCaster" %}
         #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
@@ -252,15 +187,12 @@
         #define _ALPHATEST_ON
     #endif
 
-    {% strip debug %}
-        #pragma multi_compile _ DEBUG_DISPLAY
-    {% endstrip %}
-    {% strip lightmap %}
-        #pragma multi_compile _ LIGHTMAP_ON
-        #pragma multi_compile _ DIRLIGHTMAP_COMBINED
-        #pragma multi_compile _ DYNAMICLIGHTMAP_ON
-         #pragma multi_compile _ SHADOWS_SHADOWMASK
-    {% endstrip %}
+    #pragma multi_compile _ DEBUG_DISPLAY
+    #pragma multi_compile _ LIGHTMAP_ON
+    #pragma multi_compile _ DIRLIGHTMAP_COMBINED
+    #pragma multi_compile _ DYNAMICLIGHTMAP_ON
+    #pragma multi_compile _ SHADOWS_SHADOWMASK
+    #pragma multi_compile DECALS_OFF DECALS_3RT DECALS_4RT
     #pragma multi_compile USE_FPTL_LIGHTLIST USE_CLUSTERED_LIGHTLIST
     #pragma multi_compile SHADOW_LOW SHADOW_MEDIUM SHADOW_HIGH
 
@@ -287,8 +219,6 @@
         #define SHADERPASS SHADERPASS_MOTION_VECTORS
         #pragma multi_compile _ WRITE_NORMAL_BUFFER
         #pragma multi_compile _ WRITE_MSAA_DEPTH
-    {% elseif pass.name == "FullScreenDebug" %}
-        #define SHADERPASS SHADERPASS_FULL_SCREEN_DEBUG
     {% endif %}
     
     #if defined(_MATERIAL_FEATURE_SUBSURFACE_SCATTERING) && !defined(_SURFACE_TYPE_TRANSPARENT)
@@ -322,10 +252,9 @@
     #include "{{hdrp_path}}/Lighting/LightLoop/LightLoop.hlsl"
     #include "{{hdrp_path}}/Material/BuiltinUtilities.hlsl"
     #include "{{hdrp_path}}/Material/MaterialUtilities.hlsl"
+    #include "{{hdrp_path}}/Material/Decal/DecalUtilities.hlsl"
+    #include "{{hdrp_path}}/Material/Lit/LitDecalData.hlsl"
     #include "{{hdrp_path}}/ShaderLibrary/ShaderGraphFunctions.hlsl"
-
-    {% embed "HD.Decals" %}
-    {% embed "HD.Debug.Config" %}
 {% endhd %}
 
 {% embed "Common/API" %}

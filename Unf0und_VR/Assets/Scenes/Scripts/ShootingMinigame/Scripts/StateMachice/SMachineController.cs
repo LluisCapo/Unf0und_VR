@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,10 +11,12 @@ public class SMachineController : MonoBehaviour
     public Transform PointToGo;
     [Header("Float Parametres")] public float incrementalSpeed, delay, decrementalDelay, distanceDifference;
     [Header("GameObjects Parameters")] public GameObject platform, objective;
-    [Header("Transform Parameters")] public Transform camaraReference;
+    [Header("Transform Parameters")] public Transform camaraPoint, cameraReference;
     SStateBehavior currentState;
     MovementBehavior _mvb;
     public Rigidbody rb;
+
+    [Header("This event is executed when the minigame ends.")]
     public UnityEvent OnTimeReaches;
 
     public MovementBehavior MovementBehavior { get { return _mvb; } }
@@ -32,7 +33,8 @@ public class SMachineController : MonoBehaviour
 
     void Update()
     {
-        currentState.OnUpdate(this);
+        if(currentState != null)
+            currentState.OnUpdate(this);
     }
     public void SetMoving()
     {
