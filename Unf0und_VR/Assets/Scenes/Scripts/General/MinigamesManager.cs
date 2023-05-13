@@ -24,8 +24,9 @@ public class MinigamesManager : MonoBehaviour
     }
     public void StopBowling()
     {
+        bowling.gameObject.SetActive(false);
         //this runs when the player are in the +5th shot
-
+        GetComponent<BoxCollider>().enabled = false;
         bowling.PlaneController.isUP = true; //mirar si eso funciona o es false
         //bowling.BowlContainer.DesactiveAllBowls();
 
@@ -35,10 +36,11 @@ public class MinigamesManager : MonoBehaviour
         //GameManager.Instance.StartBDServer();
 
         List<GameObject> bowls = PoolingManager.Instance.GetActiveObject("bowlingBowl");
-        foreach (GameObject obj in bowls) { obj.SetActive(false); }
+        //foreach (GameObject obj in bowls) { obj.SetActive(false); }
+        bowling.BowlContainer.DesactiveAllBowls();
         bowling.BallInstantiate.GetBall().SetActive(false);
 
-        bowling.gameObject.SetActive(false);
+        
     }
     #endregion
 

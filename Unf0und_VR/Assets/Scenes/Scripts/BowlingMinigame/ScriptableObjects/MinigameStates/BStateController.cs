@@ -33,6 +33,7 @@ public class BStateController : MonoBehaviour
     #endregion
 
     [SerializeField] BContainerUp b;
+    public BoxCollider detectBall;
 
     private void OnEnable()
     {
@@ -41,6 +42,7 @@ public class BStateController : MonoBehaviour
         bowlContainerRef.PositioningAllBowls();
         _currentState = firstState;
         _currentState.Init(this);
+        detectBall = GetComponent<BoxCollider>();
     }
 
     private void Update()

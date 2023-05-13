@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class PadLockController : ObjectDamagedBehavior
 {
+
     public override void BulletEntry()
     {
-        GetComponent<CubeBreak>().Break();
-        GetComponent<Rigidbody>().useGravity = true;
+        Debug.Log("break");
+        foreach(Transform _child in transform)
+            _child.gameObject.AddComponent<Rigidbody>();
+        this.enabled = false;
     }
 }
