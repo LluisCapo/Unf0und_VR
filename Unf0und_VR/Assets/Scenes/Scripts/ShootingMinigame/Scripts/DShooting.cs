@@ -45,7 +45,7 @@ public class DShooting : MonoBehaviour
                 BulletMark.transform.rotation = Quaternion.LookRotation(_hit.normal);
                 BulletMark.transform.Rotate(Vector3.right * 90);
                 BulletMark.transform.Translate(Vector3.up * 0.005f);
-                if (_hit.collider.GetComponent<DDartBoardManagment>())
+                if (_hit.collider.GetComponent<ObjectDamagedBehavior>())
                 {
                     _hit.collider.gameObject.GetComponent<ObjectDamagedBehavior>().BulletEntry();
                     //if (_hit.collider.gameObject.TryGetComponent<MeshCollider>(out MeshCollider msh))
