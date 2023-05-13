@@ -9,7 +9,9 @@ public class FinalBossDetect : MonoBehaviour
 
     private void Start()
     {
-        GetComponentInParent<Animator>().runtimeAnimatorController = animator;
+        Animator anim = GetComponentInParent<Animator>();
+        anim.runtimeAnimatorController = animator;
+        anim.ResetTrigger("scream");
         controller = GetComponentInParent<FinalBossController>();
     }
 
