@@ -24,7 +24,6 @@ public class BCountBowlsState : BState
             _bowlContainer.PositioningActiveBowls();
             _stateController.CanvasReference.CurrentShot.Parameters.UpdateFirstShoot(_bowlsCount);
             _stateController.isSemipleno = true;
-            _stateController.BowlContainer.PositioningActiveBowls();
             _stateController.ChangeState(semiPlenoState);
         }
         else
