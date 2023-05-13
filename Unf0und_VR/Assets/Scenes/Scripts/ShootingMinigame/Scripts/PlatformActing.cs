@@ -36,19 +36,19 @@ public class PlatformActing : MonoBehaviour
 
 
 
-    public void Rotate(float _distance, float _speed, string _name, GameObject gm)
+    public void Rotate(float _distance, float _speed, string _name)
     {
         float _time = _distance / _speed;
         //_distance *= 10000;
         //_time *= 10000;
         float _rotation = _speed * _time;
-        //GameObject SelectedPart = null;
-        //foreach (GameObject g in _hipsPlatform[_name])
-        //        SelectedPart = gm;
+        GameObject SelectedPart = null;
+        foreach (GameObject g in _hipsPlatform[_name])
+                SelectedPart = g;
         char[] nameChar = _name.ToCharArray();
         string axis = nameChar[nameChar.Length - 1].ToString().ToLower();
         //UnityEngine.Random.Range(20, 360)
-        StartCoroutine(RotateObject(gm, _time, _speed, _rotation * (_distance *100), axis));
+        StartCoroutine(RotateObject(SelectedPart, _time, _speed, _rotation * (_distance *100), axis));
 
     }
     private IEnumerator RotateObject(GameObject obj, float duration, float speed, float distance, string direction)
@@ -83,6 +83,7 @@ public class PlatformActing : MonoBehaviour
             float angleDelta = speed * Time.deltaTime * directionMultiplier;
             Quaternion currentRotation = Quaternion.Lerp(startRotation, endRotation, t);
             obj.transform.rotation = currentRotation;
+            Debug.Log(currentRotation + " " + obj.name);
             timer += Time.deltaTime;
             yield return null;
         }
