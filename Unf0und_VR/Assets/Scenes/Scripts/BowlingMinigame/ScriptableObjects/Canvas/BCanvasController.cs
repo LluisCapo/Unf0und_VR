@@ -13,6 +13,7 @@ public class BCanvasController : MonoBehaviour
     [SerializeField] TMP_Text totalScore;
     public int _index;
     BShotCanvas _currentShot;
+    [SerializeField] int maxScore;
     #region Getters && Setters
     public BShotCanvas CurrentShot { get { return _currentShot; } }
     #endregion
@@ -31,7 +32,10 @@ public class BCanvasController : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.MinigamesManager.StopBowling();
+            if (GetTotalScore() >= maxScore)
+                GameManager.Instance.MinigamesManager.StopBowling();
+            else
+                GameManager.Instance.DeadPlayer();
             //int _score = 0;
             //foreach (BShotCanvas shot in shotList) _score += int.Parse(shot.total.text);
 
@@ -43,9 +47,12 @@ public class BCanvasController : MonoBehaviour
 
     void UpdateTotalScore()
     {
+        totalScore.text = GetTotalScore().ToString();
+    }
+    int GetTotalScore()
+    {
         int _score = 0;
-        foreach(BShotCanvas shot in shotList) _score += int.Parse(shot.total.text);
-
-        totalScore.text = _score.ToString();
+        foreach (BShotCanvas shot in shotList) _score += int.Parse(shot.total.text);
+        return _score;
     }
 }

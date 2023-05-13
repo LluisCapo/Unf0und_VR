@@ -45,6 +45,13 @@ public class BStateController : MonoBehaviour
         detectBall = GetComponent<BoxCollider>();
     }
 
+    private void OnDisable()
+    {
+        ballInstantiate.GetBall().gameObject.SetActive(false);
+        bowlContainerRef.DesactiveAllBowls();
+        bowlContainerRef.gameObject.SetActive(false);
+    }
+
     private void Update()
     {
         _currentState.OnUpdate(this);
