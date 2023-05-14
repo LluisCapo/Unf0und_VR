@@ -19,7 +19,8 @@ public class FMChairController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(_rb.velocity.y != 0)
+        Debug.LogError("LLuis la ha liado " + other.name);
+        if (_rb.velocity.y != 0)
             GameManager.Instance.DeadPlayer();
     }
 }

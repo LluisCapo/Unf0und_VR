@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5459009579515071389}
-  - component: {fileID: 890127728217013514}
   - component: {fileID: 764023511349664965}
-  m_Layer: 25
+  m_Layer: 8
   m_Name: hitbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,20 +32,6 @@ Transform:
   m_Father: {fileID: 7160058543068714896}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &890127728217013514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3428016223299175935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bb9e78311a7b694882365e87403658b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  secondsToDesable: 20
-  _rb: {fileID: 5309701936838917844}
 --- !u!65 &764023511349664965
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -55,7 +40,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3428016223299175935}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.01059184, y: 0.010882644, z: 0.017044319}
@@ -73,7 +58,8 @@ GameObject:
   - component: {fileID: 7322808615003618455}
   - component: {fileID: 5309701936838917844}
   - component: {fileID: 2155295216183539292}
-  m_Layer: 8
+  - component: {fileID: 9212269839374868363}
+  m_Layer: 25
   m_Name: UN_Cine_ButacaPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,8 +156,22 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4159862102601682914}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.008455258, y: 0.009060276, z: 0.01428125}
   m_Center: {x: 0.000002461672, y: -0.0011132094, z: 0.0013072819}
+--- !u!114 &9212269839374868363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4159862102601682914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb9e78311a7b694882365e87403658b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsToDesable: 20
+  _rb: {fileID: 5309701936838917844}
