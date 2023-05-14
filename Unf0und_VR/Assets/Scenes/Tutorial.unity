@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 890007732}
-  m_IndirectSpecularColor: {r: 0.012581354, g: 0.026778676, b: 0.027668437, a: 1}
+  m_IndirectSpecularColor: {r: 0.012729479, g: 0.026630111, b: 0.027405348, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -344,7 +344,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh51454
+  m_Name: pb_Mesh192540
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3705,6 +3705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1208128816}
   - component: {fileID: 1208128817}
+  - component: {fileID: 1208128818}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -3761,6 +3762,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1208128818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208128815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 117f8f7045cf31241b03e26a9af77808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1226830529
 GameObject:
   m_ObjectHideFlags: 0
@@ -6801,9 +6814,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6330520746908071927}
+      - m_Target: {fileID: 1208128818}
         m_TargetAssemblyTypeName: MButtonsMenu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: NweGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7267,7 +7280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1208128818}
         m_TargetAssemblyTypeName: MButtonsMenu, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1

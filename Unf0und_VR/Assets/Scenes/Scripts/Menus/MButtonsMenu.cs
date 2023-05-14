@@ -24,11 +24,11 @@ public class MButtonsMenu : MonoBehaviour
 
     public void PlayAgain()
     {
-        SceneManager.LoadScene("Raul");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void GameOver()
     {
-        SceneManager.LoadScene("Raul");
+        SceneManager.LoadScene("Tutorial");
     }
 }
