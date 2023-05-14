@@ -24,10 +24,8 @@ public class BCanvasController : MonoBehaviour
     }
     public void NextShot()
     {
-        Debug.LogError("I'm in --> " + _currentShot.name);
         if(_index++ < 4)
         {
-            Debug.LogError("I'm going to --> " + _currentShot.name);
             _currentShot = shotList[_index];
         }
         else
@@ -47,7 +45,7 @@ public class BCanvasController : MonoBehaviour
 
     void UpdateTotalScore()
     {
-        totalScore.text = GetTotalScore().ToString();
+        totalScore.text = GetTotalScore().ToString()+"/"+maxScore;
     }
     int GetTotalScore()
     {

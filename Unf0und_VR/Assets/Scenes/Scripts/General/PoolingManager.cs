@@ -16,10 +16,17 @@ public class PoolingManager : MonoBehaviour
 {
 
     private static PoolingManager _instance = null;
-    public static PoolingManager Instance => _instance;
+    public static PoolingManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+                _instance = FindObjectOfType<PoolingManager>(); return _instance;
+        }
+    }
 
 
-				[SerializeField]
+    [SerializeField]
 				private List<PooledItems> pooledLists = new List<PooledItems>();
 
 				[SerializeField]
@@ -27,11 +34,6 @@ public class PoolingManager : MonoBehaviour
 
 				void Awake()
 				{
-					if (_instance == null)
-					{
-						_instance = this;
-						DontDestroyOnLoad(gameObject); //Activar esto si se utiliza ESTE pooling en otras escenas
-					}
 		//else
 			//Destroy(this);
 

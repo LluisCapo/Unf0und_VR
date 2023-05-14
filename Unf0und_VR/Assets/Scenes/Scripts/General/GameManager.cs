@@ -9,18 +9,9 @@ public class GameManager : MonoBehaviour
     // 27/02/2023 Lluís Capó
     #region Singleton && Awake
     private static GameManager _instance = null;
-    public static GameManager Instance => _instance;
+    public static GameManager Instance { get { if (_instance == null)
+                _instance = FindObjectOfType<GameManager>(); return _instance;}}
     
-    private void Awake()
-    {
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-            Destroy(this);
-    }
     #endregion
 
     #region Variables

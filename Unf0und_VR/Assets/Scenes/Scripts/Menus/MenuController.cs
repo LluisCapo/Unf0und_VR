@@ -34,7 +34,7 @@ public class MenuController : MonoBehaviour
 
     public void SetMenuSprite()
     {
-        for(int i = 0; i < menusprites.Count; i++)
-            menusprites[i].sprite = LanguageManager.Instance.currentLanguage.menuTexts.imgMenu[i];
+        //for(int i = 0; i < menusprites.Count; i++)
+            //menusprites[i].sprite = LanguageManager.Instance.currentLanguage.menuTexts.imgMenu[i];
     }
 }
