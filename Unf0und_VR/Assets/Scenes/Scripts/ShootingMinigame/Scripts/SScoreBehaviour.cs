@@ -1,3 +1,4 @@
+using DotLiquid.Util;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,10 @@ public class SScoreBehaviour : MonoBehaviour
 {
     [SerializeField]
     private int _score;
+    [SerializeField]
+    BDEncryption bDEncryption;
+    [SerializeField]
+    BDInfoToInsert playerInfo;
 
     public UnityEvent<string> UpdateScore;
 
@@ -22,4 +27,10 @@ public class SScoreBehaviour : MonoBehaviour
         UpdateScore.Invoke(_score.ToString());
     }
 
+    public void SendScore()
+    {
+        playerInfo.score = _score.ToString();
+        bDEncryption.StartBDCall();
+    }
+    
 }

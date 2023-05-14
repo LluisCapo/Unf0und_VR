@@ -56,4 +56,8 @@ public class SMachineController : MonoBehaviour
         yield return new WaitForSeconds(_seconds);
         currentState.OnWaitingEnd(this);
     }
+
+    public void ChangeLayer()
+    {
+    }
 }

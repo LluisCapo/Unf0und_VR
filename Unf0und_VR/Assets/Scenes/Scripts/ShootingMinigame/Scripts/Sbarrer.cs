@@ -25,6 +25,7 @@ public class Sbarrer : MonoBehaviour
     public void DisableCollider()
     {
         _BarrerCollider.enabled = false;
+        Destroy(_BarrerCollider);
     }
 
 

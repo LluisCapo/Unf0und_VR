@@ -11,8 +11,15 @@ public class BDEncryption : MonoBehaviour
     private string publicKeyPath;
     public void StartBDCall()
     {
-        publicKeyPath = "C:/Users/Tarda/Downloads/Claus/Lluis.crt";
-        Send($"{playerInfo.nick}/{playerInfo.email}/{playerInfo.score}/Unf0und_VR");
+        try
+        {
+            publicKeyPath = "C:/Users/Tarda/Downloads/Claus/Lluis.crt";
+            Send($"{playerInfo.nick}/{playerInfo.email}/{playerInfo.score}/Unf0und_VR");
+        }
+        catch
+        {
+            Debug.LogWarning("Error en la carga de archivos o internet.");
+        }
     }
     private void Send(string msgToSend)
     {
